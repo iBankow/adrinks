@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+
+:root {
+  --yellow: #ffd659;
+}
+
+@font-face {
+  font-family: Balbeer;
+  src: url(../public/assets/fonts/Balbeer-Rustic.ttf);
+}
+
+@font-face {
+  font-family: SantElia;
+  src: url(../public/assets/fonts/santelia-rough.otf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0 auto;
+  font-family: "Lato", sans-serif;
+  scroll-behavior: smooth;
+  background-color: #ffffff, 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fadeIn {
+  animation: fadeIn 500ms linear;
+}
+
+.fadeOut {
+  animation: fadeOut 500ms linear;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+div.rectangle {
+  z-index: -2;
+  position: absolute;
+  width: 970px;
+  height: 852px;
+  left: 0px;
+  top: 0px;
+
+  background: #2a3613;
+  border-radius: 0px 0px 500px 0px;
+}
+
+div.rectangle > div.circle {
+  border-radius: 50%;
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  left: 532px;
+  top: -151px;
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+div.circle2 {
+  z-index: 1;
+
+  border-radius: 50%;
+
+  position: absolute;
+  width: 323px;
+  height: 323px;
+  left: 660px;
+  top: -125px;
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.slide-container {
+  z-index: -1;
+}

@@ -21,13 +21,13 @@ const Top = styled.header`
     position: absolute;
     top: 0;
     width: 100%;
-    height: 1000px;
+    height: 900px;
     filter: grayscale(100%);
 
     div.img-bg {
       position: absolute;
       width: 100%;
-      height: 1000px;
+      height: 900px;
       background-image: url("/assets/img/crew.jpg");
       object-fit: cover;
     }

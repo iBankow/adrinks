@@ -1,4 +1,6 @@
 import Header from "../components/header/header";
+import Body from "../components/body/body";
+import Background from "../components/background/index";
 import Slide from "../components/slide/slide";
 import { SliderData } from "../components/SliderData";
 
@@ -7,10 +9,8 @@ export default function Home() {
     <>
       <Header />
       <Slide className="slide-container" slides={SliderData} />
-      <div className="rectangle">
-        <div className="circle2"></div>
-        <div className="circle"></div>
-      </div>
+      <Body />
+      <Background />
     </>
   );
 }

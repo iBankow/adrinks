@@ -10,7 +10,7 @@ export const SliderData = [
   {
     id: 2,
     type: "Caishots",
-    image: "/assets/img/drink.png",
+    image: "/assets/img/drink-2.png",
     title: "Caishot",
     description:
       "Faça seus drinks na comodidade da sua casa com diversas combinações",

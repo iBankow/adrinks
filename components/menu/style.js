@@ -16,6 +16,7 @@ const Menu = styled.nav`
   }
 
   ul {
+    margin-top: 3rem;
     li {
       display: flex;
       flex-direction: column;

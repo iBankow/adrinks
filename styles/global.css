@@ -2,6 +2,7 @@
 
 :root {
   --yellow: #ffd659;
+  --green: #61821f;
 }
 
 @font-face {
@@ -59,43 +60,6 @@ a {
   100% {
     opacity: 1;
   }
-}
-
-div.rectangle {
-  z-index: -2;
-  position: absolute;
-  width: 970px;
-  height: 852px;
-  left: 0px;
-  top: 0px;
-
-  background: #2a3613;
-  border-radius: 0px 0px 500px 0px;
-}
-
-div.rectangle > div.circle {
-  border-radius: 50%;
-  position: absolute;
-  width: 480px;
-  height: 480px;
-  left: 532px;
-  top: -151px;
-
-  background: rgba(255, 255, 255, 0.07);
-}
-
-div.circle2 {
-  z-index: 1;
-
-  border-radius: 50%;
-
-  position: absolute;
-  width: 323px;
-  height: 323px;
-  left: 660px;
-  top: -125px;
-
-  background: rgba(255, 255, 255, 0.05);
 }
 
 .slide-container {

@@ -1,0 +1,14 @@
+<div className="img-test">  
+    div.img-test {
+        z-index: -1;
+        top: 60rem;
+        position: absolute;
+        max-width: 2500px;
+        width: 200rem;
+        height: 100%;
+        background-repeat: space;
+        transform: translate(-40%);
+        background: linear-gradient(180deg, #ffffff 11.98%, rgba(255, 214, 89, 0.35) 100%),
+          url("assets/img/crew.jpg");
+    }
+</div>

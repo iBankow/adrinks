@@ -1,17 +1,20 @@
 import { Menu } from "./style";
+import Link from "next/link";
 import MenuFooter from "./footer/menuFooter";
 
 export default function Nav() {
   return (
     <Menu>
       <ul>
-        <div>
-          <li>
-            <a>INICIO</a>
-          </li>
-        </div>
         <li>
-          <a>BAR A.DRINKS</a>
+          <Link href="/">
+            <a>INICIO</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/bar">
+            <a>BAR A.DRINKS</a>
+          </Link>
           <p>Conheça nosso serviços do bar</p>
         </li>
         <li>

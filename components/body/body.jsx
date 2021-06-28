@@ -22,12 +22,6 @@ export default function Body() {
             <div className="leaves">
               <Image src={leaves} alt="leave" />
             </div>
-            <div className="leaves two">
-              <Image src={leaves} alt="leave" />
-            </div>
-            <div className="leave three">
-              <Image src={leaves} alt="leave" />
-            </div>
             <div className="ellipse">
               <Image src={ellipse} alt="ellipse" />
             </div>

@@ -95,7 +95,7 @@ const Main = styled.section`
       }
 
       &::before {
-        content: "1";
+        content: "";
         position: absolute;
         width: 439px;
         height: 439px;

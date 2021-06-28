@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Menu = styled.nav`
+  z-index: 100;
   cursor: initial;
   list-style: none;
   text-align: right;

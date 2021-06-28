@@ -73,6 +73,7 @@ const FooterMain = styled.footer`
 `;
 
 const WhatsApp = styled.div`
+  z-index: 200;
   position: fixed;
   bottom: 230px;
   right: 397px;
@@ -82,7 +83,6 @@ const WhatsApp = styled.div`
   color: #fff;
   padding: 20px;
   display: flex;
-  z-index: 2400;
   cursor: pointer;
   transition: all 300ms ease;
   align-items: center;

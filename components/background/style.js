@@ -81,6 +81,8 @@ const Back = styled.section`
   }
 
   div.rectangle {
+    overflow: hidden;
+
     z-index: -2;
     position: absolute;
     width: 75.625rem;

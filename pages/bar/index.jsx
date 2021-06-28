@@ -1,6 +1,6 @@
 import Header from "../../components/header/header";
 import Body from "../../components/body/body";
-import Contato from "../../components/contato/contato";
+import Slider from "../../components/slider/slider";
 import Footer from "../../components/footer/footer";
 import Background from "../../components/background/index";
 export default function Bar() {
@@ -8,7 +8,7 @@ export default function Bar() {
     <>
       <Header />
       <Body />
-      <Contato />
+      <Slider />
       <Footer />
       <Background home={false} />
     </>

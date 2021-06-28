@@ -13,7 +13,7 @@ export default function Home() {
       <Header />
       <Slide className="slide-container" slides={SliderData} />
       <Body />
-      <Slider slides={SliderData} />
+      <Slider />
       <Contato />
       <Footer />
       <Background home={true} />

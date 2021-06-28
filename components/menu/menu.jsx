@@ -22,11 +22,9 @@ export default function Nav() {
           <p>Conheça nosso serviços do bar</p>
         </li>
         <li>
-          <a>CAISHOTS</a>
-          <p>Conheça nosso serviços do bar</p>
-        </li>
-        <li>
-          <a>CONSULTORIA</a>
+          <Link href="/consultoria">
+            <a>CONSULTORIA</a>
+          </Link>
           <p>Conheça nosso serviços do bar</p>
         </li>
         <li>

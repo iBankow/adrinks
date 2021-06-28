@@ -1,13 +1,40 @@
 import styled from "styled-components";
 
 const Main = styled.section`
-  margin-top: 20rem;
+  margin-top: 12rem;
   width: 100%;
   position: relative;
 
   div.img-test {
+    &:after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 213px;
+      background-image: url("assets/img/leaves.png");
+      background-size: 100%;
+      background-repeat: no-repeat;
+      right: -10rem;
+      bottom: 30rem;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 213px;
+      background-image: url("assets/img/leaves-2.png");
+      background-size: 100%;
+      background-repeat: no-repeat;
+      right: 5rem;
+      top: 0;
+      transform: rotate(270deg);
+      filter: blur(7px) contrast(70%);
+    }
+
+    overflow: hidden;
     z-index: -2;
-    top: -20rem;
+    top: -13rem;
     position: absolute;
     width: 100%;
     height: 900px;
@@ -24,7 +51,7 @@ const Main = styled.section`
     justify-content: space-between;
     position: relative;
     max-width: 1100px;
-    margin: 0 auto;
+    margin: 3rem auto 0 auto;
     background-color: white;
     width: 100%;
     height: 680px;
@@ -105,10 +132,25 @@ const Head = styled.section`
   align-items: flex-start;
 
   div.img {
+    position: relative;
     width: 548px;
     height: 355px;
     img {
       border-radius: 100px 0px 0px 0px;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 413px;
+      height: 275px;
+      background-image: url("assets/img/leaves.png");
+      background-size: 100%;
+      background-repeat: no-repeat;
+      top: 15rem;
+      left: -8rem;
+      filter: blur(3px);
+      transform: rotate(120.75deg);
     }
   }
   div.info {
@@ -159,20 +201,11 @@ const Assets = styled.div`
     left: 14rem;
     width: 282px;
   }
-  div.leaves.two {
-    position: absolute;
-    top: 15rem;
-    left: -8rem;
-    width: 413px;
-    filter: blur(3px);
-    transform: rotate(120.75deg);
-  }
   div.leave.three {
     position: absolute;
     right: -20rem;
     top: 10rem;
     width: 413px;
-    transform: rotate(70.75deg);
   }
   div.ellipse {
     z-index: -1;

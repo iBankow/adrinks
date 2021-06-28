@@ -7,6 +7,21 @@ const Top = styled.header`
   position: relative;
   z-index: 1000;
 
+  &:before {
+    content: "";
+    z-index: -200;
+    position: absolute;
+    width: 320px;
+    height: 213px;
+    background-image: url("assets/img/leaves-2.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    left: -10rem;
+    top: 10rem;
+    transform: rotate(1deg);
+    filter: contrast(50%) brightness(90%);
+  }
+
   div.head {
     width: 100%;
     display: flex;

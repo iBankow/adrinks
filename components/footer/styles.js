@@ -2,6 +2,21 @@ import styled from "styled-components";
 const FooterMain = styled.footer`
   padding: 5rem 0;
   align-items: center;
+  position: relative;
+  overflow-y: hidden;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 173.67px;
+    height: 304.43px;
+    background-image: url("assets/img/alecrim.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    left: 50%;
+    bottom: -5rem;
+    transform: rotate(-68.62deg);
+    z-index: -1;
+  }
 
   .svg {
     filter: invert(1);
@@ -20,7 +35,7 @@ const FooterMain = styled.footer`
     border-top: solid 1px rgba(221, 221, 221, 1);
     height: 100%;
     align-items: center;
-    max-width: 1100px;
+    max-width: 68.75rem;
     margin: 0 auto;
     fill: black;
 

@@ -50,7 +50,7 @@ const Main = styled.section`
   section.services {
     justify-content: space-between;
     position: relative;
-    max-width: 1100px;
+    max-width: 68.75rem;
     margin: 3rem auto 0 auto;
     background-color: white;
     width: 100%;
@@ -121,7 +121,7 @@ const Main = styled.section`
 `;
 
 const Head = styled.section`
-  max-width: 1100px;
+  max-width: 68.75rem;
   z-index: 100;
   position: relative;
   padding: 0 50px;

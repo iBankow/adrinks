@@ -5,7 +5,7 @@ import Footer from "../components/footer/footer";
 import Background from "../components/background/index";
 import Slide from "../components/slide/slide";
 import Slider from "../components/slider/slider";
-import { SliderData } from "../components/SliderData";
+import { SliderData } from "../components/data";
 
 export default function Home() {
   return (

@@ -19,7 +19,7 @@ const Main = styled.section`
   }
 
   div.container {
-    max-width: 1100px;
+    max-width: 68.75rem;
     margin: 5rem auto;
     display: grid;
     grid-template-columns: 1fr 1fr;

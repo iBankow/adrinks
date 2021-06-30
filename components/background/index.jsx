@@ -1,6 +1,6 @@
 import { Back } from "./style";
 
-export default function Background({ home }) {
+export default function Background({ home, bar }) {
   return (
     <Back>
       {home === true ? (
@@ -13,7 +13,11 @@ export default function Background({ home }) {
         </>
       ) : (
         <>
-          <div className="texture home"></div>
+          {bar ? (
+            <div className="texture"></div>
+          ) : (
+            <div className="texture home"></div>
+          )}
           <div className="rectangle">
             <div className="circle2"></div>
             <div className="circle"></div>

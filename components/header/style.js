@@ -25,10 +25,14 @@ const Top = styled.header`
   div.head {
     width: 100%;
     display: flex;
-    max-width: 1100px;
+    max-width: 68.75rem;
     margin: 0 auto;
     position: relative;
     justify-content: space-between;
+
+    .img:hover {
+      cursor: pointer;
+    }
   }
 
   .img-menu {

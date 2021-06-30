@@ -41,7 +41,7 @@ export default function Consultoria() {
                 <Image src={beer} alt="beer-logo" />
               </div>
               <div className="info">
-                <h3>Bartender</h3>
+                <h3>Carta</h3>
                 <p>
                   Quae vero auctorem tractata ab fiducia dicuntur. Quam temere
                   in vitiis, legem .
@@ -53,7 +53,7 @@ export default function Consultoria() {
                 <Image src={beer} alt="beer-logo" />
               </div>
               <div className="info">
-                <h3>Bartender</h3>
+                <h3>Treinamento</h3>
                 <p>
                   Quae vero auctorem tractata ab fiducia dicuntur. Quam temere
                   in vitiis, legem .
@@ -65,7 +65,7 @@ export default function Consultoria() {
                 <Image src={beer} alt="beer-logo" />
               </div>
               <div className="info">
-                <h3>Bartender</h3>
+                <h3>Reformulação</h3>
                 <p>
                   Quae vero auctorem tractata ab fiducia dicuntur. Quam temere
                   in vitiis, legem .
@@ -77,7 +77,7 @@ export default function Consultoria() {
                 <Image src={beer} alt="beer-logo" />
               </div>
               <div className="info">
-                <h3>Bartender</h3>
+                <h3>Decoração</h3>
                 <p>
                   Quae vero auctorem tractata ab fiducia dicuntur. Quam temere
                   in vitiis, legem .

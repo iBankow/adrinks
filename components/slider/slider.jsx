@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Slidedata } from "../SliderData";
+import { Slidedata } from "../data";
 import { Container } from "./style";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useState } from "react";

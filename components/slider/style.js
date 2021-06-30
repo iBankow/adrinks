@@ -87,7 +87,7 @@ const Container = styled.section`
       justify-content: center;
       align-items: center;
       transition: 0.7s;
-      transform: translateX(50rem);
+      transform: translateX(50%);
 
       .slides-div {
         width: 100%;

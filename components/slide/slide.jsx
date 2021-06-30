@@ -21,50 +21,52 @@ export default function Slide({ slides }) {
 
   return (
     <SlideShow>
-      <div className="nav">
-        <button onClick={prevSlide}>
-          <IoIosArrowBack className="icon" />
-        </button>
-        <button onClick={nextSlide} className="second">
-          <IoIosArrowForward className="icon" />
-        </button>
-      </div>
-      <div className="slide">
-        {slides.map((slide, index) => {
-          return (
-            // eslint-disable-next-line react/jsx-key
-            <div
-              key={slide.id}
-              className={index === current ? "slider active" : "slider"}
-            >
-              {index === current && (
-                <>
-                  <div className="info">
-                    <span>
-                      <p>{slide.type}</p>
-                    </span>
-                    <hr className="divisor" />
-                    <h1>{slide.title}</h1>
-                    <p>{slide.description}</p>
-                    <button>COMPRAR</button>
-                  </div>
-                  <div className="slide-container">
-                    <div className="bg"></div>
-                    <div className="image">
-                      <Image
-                        src={slide.image}
-                        width="532"
-                        height="752"
-                        alt="drink"
-                      />
+      <section>
+        <div className="nav">
+          <button onClick={prevSlide}>
+            <IoIosArrowBack className="icon" />
+          </button>
+          <button onClick={nextSlide} className="second">
+            <IoIosArrowForward className="icon" />
+          </button>
+        </div>
+        <div className="slide">
+          {slides.map((slide, index) => {
+            return (
+              // eslint-disable-next-line react/jsx-key
+              <div
+                key={slide.id}
+                className={index === current ? "slider active" : "slider"}
+              >
+                {index === current && (
+                  <>
+                    <div className="info">
+                      <span>
+                        <p>{slide.type}</p>
+                      </span>
+                      <hr className="divisor" />
+                      <h1>{slide.title}</h1>
+                      <p>{slide.description}</p>
+                      <button>COMPRAR</button>
                     </div>
-                  </div>
-                </>
-              )}
-            </div>
-          );
-        })}
-      </div>
+                    <div className="slide-container">
+                      <div className="bg"></div>
+                      <div className={`image`}>
+                        <Image
+                          src={slide.image}
+                          width="532"
+                          height="752"
+                          alt="drink"
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </SlideShow>
   );
 }

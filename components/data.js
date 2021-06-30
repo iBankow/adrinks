@@ -59,3 +59,41 @@ export const Slidedata = [
     image: "/assets/img/crew.jpg",
   },
 ];
+
+export const ShopItems = [
+  {
+    id: 1,
+    name: "Canela",
+    desc: "1 sachê de 100g",
+    image: "/assets/img/cinamon.png",
+    price: 25,
+  },
+  {
+    id: 2,
+    name: "Canela",
+    desc: "1 sachê de 100g",
+    image: "/assets/img/cinamon.png",
+    price: 25,
+  },
+  {
+    id: 3,
+    name: "Canela",
+    desc: "1 sachê de 100g",
+    image: "/assets/img/cinamon.png",
+    price: 25,
+  },
+  {
+    id: 4,
+    name: "Canela",
+    desc: "1 sachê de 100g",
+    image: "/assets/img/cinamon.png",
+    price: 25,
+  },
+  {
+    id: 5,
+    name: "Canela",
+    desc: "1 sachê de 100g",
+    image: "/assets/img/cinamon.png",
+    price: 25,
+  },
+];

@@ -10,7 +10,7 @@ export default function Bar() {
       <Body />
       <Slider />
       <Footer />
-      <Background home={false} />
+      <Background bar={true} />
     </>
   );
 }

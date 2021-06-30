@@ -8,6 +8,7 @@ import menu2 from "../../public/assets/img/menu-2.png";
 
 import Nav from "../menu/menu";
 import { Top } from "./style";
+import Link from "next/link";
 
 export default function Header() {
   const [handleActiveMenu, setActiveMenu] = useState(false);
@@ -16,7 +17,9 @@ export default function Header() {
     <Top>
       <div className="head">
         <div>
-          <Image src={logo} alt="logo" />
+          <Link href="/" passHref>
+            <Image src={logo} alt="logo" className="img" />
+          </Link>
         </div>
         <section>
           <div className="icon">

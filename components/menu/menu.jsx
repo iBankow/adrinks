@@ -18,7 +18,9 @@ export default function Nav() {
           <p>Conheça nosso serviços do bar</p>
         </li>
         <li>
-          <a>CAISHOTS</a>
+          <Link href="/caishots">
+            <a>CAISHOTS</a>
+          </Link>
           <p>Conheça nosso serviços do bar</p>
         </li>
         <li>

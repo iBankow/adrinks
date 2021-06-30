@@ -19,7 +19,7 @@ const Head = styled.section`
   }
 
   div.container {
-    max-width: 1100px;
+    max-width: 68.75rem;
     margin: 6rem auto 0 auto;
 
     h1 {
@@ -128,7 +128,7 @@ const Head = styled.section`
   section.services {
     justify-content: space-between;
     position: relative;
-    max-width: 1100px;
+    max-width: 68.75rem;
     margin: 3rem auto 0 auto;
     width: 100%;
     height: 680px;

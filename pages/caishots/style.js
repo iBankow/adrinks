@@ -2,6 +2,26 @@ import styled from "styled-components";
 
 const Head = styled.section`
   max-width: 100%;
+
+  @keyframes popUp {
+    0% {
+      transform: translateY(50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
   .head {
     padding-top: 90px;
     max-width: 68.75rem;
@@ -86,15 +106,15 @@ const Head = styled.section`
 
 const Body = styled.section`
   margin-top: -2rem;
-  overflow: hidden;
   max-width: 100%;
+  position: relative;
 
   &:after {
     content: "";
     position: absolute;
     width: 413px;
     height: 275px;
-    bottom: 5rem;
+    top: -8rem;
     right: 37rem;
     background: url("assets/img/leaves.png");
     background-size: 100%;
@@ -108,7 +128,8 @@ const Body = styled.section`
     margin: 0 auto;
     max-width: 68.75rem;
     width: 100%;
-    height: 590px;
+    min-height: 40rem;
+
     box-shadow: 0px 4px 50px -25px rgba(145, 166, 60, 0.67);
     border-radius: 0px 200px 0px 0px;
 
@@ -133,87 +154,289 @@ const Body = styled.section`
     div.container {
       display: grid;
       grid-template-columns: 2fr 1fr;
-    }
+      position: relative;
 
-    div.shop {
-      background: #eff2e2;
-      border-radius: 0px 40px 40px 40px;
+      div.shop {
+        z-index: 1000;
+        height: 100%;
+        background: #eff2e2;
+        border-radius: 0px 40px 40px 40px;
 
-      p.title {
-        font-family: Lato;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 19px;
-        color: #222222;
-        margin: 30px 0 0 4rem;
+        transition: height 2s ease-in-out;
+
+        div.filter {
+          width: 100%;
+          padding: 2rem 3rem;
+
+          div {
+            height: 55px;
+            background: #ffffff;
+            border-radius: 70px;
+            margin: 0 auto;
+
+            div.buttons {
+              display: flex;
+              align-items: center;
+              justify-content: space-around;
+              button {
+                background-color: white;
+                width: 155px;
+                height: 40px;
+                border-radius: 70px;
+
+                color: var(--green);
+                font-family: Lato;
+                font-size: 16px;
+                font-weight: 800;
+                line-height: 22px;
+                text-align: center;
+
+                transition: 0.3s ease-in-out;
+
+                &.select {
+                  background-color: var(--green);
+                  color: white;
+                }
+
+                &:hover {
+                  cursor: pointer;
+                  background-color: var(--green);
+                  color: white;
+                }
+              }
+            }
+          }
+        }
+
+        p.title {
+          font-family: Lato;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 19px;
+          color: #222222;
+          margin: 0 0 0 4rem;
+        }
+
+        div.shop-items {
+          grid-row-gap: 20px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          justify-content: space-around;
+          padding: 2rem 2rem;
+
+          div.item {
+            animation: fadeIn 0.2s ease-in-out;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-gap: 0.5rem;
+            padding: 0 1rem;
+
+            position: relative;
+
+            height: 89px;
+            border-radius: 20px;
+            border: 1px solid #dee4c4;
+            background: white;
+
+            justify-content: space-around;
+            align-items: center;
+            justify-self: center;
+
+            div.infos {
+              height: 60%;
+              display: flex;
+              flex-direction: column;
+              justify-items: unset;
+              align-items: unset;
+              justify-content: space-between;
+              padding-right: 2.5rem;
+
+              p.name {
+                font-family: Lato;
+                font-size: 18px;
+                font-weight: 800;
+                line-height: 25px;
+                color: #222222;
+              }
+              p.desc {
+                font-family: Lato;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 16px;
+                color: var(--green);
+              }
+            }
+
+            div.img {
+              width: 91px;
+              height: 61px;
+            }
+
+            div.plus {
+              background: url("assets/img/plus.svg");
+              background-size: 100%;
+              background-repeat: no-repeat;
+              position: absolute;
+              right: 0.5rem;
+              bottom: 0.5rem;
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+        }
       }
 
-      div.shop-items {
-        grid-row-gap: 20px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-content: space-around;
-        padding: 2rem 2rem;
+      div.cart {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 1rem auto;
+        div.cart-title {
+          color: #222222;
+          p.title {
+            font-family: Lato;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 31px;
+            margin-bottom: 1rem;
 
-        div.item {
+            color: var(--green);
+          }
+
+          p.desc {
+            font-family: Lato;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 19px;
+
+            margin-bottom: 1rem;
+            span {
+              font-family: Lato;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 19px;
+            }
+          }
+        }
+
+        div.cart-content {
           display: flex;
-          position: relative;
-          height: 89px;
-          width: 278px;
-          border-radius: 20px;
-          border: 1px solid #dee4c4;
-          background: white;
-          justify-content: space-around;
+          flex-direction: column;
 
           align-items: center;
-          justify-self: center;
 
-          div.infos {
-            height: 60%;
-            display: flex;
-            flex-direction: column;
-            justify-items: unset;
-            align-items: unset;
-            justify-content: space-between;
-            padding-right: 2.5rem;
+          div.item {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-gap: 0.5rem;
+            position: relative;
+            height: 89px;
+            min-width: 278px;
+            border-radius: 20px;
+            justify-content: space-around;
+            animation: popUp 500ms;
 
-            p.name {
-              font-family: Lato;
-              font-size: 18px;
-              font-weight: 800;
-              line-height: 25px;
-              color: #222222;
+            align-items: center;
+            justify-self: center;
+
+            div.infos {
+              height: 60%;
+              display: flex;
+              flex-direction: column;
+              justify-items: unset;
+              align-items: unset;
+              justify-content: space-around;
+              padding-right: 2.5rem;
+
+              p.name {
+                font-family: Lato;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 25px;
+
+                color: #222222;
+              }
+              p.desc {
+                font-family: Lato;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 16px;
+                color: var(--green);
+              }
             }
-            p.desc {
-              font-family: Lato;
-              font-size: 13px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 16px;
-              color: var(--green);
+
+            div.img {
+              width: 69px;
+              height: 69px;
+              border-radius: 50%;
+              border: 2px solid #eeeeee;
+              overflow: hidden;
+
+              display: flex;
+              align-content: center;
+            }
+
+            div.less {
+              position: absolute;
+              right: 0;
+              background: url("assets/img/less.svg");
+              background-size: 100%;
+              background-repeat: no-repeat;
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            & + div.item {
+              margin-top: 6px;
+              &:before {
+                top: -3px;
+                position: absolute;
+                content: "";
+                width: 100%;
+                background-color: #cccccc;
+                height: 1px;
+              }
             }
           }
+        }
 
-          div.img {
-            width: 91px;
+        div.button {
+          margin: 2rem auto;
+          width: 256px;
+          height: 55px;
+
+          background: var(--green);
+          border-radius: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          p {
+            font-family: Lato;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 24px;
+            letter-spacing: 0.1em;
+            color: white;
           }
 
-          div.plus {
-            background: url("assets/img/plus.svg");
-            background-size: 100%;
-            background-repeat: no-repeat;
-            position: absolute;
-            right: 0.5rem;
-            bottom: 0.5rem;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-
-            &:hover {
-              cursor: pointer;
-            }
-          }
+          animation: popUp 500ms;
         }
       }
     }

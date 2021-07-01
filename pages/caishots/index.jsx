@@ -11,8 +11,75 @@ import cinamon from "../../public/assets/img/cinamon.png";
 import crew from "../../public/assets/img/crew.jpg";
 
 import { ShopItems } from "../../components/data";
+import { useEffect, useState } from "react";
 
 export default function Caishots() {
+  const categories = ["CAISHOTS", "BEBIDAS", "ESPECIARIAS", "UTENSÍLIOS"];
+
+  const [items, setItems] = useState(ShopItems);
+  const [cart, setCart] = useState([]);
+  const [categorie, setCategorie] = useState(1);
+
+  function addProduct(product, productId) {
+    const updateCart = [...cart];
+    const productExist = updateCart.find((product) => product.id === productId);
+
+    const currentAmount = productExist ? productExist.amount : 0;
+
+    const amount = currentAmount + 1;
+
+    if (productExist) {
+      productExist.amount = amount;
+    } else {
+      const newProduct = {
+        ...product,
+        amount: 1,
+      };
+      updateCart.push(newProduct);
+    }
+
+    setCart(updateCart);
+
+    if (typeof window !== "undefined") {
+      localStorage.setItem("@Adrinks:cart", JSON.stringify(updateCart));
+    }
+  }
+
+  function removeProduct(productId) {
+    const updateCart = [...cart];
+    const product = updateCart.find((product) => product.id === productId);
+
+    if (product.amount >= 2) {
+      const newAmount = product.amount - 1;
+      product.amount = newAmount;
+      setCart(updateCart);
+      localStorage.setItem("@Adrinks:cart", JSON.stringify(updateCart));
+    } else {
+      const productIndex = updateCart.findIndex(
+        (product) => product.id === productId
+      );
+      updateCart.splice(productIndex, 1);
+      setCart(updateCart);
+      localStorage.setItem("@Adrinks:cart", JSON.stringify(updateCart));
+    }
+  }
+
+  function selectCategorie(categorie) {
+    setCategorie(categorie);
+    const filterItems = [...ShopItems].filter((item) => {
+      return item.categorie === categorie;
+    });
+    setItems(filterItems);
+  }
+
+  useEffect(() => {
+    async function Load() {
+      const storage = localStorage.getItem("@Adrinks:cart");
+      setCart(JSON.parse(storage));
+    }
+    Load();
+  }, []);
+
   return (
     <>
       <Header />
@@ -51,15 +118,41 @@ export default function Caishots() {
           <div className="container">
             <div className="shop">
               <div>
-                <p className="title">TODAS ESPECIARIAS</p>
+                <div className="filter">
+                  <div>
+                    <div className="buttons">
+                      {categories.map((item, index) => {
+                        if (categorie === index) {
+                          return (
+                            <button key={index} className={`select`}>
+                              {item}
+                            </button>
+                          );
+                        } else {
+                          return (
+                            <button
+                              key={index}
+                              onClick={() => selectCategorie(index)}
+                              className={``}
+                            >
+                              {item}
+                            </button>
+                          );
+                        }
+                      })}
+                    </div>
+                  </div>
+                </div>
+                <p className="title">TODAS OS ITENS</p>
+
                 <div className="shop-items">
-                  {ShopItems.map((item) => {
+                  {items.map((item) => {
                     return (
                       <div key={item.id} className="item">
                         <div className="img">
                           <Image
                             width={91}
-                            height={58}
+                            height={61}
                             src={item.image}
                             alt={item.name}
                           />
@@ -68,7 +161,12 @@ export default function Caishots() {
                           <p className="name">{item.name}</p>
                           <p className="desc">{item.desc}</p>
                         </div>
-                        <div className="plus"></div>
+                        <div
+                          className="plus"
+                          onClick={() => {
+                            addProduct(item, item.id);
+                          }}
+                        ></div>
                       </div>
                     );
                   })}
@@ -76,10 +174,53 @@ export default function Caishots() {
               </div>
             </div>
             <div className="cart">
-              <p className="title">Seu kit contém</p>
-              <p className="desc">
-                Você já selecionou <span>X</span> produtos
-              </p>
+              <div className="cart-title">
+                {cart.length > 0 && (
+                  <>
+                    <p className="title">Seu kit contém</p>
+
+                    <p className="desc">
+                      Você já selecionou <span>{cart.length} produtos</span>
+                    </p>
+                  </>
+                )}
+              </div>
+
+              <div className="cart-content">
+                {cart.map((item) => {
+                  return (
+                    <div key={item.id} className="item">
+                      <div className="img">
+                        <Image
+                          src={item.image}
+                          width={91}
+                          height={61}
+                          alt={item.name}
+                        />
+                      </div>
+                      <div className="infos">
+                        <p className="desc">
+                          {item.amount < 2
+                            ? `${item.amount} Sachê`
+                            : `${item.amount} Sachês`}
+                        </p>
+                        <p className="name">{item.name}</p>
+                      </div>
+                      <div
+                        className="less"
+                        onClick={() => {
+                          removeProduct(item.id);
+                        }}
+                      ></div>
+                    </div>
+                  );
+                })}
+              </div>
+              {cart.length > 0 && (
+                <div className="button">
+                  <p>FINALIZAR</p>
+                </div>
+              )}
             </div>
           </div>
         </section>

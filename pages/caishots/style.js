@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Head = styled.section`
+const Top = styled.section`
   max-width: 100%;
 
   @keyframes popUp {
@@ -557,4 +557,4 @@ const Tutorial = styled.section`
   }
 `;
 
-export { Body, Head, Tutorial };
+export { Body, Top, Tutorial };

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import Header from "../components/header/header";
 import Body from "../components/body/body";
 import Contato from "../components/contato/contato";

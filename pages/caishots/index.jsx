@@ -1,24 +1,27 @@
+/* eslint-disable @next/next/no-sync-scripts */
 /* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Body, Head, Tutorial } from "./style";
+import { Body, Top, Tutorial } from "./style";
 
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import Background from "../../components/background/index";
 
 import drink from "../../public/assets/img/drink-2.png";
-import cinamon from "../../public/assets/img/cinamon.png";
 import crew from "../../public/assets/img/crew.jpg";
 
+import Script from "next/script";
+import api from "../../services/api";
 import { ShopItems } from "../../components/data";
-import { useEffect, useState } from "react";
+import { NewTransactionModal } from "./modal/modal";
 
 export default function Caishots() {
-  const categories = ["CAISHOTS", "BEBIDAS", "ESPECIARIAS", "UTENSÍLIOS"];
+  const [categories, setCategories] = useState([]);
 
-  const [items, setItems] = useState(ShopItems);
+  const [items, setItems] = useState([]);
   const [cart, setCart] = useState([]);
-  const [categorie, setCategorie] = useState(1);
+  const [categorie, setCategorie] = useState(3);
 
   function addProduct(product, productId) {
     const updateCart = [...cart];
@@ -80,10 +83,27 @@ export default function Caishots() {
     Load();
   }, []);
 
+  useEffect(() => {
+    async function loadCategories() {
+      const result = await api.get("/cat");
+      setCategories(result.data);
+    }
+    loadCategories();
+  }, []);
+
+  useEffect(() => {
+    async function LoadItems(id) {
+      const results = await api.get(`/items/${id}`);
+      console.log(results.data);
+      setItems(results.data);
+    }
+    LoadItems(categorie);
+  }, [categorie]);
+
   return (
     <>
       <Header />
-      <Head>
+      <Top>
         <section className="head">
           <div className="slide">
             <div className="info">
@@ -107,7 +127,8 @@ export default function Caishots() {
           </div>
         </section>
         <section></section>
-      </Head>
+      </Top>
+      <NewTransactionModal openModal={true} />
       <Body>
         <section className="body">
           <div className="title">
@@ -121,21 +142,20 @@ export default function Caishots() {
                 <div className="filter">
                   <div>
                     <div className="buttons">
-                      {categories.map((item, index) => {
-                        if (categorie === index) {
+                      {categories.map((item) => {
+                        if (categorie === item.id) {
                           return (
-                            <button key={index} className={`select`}>
-                              {item}
+                            <button key={item.id} className={`select`}>
+                              {item.name.toUpperCase()}
                             </button>
                           );
                         } else {
                           return (
                             <button
-                              key={index}
-                              onClick={() => selectCategorie(index)}
-                              className={``}
+                              key={item.id}
+                              onClick={() => selectCategorie(item.id)}
                             >
-                              {item}
+                              {item.name.toUpperCase()}
                             </button>
                           );
                         }

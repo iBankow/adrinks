@@ -1,17 +1,15 @@
-function loadCardForm() {
-  const productCost = document.getElementById("amount").value;
-  const productDescription = document.getElementById(
-    "product-description"
-  ).innerText;
+import api from "../services/api";
 
+if (typeof window !== "undefined" && typeof MercadoPago !== "undefined") {
+  const mp = new MercadoPago("TEST-cd886a3e-19c3-4f04-a858-3c3c3330e937");
   const cardForm = mp.cardForm({
-    amount: productCost,
+    amount: "100.5",
     autoMount: true,
     form: {
       id: "form-checkout",
       cardholderName: {
         id: "form-checkout__cardholderName",
-        placeholder: "Holder name",
+        placeholder: "Titular do cartão",
       },
       cardholderEmail: {
         id: "form-checkout__cardholderEmail",
@@ -19,34 +17,35 @@ function loadCardForm() {
       },
       cardNumber: {
         id: "form-checkout__cardNumber",
-        placeholder: "Card number",
+        placeholder: "Número do cartão",
       },
       cardExpirationMonth: {
         id: "form-checkout__cardExpirationMonth",
-        placeholder: "MM",
+        placeholder: "Mês de vencimento",
       },
       cardExpirationYear: {
         id: "form-checkout__cardExpirationYear",
-        placeholder: "YY",
+        placeholder: "Ano de vencimento",
       },
       securityCode: {
         id: "form-checkout__securityCode",
-        placeholder: "Security code",
+        placeholder: "Código de segurança",
       },
       installments: {
         id: "form-checkout__installments",
-        placeholder: "Installments",
+        placeholder: "Parcelas",
       },
       identificationType: {
         id: "form-checkout__identificationType",
+        placeholder: "Tipo de documento",
       },
       identificationNumber: {
         id: "form-checkout__identificationNumber",
-        placeholder: "Identification number",
+        placeholder: "Número do documento",
       },
       issuer: {
         id: "form-checkout__issuer",
-        placeholder: "Issuer",
+        placeholder: "Banco emissor",
       },
     },
     callbacks: {
@@ -58,8 +57,8 @@ function loadCardForm() {
         event.preventDefault();
 
         const {
-          paymentMethodId,
-          issuerId,
+          paymentMethodId: payment_method_id,
+          issuerId: issuer_id,
           cardholderEmail: email,
           amount,
           token,
@@ -67,19 +66,20 @@ function loadCardForm() {
           identificationNumber,
           identificationType,
         } = cardForm.getCardFormData();
+        console.log(token);
 
-        fetch("/process_payment", {
+        api.post("/process_payment", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
             token,
-            issuerId,
-            paymentMethodId,
-            transactionAmount: Number(amount),
+            issuer_id,
+            payment_method_id,
+            transaction_amount: Number(amount),
             installments: Number(installments),
-            description: productDescription,
+            description: "Descrição do produto",
             payer: {
               email,
               identification: {
@@ -88,29 +88,17 @@ function loadCardForm() {
               },
             },
           }),
-        })
-          .then((response) => {
-            return response.json();
-          })
-          .then((result) => {
-            document.getElementById("payment-status").innerText = result.status;
-            document.getElementById("payment-detail").innerText =
-              result.message;
-            $(".container__payment").fadeOut(500);
-            setTimeout(() => {
-              $(".container__result").show(500).fadeIn();
-            }, 500);
-          })
-          .catch((error) => {
-            alert("Unexpected error\n" + JSON.stringify(error));
-          });
+        });
       },
       onFetching: (resource) => {
         console.log("Fetching resource: ", resource);
-        const payButton = document.getElementById("form-checkout__submit");
-        payButton.setAttribute("disabled", true);
+
+        // Animate progress bar
+        const progressBar = document.querySelector(".progress-bar");
+        progressBar.removeAttribute("value");
+
         return () => {
-          payButton.removeAttribute("disabled");
+          progressBar.setAttribute("value", "0");
         };
       },
     },

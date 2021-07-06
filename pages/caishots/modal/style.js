@@ -6,6 +6,8 @@ const colors = {
 };
 
 export const Container = styled.div`
+  width: 80%;
+  height: 80rem;
   background-color: black;
   z-index: 2000;
   position: fixed;
@@ -20,25 +22,31 @@ export const Container = styled.div`
 export const Form = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
   h2 {
     margin-bottom: 2rem;
     font-size: 1.5rem;
     color: var(--text-title);
   }
   input {
-    padding: 0 1.5rem;
-    width: 40%;
-    height: 4rem;
-    font-size: 1rem;
-    font-weight: 400;
-    background: #e7e9ee;
-    border: 1px solid #d7d7d7;
-    border-radius: 0.25rem;
-    &::placeholder {
-      color: var(--text-body);
+    margin: 1rem auto;
+    outline: none;
+    font-size: 16px;
+    width: 80%;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border-bottom: solid 4px #91a63c;
+
+    &:focus {
+      border-bottom: solid 4px var(--yellow);
     }
-    & + input {
-      margin-top: 1rem;
+
+    &::placeholder {
+      transform: translateX(1rem);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 26px;
+      color: rgb(112, 112, 112);
     }
   }
   button[type="submit"] {
@@ -49,7 +57,7 @@ export const Form = styled.form`
     font-size: 1rem;
     font-weight: 600;
     color: #ffffff;
-    background: var(--orange);
+    background: var(--green);
     border: 0;
     border-radius: 0.25rem;
     transition: filter 0.2s ease-in-out;

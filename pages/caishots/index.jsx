@@ -1,8 +1,11 @@
 /* eslint-disable @next/next/no-sync-scripts */
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
+import Script from "next/script";
 import Image from "next/image";
-import { Body, Top, Tutorial } from "./style";
+import Head from "next/head";
+import Modal from "react-modal";
+import { Body, Top, Tutorial, Container, Form } from "./style";
 
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
@@ -11,13 +14,15 @@ import Background from "../../components/background/index";
 import drink from "../../public/assets/img/drink-2.png";
 import crew from "../../public/assets/img/crew.jpg";
 
-import Script from "next/script";
 import api from "../../services/api";
+import script, { mercadoPago } from "./script";
 import { ShopItems } from "../../components/data";
-import { NewTransactionModal } from "./modal/modal";
+import { typeOf } from "react-is";
 
 export default function Caishots() {
   const [categories, setCategories] = useState([]);
+  const [handleOpenModal, setOpenModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const [items, setItems] = useState([]);
   const [cart, setCart] = useState([]);
@@ -77,8 +82,10 @@ export default function Caishots() {
 
   useEffect(() => {
     async function Load() {
-      const storage = localStorage.getItem("@Adrinks:cart");
-      setCart(JSON.parse(storage));
+      if (localStorage.getItem("@Adrinks:cart") !== null) {
+        const storage = localStorage.getItem("@Adrinks:cart");
+        setCart(JSON.parse(storage));
+      }
     }
     Load();
   }, []);
@@ -99,6 +106,45 @@ export default function Caishots() {
     }
     LoadItems(categorie);
   }, [categorie]);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  const item = {
+    id: 1,
+    category_id: 3,
+    name: "Canela",
+    desc: "1 sachê de 100g",
+    old_price: 15,
+    price: 20,
+    quantity: 100,
+    created_at: "2021-07-05T11:54:29.481Z",
+    updated_at: "2021-07-05T11:54:29.481Z",
+    image: "/assets/img/cinamon.png",
+    amount: 3,
+  };
+
+  async function payment() {
+    const items = [...cart];
+    const carrinho = items.map((item) => {
+      let obj = {};
+      obj.id = item?.id;
+      obj.unit_price = item?.price;
+      obj.title = item?.name;
+      obj.quantity = item?.amount;
+      obj.currency_id = "BRL";
+      return obj;
+    });
+    const data = {
+      notification_url:
+        "https://webhook.site/510e10d2-bac9-42f8-a771-6a5a006a50da",
+      external_reference: "123456789",
+      items: carrinho,
+    };
+    const response = await api.post("/process_payment", data);
+    window.open(response.data, "_blank");
+  }
 
   return (
     <>
@@ -128,7 +174,76 @@ export default function Caishots() {
         </section>
         <section></section>
       </Top>
-      <NewTransactionModal openModal={true} />
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={closeModal}
+        overlayClassName="react-modal-overlay"
+        className="react-modal-content"
+      >
+        <Head>
+          <script src="https://sdk.mercadopago.com/js/v2"></script>
+          <script src={script}></script>
+        </Head>
+        {/* <Container>
+          <Form>
+            <form id="form-checkout">
+              <input
+                type="text"
+                name="cardNumber"
+                id="form-checkout__cardNumber"
+              />
+              <input
+                type="text"
+                name="cardExpirationMonth"
+                id="form-checkout__cardExpirationMonth"
+              />
+              <input
+                type="text"
+                name="cardExpirationYear"
+                id="form-checkout__cardExpirationYear"
+              />
+              <input
+                type="text"
+                name="cardholderName"
+                id="form-checkout__cardholderName"
+              />
+              <input
+                type="email"
+                name="cardholderEmail"
+                id="form-checkout__cardholderEmail"
+              />
+              <input
+                type="text"
+                name="securityCode"
+                id="form-checkout__securityCode"
+              />
+              <select name="issuer" id="form-checkout__issuer"></select>
+              <select
+                name="identificationType"
+                id="form-checkout__identificationType"
+              ></select>
+              <input
+                type="text"
+                name="identificationNumber"
+                id="form-checkout__identificationNumber"
+              />
+              <select
+                name="installments"
+                id="form-checkout__installments"
+              ></select>
+              <button type="submit" id="form-checkout__submit">
+                Pagar
+              </button>
+              <progress value="0" className="progress-bar">
+                Carregando...
+              </progress>
+            </form>
+            <div>
+              <h1>EAE</h1>
+            </div>
+          </Form>
+        </Container> */}
+      </Modal>
       <Body>
         <section className="body">
           <div className="title">
@@ -237,9 +352,9 @@ export default function Caishots() {
                 })}
               </div>
               {cart.length > 0 && (
-                <div className="button">
+                <button className="button" onClick={payment}>
                   <p>FINALIZAR</p>
-                </div>
+                </button>
               )}
             </div>
           </div>

@@ -416,7 +416,7 @@ const Body = styled.section`
           }
         }
 
-        div.button {
+        button.button {
           margin: 2rem auto;
           width: 256px;
           height: 55px;
@@ -434,6 +434,10 @@ const Body = styled.section`
             line-height: 24px;
             letter-spacing: 0.1em;
             color: white;
+          }
+
+          &:hover {
+            cursor: pointer;
           }
 
           animation: popUp 500ms;
@@ -555,6 +559,76 @@ const Tutorial = styled.section`
       }
     }
   }
+`;
+
+export const Container = styled.div`
+  width: 80%;
+  height: 80vh;
+  background-color: black;
+  z-index: 2000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+`;
+
+export const Form = styled.form`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: var(--text-title);
+  }
+  input {
+    margin: 1rem auto;
+    outline: none;
+    font-size: 16px;
+    width: 80%;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border-bottom: solid 4px #91a63c;
+
+    &:focus {
+      border-bottom: solid 4px var(--yellow);
+    }
+
+    &::placeholder {
+      transform: translateX(1rem);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 26px;
+      color: rgb(112, 112, 112);
+    }
+  }
+  button[type="submit"] {
+    margin-top: 1.5rem;
+    padding: 0 1.5rem;
+    width: 100%;
+    height: 4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--green);
+    border: 0;
+    border-radius: 0.25rem;
+    transition: filter 0.2s ease-in-out;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+`;
+
+export const TransactionTypeContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 1rem 0;
 `;
 
 export { Body, Top, Tutorial };

@@ -74,7 +74,7 @@ const Head = styled.section`
 
         button {
           margin-top: 1rem;
-          background-color: #61821f;
+          background-color: var(--green);
           width: 252px;
           height: 55px;
           border-radius: 70px;
@@ -152,7 +152,7 @@ const Head = styled.section`
       font-style: normal;
       font-weight: 400;
       line-height: 26px;
-      color: rgba(112, 112, 112, 1);
+      color: var(--text-light);
     }
 
     .services-title {

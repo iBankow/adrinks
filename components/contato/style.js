@@ -46,7 +46,7 @@ const Main = styled.section`
           font-size: 16px;
           font-weight: 400;
           line-height: 26px;
-          color: rgb(112, 112, 112);
+          color: --text-light;
         }
       }
       h2 {
@@ -60,7 +60,7 @@ const Main = styled.section`
       }
       button {
         margin-top: 1rem;
-        background-color: #61821f;
+        background-color: var(--green);
         width: 168px;
         height: 55px;
         border-radius: 70px;
@@ -134,11 +134,11 @@ const Main = styled.section`
             margin-top: 1.3125rem;
             width: 100%;
             height: 55px;
-            border: 2px solid #61821f;
+            border: 2px solid var(--green);
             border-radius: 4.375rem;
             background-color: white;
 
-            color: #61821f;
+            color: var(--green);
             font-size: 20px;
             font-style: normal;
             font-weight: 700;

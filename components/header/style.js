@@ -52,7 +52,7 @@ const Top = styled.header`
     }
     .overlay {
       background: rgba(34, 34, 34, 0.95);
-      color: #222222;
+      color: var(--color-tex);
       width: 100%;
       height: 100%;
       position: absolute;

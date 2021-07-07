@@ -37,7 +37,7 @@ const SlideShow = styled.section`
 
         transition: filter, background-color 300ms ease-in-out;
         &:hover {
-          background-color: #61821f;
+          background-color: var(--green);
           cursor: pointer;
           filter: brightness(0.8);
           .icon {
@@ -125,7 +125,7 @@ const SlideShow = styled.section`
 
         button {
           margin-top: 64px;
-          background-color: #61821f;
+          background-color: var(--green);
           width: 220px;
           height: 55px;
           border-radius: 70px;

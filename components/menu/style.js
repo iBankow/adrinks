@@ -7,7 +7,7 @@ const Menu = styled.nav`
   text-align: right;
   color: #fff;
   height: 1000px;
-  width: 1100px;
+  width: 68.75rem;
   position: relative;
   a,
   span {

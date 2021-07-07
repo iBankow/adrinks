@@ -46,7 +46,7 @@ export const Form = styled.form`
       font-size: 16px;
       font-weight: 400;
       line-height: 26px;
-      color: rgb(112, 112, 112);
+      color: --text-light;
     }
   }
   button[type="submit"] {

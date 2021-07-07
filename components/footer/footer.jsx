@@ -36,7 +36,7 @@ export default function Footer() {
           <Image src={zukt} alt="logo zukt" />
         </div>
       </section>
-      <div
+      {/* <div
         style={{ margin: "0 auto", maxWidth: "1200px", position: "relative" }}
       >
         <a
@@ -60,7 +60,7 @@ export default function Footer() {
             </svg>
           </WhatsApp>
         </a>
-      </div>
+      </div> */}
     </FooterMain>
   );
 }

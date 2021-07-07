@@ -52,7 +52,7 @@ const Top = styled.section`
         }
 
         h1 {
-          color: #222222;
+          color: var(--color-tex);
           font-family: SantElia;
           font-weight: 700;
           font-size: 120px;
@@ -61,7 +61,7 @@ const Top = styled.section`
         }
 
         p {
-          color: #222222;
+          color: var(--color-tex);
           width: 297px;
           line-height: 22px;
           font-family: Lato;
@@ -72,7 +72,7 @@ const Top = styled.section`
 
         button {
           margin-top: 64px;
-          background-color: #61821f;
+          background-color: var(--green);
           width: 220px;
           height: 55px;
           border-radius: 70px;
@@ -140,12 +140,12 @@ const Body = styled.section`
         font-size: 30px;
         font-weight: 400;
         line-height: 30px;
-        color: #222222;
+        color: var(--color-tex);
 
         span {
           font-family: Lato;
           font-size: 54px;
-          color: #61821f;
+          color: var(--green);
           font-weight: 800;
         }
       }
@@ -214,7 +214,7 @@ const Body = styled.section`
           font-style: normal;
           font-weight: 700;
           line-height: 19px;
-          color: #222222;
+          color: var(--color-tex);
           margin: 0 0 0 4rem;
         }
 
@@ -257,7 +257,7 @@ const Body = styled.section`
                 font-size: 18px;
                 font-weight: 800;
                 line-height: 25px;
-                color: #222222;
+                color: var(--color-tex);
               }
               p.desc {
                 font-family: Lato;
@@ -299,7 +299,7 @@ const Body = styled.section`
         align-items: flex-start;
         margin: 1rem auto;
         div.cart-title {
-          color: #222222;
+          color: var(--color-tex);
           p.title {
             font-family: Lato;
             font-size: 22px;
@@ -364,7 +364,7 @@ const Body = styled.section`
                 font-weight: 500;
                 line-height: 25px;
 
-                color: #222222;
+                color: var(--color-tex);
               }
               p.desc {
                 font-family: Lato;
@@ -470,7 +470,7 @@ const Tutorial = styled.section`
         font-size: 120px;
         font-weight: 700;
         line-height: 161px;
-        color: #222222;
+        color: var(--color-tex);
       }
     }
 
@@ -487,7 +487,7 @@ const Tutorial = styled.section`
             padding-top: 4rem;
             position: relative;
             width: 25rem;
-            color: #222222;
+            color: var(--color-tex);
 
             font-family: Lato;
             font-size: 18px;
@@ -499,7 +499,7 @@ const Tutorial = styled.section`
               width: 6px;
               content: "";
               border-radius: 40px;
-              background: #222222;
+              background: var(--color-tex);
               left: -5rem;
             }
 
@@ -602,7 +602,7 @@ export const Form = styled.form`
       font-size: 16px;
       font-weight: 400;
       line-height: 26px;
-      color: rgb(112, 112, 112);
+      color: --text-light;
     }
   }
   button[type="submit"] {

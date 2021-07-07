@@ -2,15 +2,15 @@
 import { Slidedata } from "../data";
 import { Container } from "./style";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Slider() {
-  const [slider, setSlider] = useState(0);
+  const [slider, setSlider] = useState(50);
   const [current, setCurrent] = useState(0);
   const lenght = Slidedata.length;
 
   function styleSlide() {
-    return { transform: `translateX(${slider}rem)` };
+    return { transform: `translateX(${slider}%)` };
   }
 
   function nextSlide() {

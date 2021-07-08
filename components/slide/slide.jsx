@@ -50,7 +50,6 @@ export default function Slide({ slides }) {
                       <button>COMPRAR</button>
                     </div>
                     <div className="slide-container">
-                      <div className="bg"></div>
                       <div className={`image`}>
                         <Image
                           src={slide.image}

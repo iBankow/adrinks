@@ -15,6 +15,10 @@ const Main = styled.section`
     left: -9rem;
     transform: rotate(-140deg);
 
+    @media (max-width: 500px) {
+      content: none;
+    }
+
     z-index: 10000;
   }
 
@@ -24,10 +28,18 @@ const Main = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr;
 
+    @media (max-width: 500px) {
+      max-width: 30rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .form {
       text-align: right;
       margin: 0 auto;
       width: 23rem;
+
       input {
         margin: 1rem 0;
         outline: none;
@@ -51,7 +63,7 @@ const Main = styled.section`
       }
       h2 {
         font-family: SantElia;
-        font-size: 90px;
+        font-size: 5.625rem;
         font-style: normal;
         font-weight: 700;
         line-height: 121px;
@@ -70,6 +82,16 @@ const Main = styled.section`
         font-size: 20px;
         line-height: 24px;
         letter-spacing: 0.1em;
+      }
+
+      @media (max-width: 500px) {
+        width: 80%;
+        margin-bottom: 20px;
+        button {
+          width: 130px;
+          height: 40px;
+          letter-spacing: 0.08em;
+        }
       }
     }
 
@@ -92,6 +114,10 @@ const Main = styled.section`
         transform: rotate(-10deg);
 
         z-index: 10000;
+
+        @media (max-width: 500px) {
+          content: none;
+        }
       }
 
       &::before {
@@ -106,6 +132,10 @@ const Main = styled.section`
         left: -5rem;
 
         z-index: -1;
+
+        @media (max-width: 500px) {
+          content: none;
+        }
       }
 
       span {
@@ -120,6 +150,17 @@ const Main = styled.section`
         font-style: normal;
         font-weight: 400;
         line-height: 26px;
+      }
+
+      @media (max-width: 500px) {
+        box-shadow: 0px 0px 90px -20px rgba(145, 166, 60, 0.6);
+        border-radius: 0px 8rem 0px 0px;
+        span {
+          font-size: 20px;
+        }
+        p {
+          font-size: 14px;
+        }
       }
       .infos {
         display: grid;
@@ -144,6 +185,20 @@ const Main = styled.section`
             font-weight: 700;
             line-height: 24px;
             letter-spacing: 0.1em;
+
+            @media (max-width: 500px) {
+              margin-top: 1rem;
+              width: 80%;
+              height: 45px;
+              border-radius: 4.375rem;
+              background-color: white;
+
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 24px;
+              letter-spacing: 0.1em;
+            }
           }
         }
 
@@ -157,6 +212,15 @@ const Main = styled.section`
           }
           div + div {
             margin-top: 2rem;
+          }
+
+          @media (max-width: 500px) {
+            div > p {
+              margin-top: 0;
+            }
+            div + div {
+              margin-top: 0;
+            }
           }
         }
       }

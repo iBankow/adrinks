@@ -78,6 +78,13 @@ const Back = styled.section`
 
       background: rgba(255, 255, 255, 0.05);
     }
+
+    @media (max-width: 500px) {
+      width: 100%;
+      height: 620px;
+
+      border-radius: 0px 0px 300px 0px;
+    }
   }
 
   div.rectangle {

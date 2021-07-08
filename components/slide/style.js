@@ -3,12 +3,19 @@ import styled from "styled-components";
 const SlideShow = styled.section`
   overflow: hidden;
   max-width: 100%;
+
   section {
     padding-top: 90px;
     max-width: 68.75rem;
     margin: 0 auto;
     position: relative;
     color: white;
+
+    @media (max-width: 500px) {
+      max-width: 30rem;
+
+      padding-top: 45px;
+    }
 
     div.nav {
       position: absolute;
@@ -21,7 +28,7 @@ const SlideShow = styled.section`
         z-index: 1;
         background-color: var(--yellow);
         width: 64px;
-        height: 55px;
+        height: 54px;
         border-radius: 50px 0 0 50px;
 
         &.second {
@@ -29,11 +36,7 @@ const SlideShow = styled.section`
           border-radius: 0px 50px 50px 0px;
         }
 
-        font-weight: 700;
-        color: white;
         font-size: 20px;
-        line-height: 24px;
-        letter-spacing: 0.1em;
 
         transition: filter, background-color 300ms ease-in-out;
         &:hover {
@@ -45,11 +48,24 @@ const SlideShow = styled.section`
           }
         }
       }
+
+      @media (max-width: 500px) {
+        bottom: 30rem;
+        display: flex;
+        width: 100px;
+        height: 40px;
+        right: 37%;
+        bottom: 5rem;
+        button {
+          height: 100%;
+        }
+      }
     }
 
     div.slide {
       height: 756px;
       display: flex;
+      z-index: 1;
 
       .slider.active {
         align-items: flex-start;
@@ -62,6 +78,26 @@ const SlideShow = styled.section`
           position: absolute;
           right: 5rem;
           top: 0;
+
+          &:before {
+            content: "";
+            background-color: var(--yellow);
+            z-index: -1;
+            position: absolute;
+            width: 534px;
+            height: 534px;
+            left: 3rem;
+            bottom: 5rem;
+            border-radius: 50%;
+
+            @media (max-width: 500px) {
+              content: "";
+              width: 200px;
+              height: 200px;
+              left: 0;
+              top: 0;
+            }
+          }
 
           .image {
             animation: slideIn 500ms;
@@ -76,17 +112,6 @@ const SlideShow = styled.section`
               transform: translateX(0%);
               opacity: 1;
             }
-          }
-
-          .bg {
-            background-color: var(--yellow);
-            z-index: -1;
-            position: absolute;
-            width: 534px;
-            height: 534px;
-            left: 3rem;
-            bottom: 5rem;
-            border-radius: 50%;
           }
         }
 
@@ -135,6 +160,46 @@ const SlideShow = styled.section`
           font-size: 20px;
           line-height: 24px;
           letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 500px) {
+          .slide-container {
+            z-index: 0;
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            width: 12rem;
+          }
+          h1 {
+            font-size: 5rem;
+            line-height: 5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+          }
+          button {
+            margin-top: 15px;
+            background-color: var(--green);
+            width: 150px;
+            height: 45px;
+            border-radius: 70px;
+
+            font-weight: 700;
+            color: white;
+            font-size: 15px;
+            line-height: 24px;
+            letter-spacing: 0.1em;
+          }
+        }
+      }
+      @media (max-width: 500px) {
+        height: 456px;
+
+        .slider.active {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+        .info {
+          z-index: 1;
         }
       }
     }

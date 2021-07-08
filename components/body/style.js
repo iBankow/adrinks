@@ -45,6 +45,22 @@ const Main = styled.section`
         rgba(255, 214, 89, 0.35) 100%
       ),
       url("assets/img/crew.jpg");
+
+    @media (max-width: 500px) {
+      overflow: hidden;
+      z-index: -2;
+      top: -8rem;
+      position: absolute;
+      width: 100%;
+      height: 50rem;
+      background-repeat: repeat;
+      background: linear-gradient(
+          180deg,
+          #ffffff 11.98%,
+          rgba(255, 214, 89, 0.35) 100%
+        ),
+        url("assets/img/crew.jpg");
+    }
   }
 
   section.services {
@@ -52,12 +68,23 @@ const Main = styled.section`
     position: relative;
     max-width: 68.75rem;
     margin: 3rem auto 0 auto;
-    background-color: white;
+    background-color: var(--white);
     width: 100%;
     height: 42.5rem;
     box-shadow: 0 0.25rem 3.125rem -1.562rem rgba(145, 166, 60, 0.67);
     border-radius: 0 12.5rem 1.25rem 1.25rem;
     align-items: center;
+
+    @media (max-width: 500px) {
+      max-width: 30rem;
+
+      display: flex;
+      box-shadow: 0 1rem 3.125rem -1.562rem rgba(145, 166, 60, 0.67);
+
+      flex-direction: column;
+      height: 100%;
+      border-radius: 0 8rem 0.5rem 0.5rem;
+    }
 
     h2 {
       padding-top: 5rem;
@@ -91,6 +118,12 @@ const Main = styled.section`
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 2rem;
+
+      @media (max-width: 500px) {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+      }
 
       .service-content {
         justify-content: space-around;
@@ -133,8 +166,6 @@ const Head = styled.section`
 
   div.img {
     position: relative;
-    width: 34.25rem;
-    height: 22.18rem;
     img {
       border-radius: 6.25rem 0 0 0;
     }
@@ -191,6 +222,14 @@ const Head = styled.section`
       letter-spacing: 0.1em;
     }
   }
+
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    div.img {
+      display: none;
+    }
+  }
 `;
 
 const Assets = styled.div`
@@ -213,6 +252,13 @@ const Assets = styled.div`
     top: -9rem;
     left: -8rem;
     width: 25rem;
+  }
+
+  @media (max-width: 500px) {
+    div {
+      width: 0;
+      height: 0;
+    }
   }
 `;
 

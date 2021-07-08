@@ -4,6 +4,10 @@ const FooterMain = styled.footer`
   align-items: center;
   position: relative;
   overflow-y: hidden;
+
+  @media (max-width: 500px) {
+    padding: 2rem 0;
+  }
   &:before {
     content: "";
     position: absolute;
@@ -16,6 +20,10 @@ const FooterMain = styled.footer`
     bottom: -5rem;
     transform: rotate(-68.62deg);
     z-index: -1;
+
+    @media (max-width: 500px) {
+      content: none;
+    }
   }
 
   .svg {
@@ -30,6 +38,13 @@ const FooterMain = styled.footer`
 
       &:hover {
         cursor: pointer;
+      }
+
+      @media (max-width: 500px) {
+        top: -1.5rem;
+        img {
+          width: 3rem;
+        }
       }
     }
     border-top: solid 1px rgba(221, 221, 221, 1);
@@ -50,14 +65,15 @@ const FooterMain = styled.footer`
     .container {
       padding: 3rem 0;
       display: flex;
-
       .links {
         margin-left: 5rem;
         display: flex;
         align-items: center;
         justify-content: space-around;
         width: 40rem;
-
+        @media (max-width: 500px) {
+          margin-left: 2rem;
+        }
         .icons {
           display: flex;
           width: 5rem;
@@ -82,6 +98,15 @@ const FooterMain = styled.footer`
         font-size: 12px;
         font-weight: 400;
         line-height: 12px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      max-width: 30rem;
+
+      a {
+        font-size: 16px;
+        line-height: initial;
       }
     }
   }

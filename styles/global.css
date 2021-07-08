@@ -6,6 +6,7 @@
   --green: #61821f;
   --text-light: #707070;
   --color-text: #222222;
+  --white: #ffffff;
 }
 
 @font-face {
@@ -33,10 +34,7 @@
 
 @media (max-width: 500px) {
   html {
-    width: 100%;
-  }
-  * {
-    max-width: 10rem;
+    font-size: 75%;
   }
 }
 

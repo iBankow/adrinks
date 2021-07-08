@@ -18,6 +18,9 @@ const Container = styled.section`
     top: 20rem;
     left: 0;
     z-index: -1;
+    @media (max-width: 500px) {
+      content: none;
+    }
   }
 
   &:after {
@@ -30,12 +33,20 @@ const Container = styled.section`
     background-repeat: no-repeat;
     right: 20rem;
     bottom: -10rem;
+    @media (max-width: 500px) {
+      content: none;
+    }
   }
 
   div.nav {
     position: absolute;
     bottom: 8rem;
     left: 25rem;
+
+    @media (max-width: 500px) {
+      left: 1rem;
+      bottom: 2rem;
+    }
 
     button {
       .icon {
@@ -76,6 +87,10 @@ const Container = styled.section`
     display: flex;
     align-items: center;
     overflow-x: hidden;
+
+    @media (max-width: 500px) {
+      height: 41.43rem;
+    }
 
     .image-slider {
       z-index: 1000;

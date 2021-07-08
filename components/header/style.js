@@ -6,6 +6,7 @@ const Top = styled.header`
   margin: 0;
   position: relative;
   z-index: 1000;
+  align-items: center;
 
   &:before {
     content: "";
@@ -20,6 +21,10 @@ const Top = styled.header`
     top: 10rem;
     transform: rotate(1deg);
     filter: contrast(50%) brightness(90%);
+
+    @media (max-width: 500px) {
+      content: none;
+    }
   }
 
   div.head {
@@ -79,6 +84,39 @@ const Top = styled.header`
       z-index: 3000;
       width: 100%;
       height: 100%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    div.head {
+      align-items: flex-end;
+      max-width: 30rem;
+
+      .thema {
+        fill: white;
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    .img-menu {
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 700px;
+      filter: grayscale(100%);
+
+      div.img-bg {
+        width: 100%;
+        height: 700px;
+      }
+    }
+
+    img {
+      min-width: 0;
+    }
+    .img {
+      width: 12rem !important;
     }
   }
 `;

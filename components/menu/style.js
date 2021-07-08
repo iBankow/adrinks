@@ -7,7 +7,6 @@ const Menu = styled.nav`
   text-align: right;
   color: #fff;
   height: 1000px;
-  width: 68.75rem;
   position: relative;
   a,
   span {
@@ -33,6 +32,19 @@ const Menu = styled.nav`
         font-size: 16px;
         line-height: 26px;
       }
+    }
+  }
+
+  @media (max-width: 500px) {
+    cursor: initial;
+    text-align: right;
+    color: #fff;
+    height: 750px;
+    position: relative;
+
+    ul {
+      margin-top: 1rem;
+      margin-right: 0.5rem;
     }
   }
 `;

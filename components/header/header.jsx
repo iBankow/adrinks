@@ -23,7 +23,11 @@ export default function Header() {
         </div>
         <section>
           <div className="icon">
-            <Image src={handleActiveMenu ? thema2 : thema} alt="thema" />
+            <Image
+              src={handleActiveMenu ? thema2 : thema}
+              alt="thema"
+              className="thema"
+            />
           </div>
           <div className="icon">
             <Image

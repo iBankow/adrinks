@@ -50,7 +50,7 @@ const Footer = styled.section`
         line-height: 30px;
       }
       div > p {
-        font-size: 0.7rem;
+        font-size: 1rem;
         line-height: 25px;
         margin: 0;
       }

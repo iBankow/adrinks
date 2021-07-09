@@ -28,6 +28,7 @@ const Top = styled.section`
     margin: 0 auto;
     position: relative;
     color: white;
+
     div.slide {
       display: flex;
       justify-content: space-between;
@@ -98,6 +99,54 @@ const Top = styled.section`
           right: 3rem;
           bottom: 0;
           border-radius: 50%;
+          @media (max-width: 500px) {
+            content: "";
+            width: 150px;
+            height: 150px;
+            left: 0;
+            top: 1rem;
+          }
+        }
+      }
+    }
+    @media (max-width: 500px) {
+      max-width: 30rem;
+      div.slide {
+        .slide-container {
+          z-index: 0;
+          position: absolute;
+          right: 1rem;
+          top: 1rem;
+          width: 12rem;
+          z-index: -10;
+        }
+        div.info {
+          margin-bottom: 5rem;
+          p.subtittle {
+            font-family: Lato;
+            font-weight: 800;
+            font-size: 22px;
+            line-height: 31px;
+            color: var(--green);
+            width: 297px;
+          }
+          h1 {
+            margin-top: 70px;
+            font-size: 80px;
+            line-height: 90px;
+            margin-bottom: 10px;
+          }
+          p {
+            color: var(--green);
+          }
+          hr.divisor {
+            margin: 1rem 0;
+            background-image: url("/assets/img/divisor-2.svg");
+            background-size: contain;
+            width: 108px;
+            height: 10px;
+            background-repeat: no-repeat;
+          }
         }
       }
     }
@@ -121,6 +170,9 @@ const Body = styled.section`
     background-repeat: no-repeat;
     filter: blur(3px);
     transform: rotate(-220.62deg);
+    @media (max-width: 500px) {
+      content: none;
+    }
   }
 
   .body {
@@ -151,6 +203,19 @@ const Body = styled.section`
       }
     }
 
+    @media (max-width: 500px) {
+      max-width: 30rem;
+      border-radius: 0px 60px 60px 60px;
+      div.title {
+        padding: 4rem 0 2rem 1.75rem;
+      }
+      div.container {
+        display: grid;
+        grid-template-columns: 1fr;
+        position: relative;
+      }
+    }
+
     div.container {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -168,7 +233,7 @@ const Body = styled.section`
           width: 100%;
           padding: 2rem 3rem;
 
-          div {
+          div.filter-content {
             height: 55px;
             background: #ffffff;
             border-radius: 70px;
@@ -444,6 +509,55 @@ const Body = styled.section`
         }
       }
     }
+    @media (max-width: 500px) {
+      max-width: 30rem;
+
+      border-radius: 0px 60px 60px 60px;
+      div.title {
+        padding: 4rem 0 2rem 1.75rem;
+      }
+      div.container {
+        display: grid;
+        grid-template-columns: 1fr;
+        position: relative;
+
+        div.shop {
+          z-index: 100;
+          overflow-x: hidden;
+
+          transition: height 2s ease-in-out;
+          div.filter-container {
+            overflow: hidden;
+
+            div.filter {
+              width: 100%;
+              padding: 2rem 1.75rem;
+
+              .filter-content {
+                overflow: scroll;
+                display: flex;
+                align-items: center;
+              }
+            }
+
+            p {
+              margin-bottom: 1rem;
+            }
+
+            div.item-container {
+              height: 30rem;
+              overflow: scroll;
+              div.shop-items {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                padding: 2rem 2rem;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -453,6 +567,9 @@ const Tutorial = styled.section`
   div.container {
     max-width: 68.75rem;
     margin: 0 auto;
+    @media (max-width: 500px) {
+      max-width: 30rem;
+    }
 
     div.title {
       padding: 2rem 0;
@@ -471,6 +588,23 @@ const Tutorial = styled.section`
         font-weight: 700;
         line-height: 161px;
         color: var(--color-tex);
+      }
+    }
+
+    @media (max-width: 500px) {
+      max-width: 30rem;
+      div.title {
+        padding: 4rem 0 2rem 0;
+        p {
+          font-size: 30px;
+          line-height: 30px;
+        }
+
+        h1 {
+          margin-top: 1rem;
+          font-size: 85px;
+          line-height: 95px;
+        }
       }
     }
 
@@ -493,26 +627,6 @@ const Tutorial = styled.section`
             font-size: 18px;
             font-weight: 400;
             line-height: 22px;
-            /*&:before {
-              position: absolute;
-              height: 80%;
-              width: 6px;
-              content: "";
-              border-radius: 40px;
-              background: var(--color-tex);
-              left: -5rem;
-            }
-
-            &:after {
-              position: absolute;
-              height: 7px;
-              width: 7px;
-              content: "";
-              border-radius: 50%;
-              background: var(--green);
-              top: 0;
-              left: -5rem;
-            }*/
             &::marker {
               color: var(--green);
               font-family: Balbeer;
@@ -520,6 +634,36 @@ const Tutorial = styled.section`
               font-style: normal;
               font-weight: 400;
               line-height: 56px;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 500px) {
+        div.tutorial-content {
+          ol {
+            padding-left: 5rem;
+            li {
+              padding-top: 0;
+              position: relative;
+              width: 25rem;
+              color: var(--color-tex);
+
+              font-family: Lato;
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 22px;
+              &::marker {
+                color: var(--green);
+                font-family: Balbeer;
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 56px;
+              }
+            }
+            li + li {
+              padding-top: 4rem;
             }
           }
         }
@@ -542,6 +686,9 @@ const Tutorial = styled.section`
           background-repeat: no-repeat;
           left: 0;
           top: -8rem;
+          @media (max-width: 500px) {
+            content: none;
+          }
         }
         &:after {
           content: "";
@@ -555,6 +702,9 @@ const Tutorial = styled.section`
           transform: rotate(120.75deg);
           bottom: 7rem;
           filter: blur(2px);
+          @media (max-width: 500px) {
+            content: none;
+          }
         }
       }
     }

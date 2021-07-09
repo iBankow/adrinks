@@ -153,9 +153,9 @@ export default function Caishots() {
           </div>
           <div className="container">
             <div className="shop">
-              <div>
+              <div className="filter-container">
                 <div className="filter">
-                  <div>
+                  <div className="filter-content">
                     <div className="buttons">
                       {categories.map((item) => {
                         if (categorie === item.id) {
@@ -179,38 +179,39 @@ export default function Caishots() {
                   </div>
                 </div>
                 <p className="title">TODAS OS ITENS</p>
-
-                <div className="shop-items">
-                  {items.map((item) => {
-                    return (
-                      <div key={item.id} className="item">
-                        <div className="img">
-                          <Image
-                            width={91}
-                            height={61}
-                            src={item.image}
-                            alt={item.name}
-                          />
+                <div className="item-container">
+                  <div className="shop-items">
+                    {items.map((item) => {
+                      return (
+                        <div key={item.id} className="item">
+                          <div className="img">
+                            <Image
+                              width={91}
+                              height={61}
+                              src={item.image}
+                              alt={item.name}
+                            />
+                          </div>
+                          <div className="infos">
+                            <p className="name">{item.name}</p>
+                            <p className="desc">{item.desc}</p>
+                          </div>
+                          <div
+                            className="plus"
+                            onClick={() => {
+                              addProduct(item, item.id);
+                            }}
+                          ></div>
                         </div>
-                        <div className="infos">
-                          <p className="name">{item.name}</p>
-                          <p className="desc">{item.desc}</p>
-                        </div>
-                        <div
-                          className="plus"
-                          onClick={() => {
-                            addProduct(item, item.id);
-                          }}
-                        ></div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="cart">
-              <div className="cart-title">
-                {cart.length > 0 && (
+            {cart.length > 0 && (
+              <div className="cart">
+                <div className="cart-title">
                   <>
                     <p className="title">Seu kit contém</p>
 
@@ -218,45 +219,45 @@ export default function Caishots() {
                       Você já selecionou <span>{cart.length} produtos</span>
                     </p>
                   </>
+                </div>
+
+                <div className="cart-content">
+                  {cart.map((item) => {
+                    return (
+                      <div key={item.id} className="item">
+                        <div className="img">
+                          <Image
+                            src={item.image}
+                            width={91}
+                            height={61}
+                            alt={item.name}
+                          />
+                        </div>
+                        <div className="infos">
+                          <p className="desc">
+                            {item.amount < 2
+                              ? `${item.amount} Sachê`
+                              : `${item.amount} Sachês`}
+                          </p>
+                          <p className="name">{item.name}</p>
+                        </div>
+                        <div
+                          className="less"
+                          onClick={() => {
+                            removeProduct(item.id);
+                          }}
+                        ></div>
+                      </div>
+                    );
+                  })}
+                </div>
+                {cart.length > 0 && (
+                  <button className="button" onClick={payment}>
+                    <p>FINALIZAR</p>
+                  </button>
                 )}
               </div>
-
-              <div className="cart-content">
-                {cart.map((item) => {
-                  return (
-                    <div key={item.id} className="item">
-                      <div className="img">
-                        <Image
-                          src={item.image}
-                          width={91}
-                          height={61}
-                          alt={item.name}
-                        />
-                      </div>
-                      <div className="infos">
-                        <p className="desc">
-                          {item.amount < 2
-                            ? `${item.amount} Sachê`
-                            : `${item.amount} Sachês`}
-                        </p>
-                        <p className="name">{item.name}</p>
-                      </div>
-                      <div
-                        className="less"
-                        onClick={() => {
-                          removeProduct(item.id);
-                        }}
-                      ></div>
-                    </div>
-                  );
-                })}
-              </div>
-              {cart.length > 0 && (
-                <button className="button" onClick={payment}>
-                  <p>FINALIZAR</p>
-                </button>
-              )}
-            </div>
+            )}
           </div>
         </section>
       </Body>

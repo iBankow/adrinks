@@ -97,6 +97,11 @@ const Back = styled.section`
     left: 0px;
     top: 0px;
 
+    @media (max-width: 500px) {
+      width: 90%;
+      border-radius: 0px 0px 150px 0px;
+    }
+
     background: #2a3613;
     border-radius: 0px 0px 500px 0px;
     div.circle {

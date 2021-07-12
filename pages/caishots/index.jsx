@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Body, Top, Tutorial, Container, Form } from "./style";
+import { Body, Top, Tutorial, Container, Form, Beneficios } from "./style";
 
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
@@ -9,8 +9,9 @@ import Background from "../../components/background/index";
 import drink from "../../public/assets/img/drink-2.png";
 import crew from "../../public/assets/img/crew.jpg";
 
-import api from "../../services/api";
+import { api } from "../../services/api";
 import { ShopItems } from "../../components/data";
+import beer from "../../public/assets/img/beer.svg";
 
 export default function Caishots() {
   const [categories, setCategories] = useState([]);
@@ -282,8 +283,8 @@ export default function Caishots() {
                 <li>Coloque gelo até a borda do copo</li>
                 <li>
                   Complete a mistura com água tônica a gosto e mexa para
-                  envolver todos os ingredientes. Pronto! Já pode degustar seu
-                  drink especial
+                  envolver todos os ingredientes. <span>Pronto!</span> Já pode
+                  degustar seu drink especial
                 </li>
               </ol>
             </div>
@@ -293,6 +294,67 @@ export default function Caishots() {
           </div>
         </div>
       </Tutorial>
+      <Beneficios>
+        <div className="container">
+          <div className="infos">
+            <h2>BENEFÍCIOS</h2>
+            <p>Por quê comprar kit gin?</p>
+          </div>
+          <hr className="divisor" />
+          <div className="services">
+            <div className="services-container">
+              <div className="service-content">
+                <div className="img">
+                  <Image src={beer} alt="beer-logo" />
+                </div>
+                <div className="info">
+                  <h3>Bartender</h3>
+                  <p>
+                    Facilidade no preparo. Basta abrir a embalagem e colocar no
+                    seu copo com Gin já vem na quantidade exata para um copo.
+                  </p>
+                </div>
+              </div>
+              <div className="service-content">
+                <div className="img">
+                  <Image src={beer} alt="beer-logo" />
+                </div>
+                <div className="info">
+                  <h3>Bartender</h3>
+                  <p>
+                    Te proporciona uma variedade de combinações de ingredientes.
+                    Descobrindo um sabor de bebida diferente sempre.
+                  </p>
+                </div>
+              </div>
+              <div className="service-content">
+                <div className="img">
+                  <Image src={beer} alt="beer-logo" />
+                </div>
+                <div className="info">
+                  <h3>Bartender</h3>
+                  <p>
+                    Compre apenas os ingredientes que você irá utilizar e não
+                    corra o risco de perder ingredientes.
+                  </p>
+                </div>
+              </div>
+              <div className="service-content">
+                <div className="img">
+                  <Image src={beer} alt="beer-logo" />
+                </div>
+                <div className="info">
+                  <h3>Bartender</h3>
+                  <p>
+                    Entregamos o kit na sua casa, sem precisar encarar filas no
+                    supermercado ou conveniência
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Beneficios>
       <Footer />
       <Background />
     </>

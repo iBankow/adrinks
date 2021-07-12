@@ -4,4 +4,8 @@ const api = axios.create({
   baseURL: "http://localhost:5000",
 });
 
-export default api;
+const directus = axios.create({
+  baseURL: "http://localhost:8055",
+});
+
+export { api, directus };

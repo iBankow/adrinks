@@ -1,9 +1,20 @@
 import { SlideShow } from "./style";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { directus } from "../../services/api";
 
 export default function Slide({ slides }) {
+  const [slides2, setSlide] = useState([]);
+
+  useEffect(() => {
+    async function loadSlides() {
+      const slides2 = await directus.get("items/articles");
+      setSlide(slides2.data.data);
+    }
+    loadSlides();
+  }, []);
+
   const [current, setCurrent] = useState(0);
   const lenght = slides.length;
 
@@ -31,7 +42,7 @@ export default function Slide({ slides }) {
           </button>
         </div>
         <div className="slide">
-          {slides.map((slide, index) => {
+          {slides2.map((slide, index) => {
             return (
               // eslint-disable-next-line react/jsx-key
               <div
@@ -42,17 +53,17 @@ export default function Slide({ slides }) {
                   <>
                     <div className="info">
                       <span>
-                        <p>{slide.type}</p>
+                        <p>{slide.title}</p>
                       </span>
                       <hr className="divisor" />
-                      <h1>{slide.title}</h1>
+                      <h1>{slide.subtitle}</h1>
                       <p>{slide.description}</p>
                       <button>COMPRAR</button>
                     </div>
                     <div className="slide-container">
                       <div className={`image`}>
                         <Image
-                          src={slide.image}
+                          src={`http://localhost:8055/assets/${slide.imagem}`}
                           width="532"
                           height="752"
                           alt="drink"
@@ -69,3 +80,32 @@ export default function Slide({ slides }) {
     </SlideShow>
   );
 }
+
+// <div
+//   key={slide.id}
+//   className={index === current ? "slider active" : "slider"}
+// >
+//   {index === current && (
+//     <>
+//       <div className="info">
+//         <span>
+//           <p>{slide.type}</p>
+//         </span>
+//         <hr className="divisor" />
+//         <h1>{slide.title}</h1>
+//         <p>{slide.description}</p>
+//         <button>COMPRAR</button>
+//       </div>
+//       <div className="slide-container">
+//         <div className={`image`}>
+//           <Image
+//             src={slide.image}
+//             width="532"
+//             height="752"
+//             alt="drink"
+//           />
+//         </div>
+//       </div>
+//     </>
+//   )}
+// </div>;

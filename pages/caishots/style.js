@@ -562,6 +562,25 @@ const Body = styled.section`
 `;
 
 const Tutorial = styled.section`
+  margin-top: 8rem;
+  position: relative;
+
+  &:before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 466px;
+    height: 466px;
+    background-image: url("assets/img/ellipse.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    right: 20rem;
+    top: 5rem;
+    @media (max-width: 500px) {
+      content: none;
+    }
+  }
+
   overflow: hidden;
   max-width: 100%;
   div.container {
@@ -611,7 +630,7 @@ const Tutorial = styled.section`
     div.content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      padding-bottom: 300px;
+      margin-bottom: 150px;
       justify-content: space-around;
 
       div.tutorial-content {
@@ -627,6 +646,15 @@ const Tutorial = styled.section`
             font-size: 18px;
             font-weight: 400;
             line-height: 22px;
+            span {
+              font-family: Lato;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 900;
+              line-height: 28px;
+              letter-spacing: 0em;
+              text-align: left;
+            }
             &::marker {
               color: var(--green);
               font-family: Balbeer;
@@ -700,7 +728,7 @@ const Tutorial = styled.section`
           background-repeat: no-repeat;
           right: -7rem;
           transform: rotate(120.75deg);
-          bottom: 7rem;
+          bottom: 10rem;
           filter: blur(2px);
           @media (max-width: 500px) {
             content: none;
@@ -774,11 +802,81 @@ export const Form = styled.form`
   }
 `;
 
-export const TransactionTypeContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  margin: 1rem 0;
+export const Beneficios = styled.form`
+  max-width: 100%;
+  overflow: hidden;
+  margin-bottom: 10rem;
+  div.container {
+    max-width: 68.75rem;
+    margin: 0 auto;
+
+    div.infos {
+      text-align: center;
+      h2 {
+        margin: 1rem 0;
+        font-family: Lato;
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 42px;
+        color: var(--color-text);
+      }
+      p {
+        margin: 1rem 0;
+        font-family: Lato;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        color: var(--text-light);
+      }
+    }
+    hr.divisor {
+      margin: 3rem auto;
+      background-image: url("/assets/img/divisor-3.svg");
+      background-size: contain;
+      width: 103px;
+      height: 10px;
+      background-repeat: no-repeat;
+    }
+    .services {
+      margin: 0 auto;
+      .services-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .service-content {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          padding: 2rem 0;
+
+          &:nth-child(odd) {
+            border-right: 1px solid var(--green);
+          }
+          &:nth-child(n + 3):nth-child(-n + 4) {
+            border-top: 1px solid var(--green);
+          }
+          div {
+            margin: 1rem;
+          }
+          div > h3 {
+            color: var(--color-text);
+            font-family: Lato;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 38px;
+          }
+          div > p {
+            color: var(--text-light);
+            max-width: 310px;
+            font-family: Lato;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 26px;
+          }
+        }
+      }
+    }
+  }
 `;
 
 export { Body, Top, Tutorial };

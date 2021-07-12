@@ -5,4 +5,7 @@ module.exports = {
       net: false,
     },
   },
+  images: {
+    domains: ["localhost"],
+  },
 };

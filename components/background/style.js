@@ -1,16 +1,30 @@
 import styled from "styled-components";
 
 const Back = styled.section`
-  .texture {
-    z-index: -10;
-    opacity: 1;
+  .aexture {
+    z-index: -5;
+    mix-blend-mode: screen;
+    opacity: 0.2;
     background-size: contain;
-    mix-blend-mode: color-dodge;
     top: 0;
-    z-index: -1;
     position: absolute;
     width: 100%;
     height: 100%;
+    background-image: url("assets/img/texture-2.png");
+  }
+  &:aafter {
+    opacity: 1;
+    content: "";
+    z-index: -1;
+    position: absolute;
+    bottom: 70px;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 1)
+    );
   }
 
   .texture.home {
@@ -45,7 +59,7 @@ const Back = styled.section`
   }
 
   div.rectangle.home {
-    z-index: -2;
+    z-index: -6;
     position: absolute;
     width: 68.75rem;
     height: 53.25rem;
@@ -90,7 +104,7 @@ const Back = styled.section`
   div.rectangle {
     overflow: hidden;
 
-    z-index: -2;
+    z-index: -6;
     position: absolute;
     width: 75.625rem;
     height: 10.9375rem;

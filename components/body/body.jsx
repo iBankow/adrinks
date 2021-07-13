@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 export default function Body() {
   const [items, setItems] = useState([]);
+  const [title, setTitle] = useState(null);
 
   useEffect(() => {
     async function loadItems() {
@@ -20,27 +21,43 @@ export default function Body() {
     loadItems();
   }, []);
 
+  useEffect(() => {
+    async function loadTitle() {
+      const titles = await directus.get("items/imagens?filter[local][_eq]=bar");
+      console.log(title);
+      setTitle(titles.data.data[0]);
+    }
+    loadTitle();
+  }, [title]);
+
   return (
     <Main>
-      <Head>
-        <div className="img">
-          <Image src={crew} alt="crew" />
-        </div>
-        <div className="info">
-          <h2>Bar</h2>
-          <hr className="divider" />
-          <p>Gallia est omnis divisa in partes tres, quarum.</p>
-          <button>FAZER ORÇAMENTO</button>
-          <Assets>
-            <div className="leaves">
-              <Image src={leaves} alt="leave" />
-            </div>
-            <div className="ellipse">
-              <Image src={ellipse} alt="ellipse" />
-            </div>
-          </Assets>
-        </div>
-      </Head>
+      {title !== null && (
+        <Head>
+          <div className="img">
+            <Image
+              src={`http://localhost:8055/assets/${title.imagem}`}
+              alt="crew"
+              width="548"
+              height="355"
+            />
+          </div>
+          <div className="info">
+            <h2>{title.title}</h2>
+            <hr className="divider" />
+            <p>{title.desc}</p>
+            <button>FAZER ORÇAMENTO</button>
+            <Assets>
+              <div className="leaves">
+                <Image src={leaves} alt="leave" />
+              </div>
+              <div className="ellipse">
+                <Image src={ellipse} alt="ellipse" />
+              </div>
+            </Assets>
+          </div>
+        </Head>
+      )}
       <section className="services">
         <div className="services-title">
           <h2>SERVIÇOS</h2>

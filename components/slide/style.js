@@ -62,6 +62,26 @@ const SlideShow = styled.section`
       }
     }
 
+    div.divisor {
+      display: flex;
+      top: 10rem;
+      position: absolute;
+      background-size: contain;
+      width: 100%;
+      height: 10px;
+      background-repeat: no-repeat;
+      .ellipse {
+        align-items: center;
+        display: flex;
+        margin: 0 0.5rem;
+        filter: brightness(0) invert(1);
+        &.active {
+          filter: none;
+        }
+        cursor: pointer;
+      }
+    }
+
     div.slide {
       height: 756px;
       display: flex;
@@ -120,15 +140,7 @@ const SlideShow = styled.section`
           font-size: 50px;
           line-height: 50px;
           color: var(--yellow);
-          margin-bottom: 2rem;
-        }
-
-        hr.divisor {
-          background-image: url("/assets/img/divisor.svg");
-          background-size: contain;
-          width: 108px;
-          height: 10px;
-          background-repeat: no-repeat;
+          margin-bottom: 42px;
         }
 
         h1 {

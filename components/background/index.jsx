@@ -15,7 +15,7 @@ export default function Background({ home, bar }) {
       ) : (
         <>
           {bar ? (
-            <div className="texture"></div>
+            <div className=""></div>
           ) : (
             <div className="texture home"></div>
           )}

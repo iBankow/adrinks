@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { directus } from "../../services/api";
+import ellipse from "../../public/assets/img/ellipse.svg";
+import rectangle from "../../public/assets/img/rectangle.svg";
 
 export default function Slide({ slides }) {
   const [slides2, setSlide] = useState([]);
@@ -41,6 +43,31 @@ export default function Slide({ slides }) {
             <IoIosArrowForward className="icon" />
           </button>
         </div>
+        {slides2 && (
+          <div className="divisor">
+            <Image src={rectangle} alt="rectangle" className="rectangle" />
+            {slides2.map((slide, index) => {
+              return (
+                <>
+                  <div
+                    className={index === current ? "ellipse active" : "ellipse"}
+                    onClick={(e) => {
+                      setCurrent(index);
+                    }}
+                  >
+                    <Image
+                      src={ellipse}
+                      alt="ellipse"
+                      width="10px"
+                      height="10px"
+                    />
+                  </div>
+                </>
+              );
+            })}
+            <Image src={rectangle} alt="rectangle" />
+          </div>
+        )}
         <div className="slide">
           {slides2.map((slide, index) => {
             return (
@@ -54,7 +81,6 @@ export default function Slide({ slides }) {
                       <span>
                         <p>{slide.title}</p>
                       </span>
-                      <hr className="divisor" />
                       <h1>{slide.subtitle}</h1>
                       <p>{slide.description}</p>
                       <button>COMPRAR</button>

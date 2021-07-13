@@ -9,7 +9,7 @@ import Background from "../../components/background/index";
 import drink from "../../public/assets/img/drink-2.png";
 import crew from "../../public/assets/img/crew.jpg";
 
-import { api } from "../../services/api";
+import { api, directus } from "../../services/api";
 import { ShopItems } from "../../components/data";
 import beer from "../../public/assets/img/beer.svg";
 
@@ -18,7 +18,7 @@ export default function Caishots() {
 
   const [items, setItems] = useState([]);
   const [cart, setCart] = useState([]);
-  const [categorie, setCategorie] = useState(3);
+  const [categorie, setCategorie] = useState(2);
 
   function addProduct(product, productId) {
     const updateCart = [...cart];
@@ -66,10 +66,10 @@ export default function Caishots() {
 
   function selectCategorie(categorie) {
     setCategorie(categorie);
-    const filterItems = [...ShopItems].filter((item) => {
-      return item.categorie === categorie;
-    });
-    setItems(filterItems);
+    // const filterItems = [...ShopItems].filter((item) => {
+    //   return item.categorie === categorie;
+    // });
+    // setItems(filterItems);
   }
 
   useEffect(() => {
@@ -84,17 +84,19 @@ export default function Caishots() {
 
   useEffect(() => {
     async function loadCategories() {
-      const result = await api.get("/cat");
-      setCategories(result.data);
+      const result = await directus.get("/items/category");
+      setCategories(result.data.data);
     }
     loadCategories();
   }, []);
 
   useEffect(() => {
     async function LoadItems(id) {
-      const results = await api.get(`/items/${id}`);
+      const results = await directus.get(
+        `/items/items?filter[category_id][_eq]=${id}`
+      );
       console.log(results.data);
-      setItems(results.data);
+      setItems(results.data.data);
     }
     LoadItems(categorie);
   }, [categorie]);
@@ -162,7 +164,7 @@ export default function Caishots() {
                         if (categorie === item.id) {
                           return (
                             <button key={item.id} className={`select`}>
-                              {item.name.toUpperCase()}
+                              {item.category.toUpperCase()}
                             </button>
                           );
                         } else {
@@ -171,7 +173,7 @@ export default function Caishots() {
                               key={item.id}
                               onClick={() => selectCategorie(item.id)}
                             >
-                              {item.name.toUpperCase()}
+                              {item.category.toUpperCase()}
                             </button>
                           );
                         }
@@ -189,7 +191,7 @@ export default function Caishots() {
                             <Image
                               width={91}
                               height={61}
-                              src={item.image}
+                              src={`http://localhost:8055/assets/${item.image}`}
                               alt={item.name}
                             />
                           </div>
@@ -228,7 +230,7 @@ export default function Caishots() {
                       <div key={item.id} className="item">
                         <div className="img">
                           <Image
-                            src={item.image}
+                            src={`http://localhost:8055/assets/${item.image}`}
                             width={91}
                             height={61}
                             alt={item.name}

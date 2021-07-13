@@ -44,7 +44,7 @@ body {
   margin: 0 auto;
   font-family: "Lato", sans-serif;
   scroll-behavior: smooth;
-  background-color: #ffffff, 100%;
+  background: black, 100%;
 }
 
 a {

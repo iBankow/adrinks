@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 const Back = styled.section`
-  .aexture {
+  .texture {
     z-index: -5;
-    mix-blend-mode: screen;
     opacity: 0.2;
+    mix-blend-mode: screen;
     background-size: contain;
     top: 0;
     position: absolute;
@@ -12,19 +12,15 @@ const Back = styled.section`
     height: 100%;
     background-image: url("assets/img/texture-2.png");
   }
-  &:aafter {
+  &:after {
     opacity: 1;
     content: "";
-    z-index: -1;
+    z-index: -10;
     position: absolute;
     bottom: 70px;
     width: 100%;
     height: 100px;
-    background: linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 1),
-      rgba(255, 255, 255, 1)
-    );
+    background: linear-gradient(0deg, rgba(248, 249, 242, 1), transparent);
   }
 
   .texture.home {

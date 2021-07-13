@@ -93,7 +93,6 @@ const Container = styled.section`
     }
 
     .image-slider {
-      z-index: 1000;
       width: 100%;
       height: 600px;
       position: absolute;
@@ -127,6 +126,12 @@ const Container = styled.section`
           &:hover {
             cursor: pointer;
           }
+        }
+
+        .button {
+          position: absolute;
+          width: 364px;
+          height: 249px;
         }
 
         .img.active {

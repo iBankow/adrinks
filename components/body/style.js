@@ -14,8 +14,8 @@ const Main = styled.section`
       background-image: url("assets/img/leaves.png");
       background-size: 100%;
       background-repeat: no-repeat;
-      right: -10rem;
-      bottom: 30rem;
+      right: -7.5rem;
+      bottom: 25rem;
     }
 
     &:before {
@@ -165,7 +165,10 @@ const Head = styled.section`
   align-items: flex-start;
 
   div.img {
+    display: flex;
     position: relative;
+    width: 548px;
+    height: 355px;
     img {
       border-radius: 6.25rem 0 0 0;
     }

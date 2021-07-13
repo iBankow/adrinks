@@ -5,20 +5,20 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useEffect, useState } from "react";
 
 export default function Slider() {
-  const [slider, setSlider] = useState(50);
+  const [slider, setSlider] = useState(10);
   const [current, setCurrent] = useState(0);
   const lenght = Slidedata.length;
 
   function styleSlide() {
-    return { transform: `translateX(${slider}%)` };
+    return { left: `-${slider}%` };
   }
 
   function nextSlide() {
     if (current === lenght - 1) {
       setCurrent(0);
-      setSlider(50);
+      setSlider(10);
     } else {
-      setSlider(slider - 20);
+      setSlider(slider + 20);
       setCurrent(current + 1);
     }
   }
@@ -26,10 +26,10 @@ export default function Slider() {
   function prevSlide() {
     if (current === 0) {
       setCurrent(lenght - 1);
-      setSlider(-50);
+      setSlider(110);
     } else {
       setCurrent(current - 1);
-      setSlider(slider + 20);
+      setSlider(slider - 20);
     }
   }
 
@@ -40,6 +40,7 @@ export default function Slider() {
   return (
     <Container>
       <div className="slide-container">
+        <span className="slider-span"></span>
         <div className="image-slider" style={styleSlide()}>
           {Slidedata.map((slide, index) => {
             return (
@@ -49,6 +50,7 @@ export default function Slider() {
                   src={slide.image}
                   alt={slide.type}
                 />
+                <a href={`slider-span${index}`} className="button"></a>
               </div>
             );
           })}

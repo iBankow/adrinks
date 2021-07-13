@@ -53,7 +53,7 @@ const Top = styled.section`
         }
 
         h1 {
-          color: var(--color-tex);
+          color: var(--color-text);
           font-family: SantElia;
           font-weight: 700;
           font-size: 120px;
@@ -62,7 +62,7 @@ const Top = styled.section`
         }
 
         p {
-          color: var(--color-tex);
+          color: var(--color-text);
           width: 297px;
           line-height: 22px;
           font-family: Lato;
@@ -229,12 +229,15 @@ const Body = styled.section`
 
         transition: height 2s ease-in-out;
 
+        .filter-container {
+          min-height: 32rem;
+        }
+
         div.filter {
           width: 100%;
           padding: 2rem 3rem;
 
           div.filter-content {
-            height: 55px;
             background: #ffffff;
             border-radius: 70px;
             margin: 0 auto;
@@ -534,6 +537,8 @@ const Body = styled.section`
               padding: 2rem 1.75rem;
 
               .filter-content {
+                height: 55px;
+
                 overflow: scroll;
                 display: flex;
                 align-items: center;

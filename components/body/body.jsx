@@ -5,8 +5,21 @@ import leaves from "../../public/assets/img/leaves.png";
 import ellipse from "../../public/assets/img/ellipse.svg";
 import beer from "../../public/assets/img/beer.svg";
 import divisor from "../../public/assets/img/divisor-3.svg";
+import { directus } from "../../services/api";
+import { useEffect, useState } from "react";
 
 export default function Body() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    async function loadItems() {
+      const services = await directus.get("items/services");
+      setItems(services.data.data);
+      console.log(services);
+    }
+    loadItems();
+  }, []);
+
   return (
     <Main>
       <Head>
@@ -35,54 +48,21 @@ export default function Body() {
           <Image src={divisor} alt="beer-logo" />
         </div>
         <div className="services-container">
-          <div className="service-content">
-            <div className="img">
-              <Image src={beer} alt="beer-logo" />
-            </div>
-            <div className="info">
-              <h3>Bartender</h3>
-              <p>
-                Quae vero auctorem tractata ab fiducia dicuntur. Quam temere in
-                vitiis, legem .
-              </p>
-            </div>
-          </div>
-          <div className="service-content">
-            <div className="img">
-              <Image src={beer} alt="beer-logo" />
-            </div>
-            <div className="info">
-              <h3>Bartender</h3>
-              <p>
-                Quae vero auctorem tractata ab fiducia dicuntur. Quam temere in
-                vitiis, legem .
-              </p>
-            </div>
-          </div>
-          <div className="service-content">
-            <div className="img">
-              <Image src={beer} alt="beer-logo" />
-            </div>
-            <div className="info">
-              <h3>Bartender</h3>
-              <p>
-                Quae vero auctorem tractata ab fiducia dicuntur. Quam temere in
-                vitiis, legem .
-              </p>
-            </div>
-          </div>
-          <div className="service-content">
-            <div className="img">
-              <Image src={beer} alt="beer-logo" />
-            </div>
-            <div className="info">
-              <h3>Bartender</h3>
-              <p>
-                Quae vero auctorem tractata ab fiducia dicuntur. Quam temere in
-                vitiis, legem .
-              </p>
-            </div>
-          </div>
+          {items.map((item) => {
+            return (
+              <>
+                <div id={item.id} className="service-content">
+                  <div className="img">
+                    <Image src={beer} alt="beer-logo" />
+                  </div>
+                  <div className="info">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              </>
+            );
+          })}
         </div>
       </section>
       <div className="img-test"></div>

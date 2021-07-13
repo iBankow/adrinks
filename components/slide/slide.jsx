@@ -44,7 +44,6 @@ export default function Slide({ slides }) {
         <div className="slide">
           {slides2.map((slide, index) => {
             return (
-              // eslint-disable-next-line react/jsx-key
               <div
                 key={slide.id}
                 className={index === current ? "slider active" : "slider"}

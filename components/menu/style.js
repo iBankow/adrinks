@@ -5,7 +5,7 @@ const Menu = styled.nav`
   cursor: initial;
   list-style: none;
   text-align: right;
-  color: #fff;
+  color: ${(props) => props.theme.colors.textWhite};
   height: 1000px;
   position: relative;
   a,
@@ -25,7 +25,7 @@ const Menu = styled.nav`
       transition: color 200ms ease-in-out;
 
       &:hover {
-        color: #ffd659;
+        color: ${(props) => props.theme.colors.primary};
         cursor: pointer;
       }
       p {
@@ -38,7 +38,6 @@ const Menu = styled.nav`
   @media (max-width: 500px) {
     cursor: initial;
     text-align: right;
-    color: #fff;
     height: 750px;
     position: relative;
 

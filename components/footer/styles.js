@@ -1,5 +1,7 @@
 import styled from "styled-components";
 const FooterMain = styled.footer`
+  background: ${(props) => props.theme.colors.background};
+
   padding: 5rem 0;
   align-items: center;
   position: relative;
@@ -27,9 +29,10 @@ const FooterMain = styled.footer`
   }
 
   .svg {
-    filter: invert(1);
+    filter: invert(${(props) => (props.theme.title === "dark" ? "0" : "1")});
   }
   section {
+    z-index: 1000;
     position: relative;
     .top {
       position: absolute;
@@ -52,9 +55,8 @@ const FooterMain = styled.footer`
     align-items: center;
     max-width: 68.75rem;
     margin: 0 auto;
-    fill: black;
-
     a {
+      color: ${(props) => props.theme.colors.textBlack};
       font-family: Ubuntu;
       font-size: 20px;
       font-style: normal;
@@ -88,7 +90,7 @@ const FooterMain = styled.footer`
 
       font-family: Ubuntu;
       text-align: left;
-      color: var(--color-text);
+      color: ${(props) => props.theme.colors.textBlack};
       span {
         font-size: 12px;
         font-weight: 700;
@@ -98,6 +100,12 @@ const FooterMain = styled.footer`
         font-size: 12px;
         font-weight: 400;
         line-height: 12px;
+      }
+
+      img {
+        filter: invert(
+          ${(props) => (props.theme.title === "dark" ? "1" : "0")}
+        );
       }
     }
 

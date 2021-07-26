@@ -5,18 +5,20 @@ import leaves from "../../public/assets/img/leaves.png";
 import ellipse from "../../public/assets/img/ellipse.svg";
 import beer from "../../public/assets/img/beer.svg";
 import divisor from "../../public/assets/img/divisor-3.svg";
+import divisorDark from "../../public/assets/img/divisor-dark.svg";
 import { directus } from "../../services/api";
 import { useEffect, useState } from "react";
 
-export default function Body() {
+export default function Body({ theme }) {
   const [items, setItems] = useState([]);
   const [title, setTitle] = useState(null);
 
   useEffect(() => {
     async function loadItems() {
-      const services = await directus.get("items/services");
+      const services = await directus.get(
+        "items/services?filter[local][_eq]=1"
+      );
       setItems(services.data.data);
-      console.log(services);
     }
     loadItems();
   }, []);
@@ -24,11 +26,11 @@ export default function Body() {
   useEffect(() => {
     async function loadTitle() {
       const titles = await directus.get("items/imagens?filter[local][_eq]=bar");
-      console.log(title);
       setTitle(titles.data.data[0]);
     }
     loadTitle();
-  }, [title]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Main>
@@ -40,6 +42,7 @@ export default function Body() {
               alt="crew"
               width="548"
               height="355"
+              className="imagem"
             />
           </div>
           <div className="info">
@@ -62,13 +65,17 @@ export default function Body() {
         <div className="services-title">
           <h2>SERVIÇOS</h2>
           <p>Serviços do pacote do bar a.drinks</p>
-          <Image src={divisor} alt="beer-logo" />
+          {theme.title === "dark" ? (
+            <Image src={divisorDark} className="divisor-2" alt="divisor" />
+          ) : (
+            <Image src={divisor} className="divisor-2" alt="divisor" />
+          )}
         </div>
         <div className="services-container">
           {items.map((item) => {
             return (
               <>
-                <div id={item.id} className="service-content">
+                <div key={item.id} className="service-content">
                   <div className="img">
                     <Image src={beer} alt="beer-logo" />
                   </div>
@@ -82,7 +89,9 @@ export default function Body() {
           })}
         </div>
       </section>
-      <div className="img-test"></div>
+      <div
+        className={theme.title === "dark" ? "img-test dark" : "img-test"}
+      ></div>
     </Main>
   );
 }

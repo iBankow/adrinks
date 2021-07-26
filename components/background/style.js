@@ -9,20 +9,27 @@ const Back = styled.section`
     top: 0;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 65.25rem;
     background-image: url("assets/img/texture-2.png");
   }
+
   &:after {
     opacity: 1;
     content: "";
-    z-index: -10;
+    z-index: -5;
     position: absolute;
-    bottom: 70px;
+    bottom: ${(props) => (props.theme.title === "dark" ? "0px" : "0px")};
     width: 100%;
-    height: 100px;
-    background: linear-gradient(0deg, rgba(248, 249, 242, 1), transparent);
+    height: 150px;
+    background: linear-gradient(
+      0deg,
+      ${(props) =>
+        props.theme.title === "dark" ? `${"#222"}` : "rgba(248, 249, 242, 1)"},
+      transparent
+    );
   }
 
+  //${(props) => (props.theme.title === "light" ? `${"none"}` : "")}
   .texture.home {
     z-index: -1;
     opacity: 1;
@@ -33,11 +40,27 @@ const Back = styled.section`
     position: absolute;
     width: 100%;
     height: 100%;
+
     background-image: linear-gradient(
       180deg,
-      rgba(145, 166, 60, 0.28) 71.87%,
-      rgba(145, 166, 60, 0) 100%
+      ${(props) =>
+        props.theme.title === "dark"
+          ? `${"#222, #222"}`
+          : "rgba(145, 166, 60, 0.28) 71.87%, rgba(145, 166, 60, 0) 100%"}
     );
+  }
+
+  .dark {
+    z-index: -1;
+    opacity: 1;
+    background-size: contain;
+    mix-blend-mode: color-dodge;
+    top: 0;
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
   }
 
   div.background {
@@ -52,17 +75,22 @@ const Back = styled.section`
       rgba(145, 166, 60, 0.28) 71.87%,
       rgba(145, 166, 60, 0) 100%
     );
+    background: ${(props) => props.theme.colors.darkSecondary};
   }
 
   div.rectangle.home {
     z-index: -6;
     position: absolute;
     width: 68.75rem;
-    height: 53.25rem;
+    height: ${(props) =>
+      props.theme.title === "dark" ? `${"10rem"}` : "53.25rem"};
     left: 0px;
     top: 0px;
 
-    background: #2a3613;
+    background: ${(props) =>
+      props.theme.title === "dark"
+        ? "black"
+        : props.theme.colors.darkSecondary};
     border-radius: 0px 0px 500px 0px;
     div.rectangle > div.circle {
       border-radius: 50%;
@@ -98,8 +126,6 @@ const Back = styled.section`
   }
 
   div.rectangle {
-    overflow: hidden;
-
     z-index: -6;
     position: absolute;
     width: 75.625rem;
@@ -112,7 +138,7 @@ const Back = styled.section`
       border-radius: 0px 0px 150px 0px;
     }
 
-    background: #2a3613;
+    background: ${(props) => props.theme.colors.darkSecondary};
     border-radius: 0px 0px 500px 0px;
     div.circle {
       border-radius: 50%;

@@ -8,20 +8,54 @@ import divisor from "../../public/assets/img/divisor-3.svg";
 import beer from "../../public/assets/img/beer.svg";
 
 import { Head } from "./style";
+import { useEffect, useState } from "react";
+import { directus } from "../../services/api";
+
+import { ThemeProvider } from "styled-components";
+import light from "../../styles/themes/light";
+import dark from "../../styles/themes/dark";
+import GlobalStyle from "../../styles/global";
 
 export default function Consultoria() {
+  const [title, setTitle] = useState([]);
+  const [items, setItems] = useState([]);
+  const [theme, setTheme] = useState(light);
+
+  useEffect(() => {
+    async function loadItems() {
+      const services = await directus.get(
+        "items/services?filter[local][_eq]=2"
+      );
+      setItems(services.data.data);
+    }
+    loadItems();
+  }, []);
+
+  useEffect(() => {
+    async function loadTitle() {
+      const titles = await directus.get(
+        "items/imagens?filter[local][_eq]=consultoria"
+      );
+      setTitle(titles.data.data[0]);
+    }
+    loadTitle();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme(theme.title === "light" ? dark : light);
+    console.log(theme);
+  };
+
   return (
-    <>
-      <Header />
+    <ThemeProvider theme={theme}>
+      <Header toggleTheme={toggleTheme} theme={theme} />
       <Head>
         <div className="container">
-          <h1>Consultoria</h1>
+          <h1>{title.title}</h1>
           <div className="content">
             <div className="info">
-              <p>
-                Proporcione o seu bar ou restaurante em ter um potencial muito
-                maior do que imagina
-              </p>
+              <p>{title.desc}</p>
               <button>ORÇAMENTO</button>
             </div>
             <div className="image-container">
@@ -33,63 +67,29 @@ export default function Consultoria() {
           <div className="services-title">
             <h2>SERVIÇOS</h2>
             <p>Serviços do pacote do bar a.drinks</p>
-            <Image src={divisor} alt="beer-logo" />
+            <Image src={divisor} alt="divisor" />
           </div>
           <div className="services-container">
-            <div className="service-content">
-              <div className="img">
-                <Image src={beer} alt="beer-logo" />
-              </div>
-              <div className="info">
-                <h3>Carta</h3>
-                <p>
-                  Quae vero auctorem tractata ab fiducia dicuntur. Quam temere
-                  in vitiis, legem .
-                </p>
-              </div>
-            </div>
-            <div className="service-content">
-              <div className="img">
-                <Image src={beer} alt="beer-logo" />
-              </div>
-              <div className="info">
-                <h3>Treinamento</h3>
-                <p>
-                  Quae vero auctorem tractata ab fiducia dicuntur. Quam temere
-                  in vitiis, legem .
-                </p>
-              </div>
-            </div>
-            <div className="service-content">
-              <div className="img">
-                <Image src={beer} alt="beer-logo" />
-              </div>
-              <div className="info">
-                <h3>Reformulação</h3>
-                <p>
-                  Quae vero auctorem tractata ab fiducia dicuntur. Quam temere
-                  in vitiis, legem .
-                </p>
-              </div>
-            </div>
-            <div className="service-content">
-              <div className="img">
-                <Image src={beer} alt="beer-logo" />
-              </div>
-              <div className="info">
-                <h3>Decoração</h3>
-                <p>
-                  Quae vero auctorem tractata ab fiducia dicuntur. Quam temere
-                  in vitiis, legem .
-                </p>
-              </div>
-            </div>
+            {items.map((item) => {
+              return (
+                <div key={item.map} className="service-content">
+                  <div className="img">
+                    <Image src={beer} alt="beer-logo" />
+                  </div>
+                  <div className="info">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
       </Head>
       <Slider />
       <Footer />
-      <Background />
-    </>
+      <GlobalStyle />
+      <Background theme={theme} />
+    </ThemeProvider>
   );
 }

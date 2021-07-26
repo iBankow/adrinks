@@ -1,12 +1,29 @@
 import styled from "styled-components";
 
 const Main = styled.section`
+  background: ${(props) => props.theme.colors.background};
+  &:after {
+    z-index: 1;
+    opacity: 1;
+    content: "";
+    position: absolute;
+    top: ${(props) => (props.theme.title === "dark" ? "-210px" : "-210px")};
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(
+      180deg,
+      ${(props) =>
+        props.theme.title === "dark" ? `${"#222"}` : "rgba(248, 249, 242, 1)"},
+      transparent
+    );
+  }
+
   margin-top: 12rem;
   width: 100%;
   position: relative;
-
   div.img-test {
     &:after {
+      z-index: 1000;
       content: "";
       position: absolute;
       width: 16rem;
@@ -31,20 +48,31 @@ const Main = styled.section`
       transform: rotate(270deg);
       filter: blur(0.5rem) contrast(70%);
     }
+    z-index: 0;
 
     overflow: hidden;
-    z-index: -2;
     top: -13rem;
     position: absolute;
     width: 100%;
     height: 56.25rem;
     background-repeat: repeat;
-    background: linear-gradient(
-        180deg,
-        #ffffff 11.98%,
-        rgba(255, 214, 89, 0.35) 100%
-      ),
-      url("assets/img/crew.jpg");
+    & {
+      background: linear-gradient(
+          -180deg,
+          #ffffff 11.98%,
+          rgba(255, 214, 89, 0.35) 100%
+        ),
+        url("assets/img/crew.jpg");
+    }
+
+    &.dark {
+      background: linear-gradient(
+          0deg,
+          rgba(37, 70, 240, 0.75) 11.98%,
+          rgba(34, 34, 34, 0.75) 100%
+        ),
+        url("assets/img/texture-2.png");
+    }
 
     @media (max-width: 500px) {
       overflow: hidden;
@@ -64,14 +92,16 @@ const Main = styled.section`
   }
 
   section.services {
+    z-index: 1;
+
     justify-content: space-between;
     position: relative;
     max-width: 68.75rem;
     margin: 3rem auto 0 auto;
-    background-color: var(--white);
+    background-color: #fff;
     width: 100%;
     height: 42.5rem;
-    box-shadow: 0 0.25rem 3.125rem -1.562rem rgba(145, 166, 60, 0.67);
+    box-shadow: 0 0.25rem 3.125rem -1.562rem ${(props) => props.theme.colors.shadowOne};
     border-radius: 0 12.5rem 1.25rem 1.25rem;
     align-items: center;
 
@@ -79,7 +109,7 @@ const Main = styled.section`
       max-width: 30rem;
 
       display: flex;
-      box-shadow: 0 1rem 3.125rem -1.562rem rgba(145, 166, 60, 0.67);
+      box-shadow: 0 1rem 3.125rem -1.562rem ${(props) => props.theme.colors.shadowOne};
 
       flex-direction: column;
       height: 100%;
@@ -93,7 +123,7 @@ const Main = styled.section`
       font-weight: 800;
       line-height: 2.62rem;
       letter-spacing: 0em;
-      color: var(--color-text);
+      color: ${(props) => props.theme.colors.colorText};
     }
 
     p {
@@ -103,7 +133,7 @@ const Main = styled.section`
       font-style: normal;
       font-weight: 400;
       line-height: 1.625rem;
-      color: var(--text-light);
+      color: ${(props) => props.theme.colors.textLight};
     }
 
     .services-title {
@@ -134,7 +164,7 @@ const Main = styled.section`
         width: 28rem;
         height: 8.875rem;
         border-radius: 1.25rem;
-        background: rgba(145, 166, 60, 0.05);
+        background: ${(props) => props.theme.colors.translucid};
         div.info {
           width: 18.75rem;
 
@@ -145,7 +175,7 @@ const Main = styled.section`
       }
 
       h3 {
-        color: rgba(34, 34, 34, 1);
+        color: ${(props) => props.theme.colors.colorText};
         font-size: 1.5rem;
         line-height: 2.37rem;
       }
@@ -157,7 +187,6 @@ const Head = styled.section`
   max-width: 68.75rem;
   z-index: 100;
   position: relative;
-  padding: 0 3rem;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(3.125rem, 1fr));
@@ -165,11 +194,12 @@ const Head = styled.section`
   align-items: flex-start;
 
   div.img {
-    display: flex;
     position: relative;
     width: 548px;
     height: 355px;
-    img {
+    justify-content: center;
+    box-sizing: border-box;
+    .imagem {
       border-radius: 6.25rem 0 0 0;
     }
 
@@ -195,6 +225,7 @@ const Head = styled.section`
       font-weight: 700;
       line-height: 10rem;
       margin-bottom: 0.62rem;
+      color: ${(props) => props.theme.colors.textBlack};
     }
     hr.divider {
       background-image: url("/assets/img/divisor-2.svg");
@@ -205,7 +236,10 @@ const Head = styled.section`
       margin-bottom: 1.25rem;
     }
     p {
-      color: rgb(97, 130, 31);
+      color: ${(props) =>
+        props.theme.title === "dark"
+          ? props.theme.colors.textBlack
+          : props.theme.colors.secondary};
       margin-bottom: 1.25rem;
       font-family: Lato;
       font-size: 1.375rem;
@@ -214,7 +248,7 @@ const Head = styled.section`
       line-height: 2rem;
     }
     button {
-      color: rgb(97, 130, 31);
+      color: ${(props) => props.theme.colors.secondary};
       height: 3.43rem;
       width: 19rem;
       border-radius: 4.375rem;
@@ -249,11 +283,14 @@ const Assets = styled.div`
     top: 10rem;
     width: 25rem;
   }
+
   div.ellipse {
+    background: ${(props) => props.theme.colors.ellipse};
+    border-radius: 50%;
     z-index: -1;
     position: absolute;
-    top: -9rem;
-    left: -8rem;
+    top: -6rem;
+    left: -5rem;
     width: 25rem;
   }
 

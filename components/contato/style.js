@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 const Main = styled.section`
+  background: ${(props) => props.theme.colors.background};
   width: 100%;
   position: relative;
+  padding-bottom: 10rem;
   &::before {
     content: "";
     position: absolute;
@@ -24,7 +26,7 @@ const Main = styled.section`
 
   div.container {
     max-width: 68.75rem;
-    margin: 5rem auto;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -47,10 +49,10 @@ const Main = styled.section`
         width: 100%;
         height: 3rem;
         border-radius: 0.5rem;
-        border-bottom: solid 4px #91a63c;
+        border-bottom: solid 4px ${(props) => props.theme.colors.secondary};
 
         &:focus {
-          border-bottom: solid 4px var(--yellow);
+          border-bottom: solid 4px ${(props) => props.theme.colors.primary};
         }
 
         &::placeholder {
@@ -69,10 +71,11 @@ const Main = styled.section`
         line-height: 121px;
         letter-spacing: 0em;
         text-align: left;
+        color: ${(props) => props.theme.colors.secondary};
       }
       button {
         margin-top: 1rem;
-        background-color: var(--green);
+        background-color: ${(props) => props.theme.colors.secondary};
         width: 168px;
         height: 55px;
         border-radius: 70px;
@@ -98,9 +101,9 @@ const Main = styled.section`
     .contato {
       position: relative;
       width: 100%;
-      background-color: white;
+      background: ${(props) => props.theme.colors.background};
       border-radius: 0px 10rem 0px 0px;
-      box-shadow: 0px 0px 200px -20px rgba(145, 166, 60, 0.6);
+      box-shadow: 0px 0px 200px -20px ${(props) => props.theme.colors.shadowOne};
       &::after {
         content: "";
         position: absolute;
@@ -141,11 +144,12 @@ const Main = styled.section`
       span {
         font-size: 24px;
         font-style: normal;
+        color: ${(props) => props.theme.colors.textBlack};
         font-weight: 600;
         line-height: 38px;
       }
       p {
-        color: var(--text-light);
+        color: ${(props) => props.theme.colors.textLight};
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
@@ -153,7 +157,7 @@ const Main = styled.section`
       }
 
       @media (max-width: 500px) {
-        box-shadow: 0px 0px 90px -20px rgba(145, 166, 60, 0.6);
+        box-shadow: 0px 0px 90px -20px ${(props) => props.theme.colors.shadowOne};
         border-radius: 0px 8rem 0px 0px;
         span {
           font-size: 20px;
@@ -175,11 +179,11 @@ const Main = styled.section`
             margin-top: 1.3125rem;
             width: 100%;
             height: 55px;
-            border: 2px solid var(--green);
+            border: 2px solid ${(props) => props.theme.colors.secondary};
             border-radius: 4.375rem;
             background-color: white;
 
-            color: var(--green);
+            color: ${(props) => props.theme.colors.secondary};
             font-size: 20px;
             font-style: normal;
             font-weight: 700;
@@ -191,7 +195,7 @@ const Main = styled.section`
               width: 80%;
               height: 45px;
               border-radius: 4.375rem;
-              background-color: white;
+              background-color: ${(props) => props.theme.colors.background};
 
               font-size: 16px;
               font-style: normal;

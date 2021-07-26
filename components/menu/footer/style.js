@@ -17,7 +17,7 @@ const Footer = styled.section`
     }
     div > span {
       font-size: 18px;
-      color: #ffd659;
+      color: ${(props) => props.theme.colors.primary};
       font-weight: 900;
       line-height: 30px;
     }
@@ -45,7 +45,6 @@ const Footer = styled.section`
       }
       div > span {
         font-size: 18px;
-        color: #ffd659;
         font-weight: 900;
         line-height: 30px;
       }

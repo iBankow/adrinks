@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Body, Top, Tutorial, Container, Form, Beneficios } from "./style";
+import { Body, Top, Tutorial, Beneficios } from "./style";
 
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
@@ -10,8 +10,12 @@ import drink from "../../public/assets/img/drink-2.png";
 import crew from "../../public/assets/img/crew.jpg";
 
 import { api, directus } from "../../services/api";
-import { ShopItems } from "../../components/data";
 import beer from "../../public/assets/img/beer.svg";
+
+import GlobalStyle from "../../styles/global";
+import { ThemeProvider } from "styled-components";
+import light from "../../styles/themes/light";
+import dark from "../../styles/themes/dark";
 
 export default function Caishots() {
   const [categories, setCategories] = useState([]);
@@ -66,10 +70,6 @@ export default function Caishots() {
 
   function selectCategorie(categorie) {
     setCategorie(categorie);
-    // const filterItems = [...ShopItems].filter((item) => {
-    //   return item.categorie === categorie;
-    // });
-    // setItems(filterItems);
   }
 
   useEffect(() => {
@@ -119,9 +119,16 @@ export default function Caishots() {
     window.open(response.data, "_blank");
   }
 
+  const [theme, setTheme] = useState(light);
+
+  const toggleTheme = () => {
+    setTheme(theme.title === "light" ? dark : light);
+    console.log(theme);
+  };
+
   return (
-    <>
-      <Header />
+    <ThemeProvider theme={theme}>
+      <Header toggleTheme={toggleTheme} theme={theme} />
       <Top>
         <section className="head">
           <div className="slide">
@@ -358,7 +365,8 @@ export default function Caishots() {
         </div>
       </Beneficios>
       <Footer />
-      <Background />
-    </>
+      <GlobalStyle />
+      <Background theme={theme} />
+    </ThemeProvider>
   );
 }

@@ -3,6 +3,7 @@ import styled from "styled-components";
 const SlideShow = styled.section`
   overflow: hidden;
   max-width: 100%;
+  margin-bottom: -0.8rem;
 
   section {
     padding-top: 90px;
@@ -23,10 +24,10 @@ const SlideShow = styled.section`
 
       button {
         .icon {
-          fill: var(--green);
+          fill: ${(props) => props.theme.colors.secondary};
         }
         z-index: 1;
-        background-color: var(--yellow);
+        background-color: ${(props) => props.theme.colors.primary};
         width: 64px;
         height: 54px;
         border-radius: 50px 0 0 50px;
@@ -40,11 +41,11 @@ const SlideShow = styled.section`
 
         transition: filter, background-color 300ms ease-in-out;
         &:hover {
-          background-color: var(--green);
+          background-color: ${(props) => props.theme.colors.secondary};
           cursor: pointer;
           filter: brightness(0.8);
           .icon {
-            fill: var(--yellow);
+            fill: ${(props) => props.theme.colors.primary};
           }
         }
       }
@@ -101,7 +102,7 @@ const SlideShow = styled.section`
 
           &:before {
             content: "";
-            background-color: var(--yellow);
+            background-color: ${(props) => props.theme.colors.primary};
             z-index: -1;
             position: absolute;
             width: 534px;
@@ -139,7 +140,10 @@ const SlideShow = styled.section`
           font-family: Balbeer;
           font-size: 50px;
           line-height: 50px;
-          color: var(--yellow);
+          color: ${(props) =>
+            props.theme.title === "dark"
+              ? props.theme.colors.secondary
+              : props.theme.colors.primary};
           margin-bottom: 42px;
         }
 
@@ -162,7 +166,7 @@ const SlideShow = styled.section`
 
         button {
           margin-top: 64px;
-          background-color: var(--green);
+          background-color: ${(props) => props.theme.colors.secondary};
           width: 220px;
           height: 55px;
           border-radius: 70px;
@@ -190,7 +194,7 @@ const SlideShow = styled.section`
           }
           button {
             margin-top: 15px;
-            background-color: var(--green);
+            background-color: ${(props) => props.theme.colors.secondary};
             width: 150px;
             height: 45px;
             border-radius: 70px;

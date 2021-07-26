@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.section`
+  background: ${(props) => props.theme.colors.background};
   max-width: 100%;
   display: flex;
   align-items: center;
@@ -8,6 +9,7 @@ const Container = styled.section`
   position: relative;
 
   &:before {
+    z-index: 1000;
     content: "";
     position: absolute;
     width: 259px;
@@ -17,13 +19,13 @@ const Container = styled.section`
     background-repeat: no-repeat;
     top: 20rem;
     left: 0;
-    z-index: -1;
     @media (max-width: 500px) {
       content: none;
     }
   }
 
   &:after {
+    z-index: 1000;
     content: "";
     position: absolute;
     width: 259px;
@@ -39,6 +41,7 @@ const Container = styled.section`
   }
 
   div.nav {
+    z-index: 1000;
     position: absolute;
     bottom: 8rem;
     left: 25rem;
@@ -50,10 +53,10 @@ const Container = styled.section`
 
     button {
       .icon {
-        fill: var(--yellow);
+        fill: ${(props) => props.theme.colors.primary};
       }
       z-index: 1;
-      background-color: var(--green);
+      background-color: ${(props) => props.theme.colors.secondary};
       width: 64px;
       height: 55px;
       border-radius: 50px 0 0 50px;
@@ -71,17 +74,18 @@ const Container = styled.section`
 
       transition: filter, background-color 300ms ease-in-out;
       &:hover {
-        background-color: var(--yellow);
+        background-color: ${(props) => props.theme.colors.primary};
         cursor: pointer;
         filter: brightness(0.8);
         .icon {
-          fill: var(--green);
+          fill: ${(props) => props.theme.colors.secondary};
         }
       }
     }
   }
 
   .slide-container {
+    z-index: 1000;
     width: 100%;
     height: 51.43rem;
     display: flex;

@@ -57,7 +57,7 @@ const Top = styled.header`
     }
     .overlay {
       background: rgba(34, 34, 34, 0.95);
-      color: var(--color-tex);
+      color: ${(props) => props.theme.colors.colorText};
       width: 100%;
       height: 100%;
       position: absolute;
@@ -71,10 +71,9 @@ const Top = styled.header`
 
     div.icon {
       margin-left: 3rem;
-    }
-
-    div.icon:last-child:hover {
-      cursor: pointer;
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     div.background {

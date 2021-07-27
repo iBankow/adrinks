@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Body, Top, Tutorial, Beneficios } from "./style";
+import {
+  Body,
+  Top,
+  Tutorial,
+  Beneficios,
+} from "../../components/caishots/style";
 
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";

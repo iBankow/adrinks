@@ -7,7 +7,7 @@ import Background from "../../components/background/index";
 import divisor from "../../public/assets/img/divisor-3.svg";
 import beer from "../../public/assets/img/beer.svg";
 
-import { Head } from "./style";
+import { Head, Body } from "../../components/consultoria/style";
 import { useEffect, useState } from "react";
 import { directus } from "../../services/api";
 
@@ -63,33 +63,34 @@ export default function Consultoria() {
             </div>
           </div>
         </div>
-        <section className="services">
-          <div className="services-title">
-            <h2>SERVIÇOS</h2>
-            <p>Serviços do pacote do bar a.drinks</p>
-            <Image src={divisor} alt="divisor" />
-          </div>
-          <div className="services-container">
-            {items.map((item) => {
-              return (
-                <div key={item.map} className="service-content">
-                  <div className="img">
-                    <Image src={beer} alt="beer-logo" />
-                  </div>
-                  <div className="info">
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
       </Head>
+
+      <Body className="services">
+        <div className="services-title">
+          <h2>SERVIÇOS</h2>
+          <p>Serviços do pacote do bar a.drinks</p>
+          <Image src={divisor} alt="divisor" />
+        </div>
+        <div className="services-container">
+          {items.map((item) => {
+            return (
+              <div key={item.map} className="service-content">
+                <div className="img">
+                  <Image src={beer} alt="beer-logo" />
+                </div>
+                <div className="info">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </Body>
       <Slider />
       <Footer />
       <GlobalStyle />
-      <Background theme={theme} />
+      <Background theme={theme} content={true} />
     </ThemeProvider>
   );
 }

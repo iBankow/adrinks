@@ -54,6 +54,7 @@ export default createGlobalStyle`
       }
     }
 
+
     html,
     body {
       padding: 0;

@@ -1,8 +1,23 @@
+import { useEffect, useState } from "react";
 import { Back } from "./style";
 
-export default function Background({ home, bar }) {
+export default function Background({ home, bar, content }) {
+  const [contents, setContents] = useState("");
+
+  useEffect(() => {
+    function loadContent() {
+      if (content === true) {
+        setContents(null);
+      } else {
+        setContents(true);
+      }
+    }
+    loadContent();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <Back>
+    <Back bar={contents}>
       {home === true ? (
         <>
           <div className="texture"></div>
@@ -15,7 +30,7 @@ export default function Background({ home, bar }) {
       ) : (
         <>
           {bar ? (
-            <div className=""></div>
+            <div className="texture bar"></div>
           ) : (
             <div className="texture home"></div>
           )}

@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 const Back = styled.section`
+  z-index: -1000;
+  @media (max-width: 500px) {
+    max-width: 30rem;
+  }
+
   .texture {
     z-index: -5;
     opacity: 0.2;
-    mix-blend-mode: screen;
     background-size: contain;
     top: 0;
     position: absolute;
@@ -15,8 +19,7 @@ const Back = styled.section`
 
   &:after {
     opacity: 1;
-    content: "";
-    z-index: -5;
+    z-index: -1;
     position: absolute;
     bottom: ${(props) => (props.theme.title === "dark" ? "0px" : "0px")};
     width: 100%;
@@ -27,10 +30,14 @@ const Back = styled.section`
         props.theme.title === "dark" ? `${"#222"}` : "rgba(248, 249, 242, 1)"},
       transparent
     );
+
+    @media (max-width: 500px) {
+      content: none;
+    }
+    ${(props) => props.bar && "content: '';"}
   }
 
-  //${(props) => (props.theme.title === "light" ? `${"none"}` : "")}
-  .texture.home {
+  .home {
     z-index: -1;
     opacity: 1;
     background-size: contain;
@@ -39,7 +46,7 @@ const Back = styled.section`
     z-index: -1;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 65.25rem;
 
     background-image: linear-gradient(
       180deg,
@@ -50,17 +57,21 @@ const Back = styled.section`
     );
   }
 
-  .dark {
-    z-index: -1;
+  .bar {
+    z-index: -1000;
     opacity: 1;
     background-size: contain;
-    mix-blend-mode: color-dodge;
     top: 0;
-    z-index: -1;
     position: absolute;
     width: 100%;
     height: 100%;
-    background: black;
+    background-image: linear-gradient(
+      180deg,
+      ${(props) =>
+        props.theme.title === "dark"
+          ? `${"#222, #222"}`
+          : "rgba(255, 255, 255, 1) 71.87%, rgba(255, 255, 255, 1) 100%"}
+    );
   }
 
   div.background {
@@ -116,13 +127,6 @@ const Back = styled.section`
 
       background: rgba(255, 255, 255, 0.05);
     }
-
-    @media (max-width: 500px) {
-      width: 100%;
-      height: 620px;
-
-      border-radius: 0px 0px 300px 0px;
-    }
   }
 
   div.rectangle {
@@ -163,6 +167,36 @@ const Back = styled.section`
       top: -125px;
 
       background: rgba(255, 255, 255, 0.05);
+    }
+
+    @media (max-width: 500px) {
+      overflow: hidden;
+
+      width: 100%;
+
+      div.circle {
+        border-radius: 50%;
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        left: 2rem;
+        top: -10rem;
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      div.circle2 {
+        z-index: 1;
+
+        border-radius: 50%;
+
+        position: absolute;
+        width: 323px;
+        height: 323px;
+        left: 0rem;
+        top: -125px;
+
+        background: rgba(255, 255, 255, 0.05);
+      }
     }
   }
 `;

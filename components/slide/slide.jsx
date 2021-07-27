@@ -88,7 +88,7 @@ export default function Slide({ slides }) {
                     <div className="slide-container">
                       <div className={`image`}>
                         <Image
-                          src={`http://localhost:8055/assets/${slide.imagem}`}
+                          src={`https://adrinks-painel.host.zukt.cloud/assets/${slide.imagem}`}
                           width="532"
                           height="752"
                           alt="drink"

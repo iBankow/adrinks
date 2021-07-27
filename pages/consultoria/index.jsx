@@ -65,26 +65,28 @@ export default function Consultoria() {
         </div>
       </Head>
 
-      <Body className="services">
-        <div className="services-title">
-          <h2>SERVIÇOS</h2>
-          <p>Serviços do pacote do bar a.drinks</p>
-          <Image src={divisor} alt="divisor" />
-        </div>
-        <div className="services-container">
-          {items.map((item) => {
-            return (
-              <div key={item.map} className="service-content">
-                <div className="img">
-                  <Image src={beer} alt="beer-logo" />
+      <Body>
+        <div className="services">
+          <div className="services-title">
+            <h2>SERVIÇOS</h2>
+            <p>Serviços do pacote do bar a.drinks</p>
+            <Image src={divisor} alt="divisor" />
+          </div>
+          <div className="services-container">
+            {items.map((item) => {
+              return (
+                <div key={item.map} className="service-content">
+                  <div className="img">
+                    <Image src={beer} alt="beer-logo" />
+                  </div>
+                  <div className="info">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
                 </div>
-                <div className="info">
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </Body>
       <Slider />

@@ -72,6 +72,8 @@ const SlideShow = styled.section`
       height: 10px;
       background-repeat: no-repeat;
       .ellipse {
+        border-radius: 50%;
+        background-color: ${(props) => props.theme.colors.ellipse};
         align-items: center;
         display: flex;
         margin: 0 0.5rem;

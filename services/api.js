@@ -5,7 +5,7 @@ const api = axios.create({
 });
 
 const directus = axios.create({
-  baseURL: "http://localhost:8055",
+  baseURL: "https://adrinks-painel.host.zukt.cloud/",
 });
 
 export { api, directus };

@@ -38,7 +38,7 @@ export default function Body({ theme }) {
         <Head>
           <div className="img">
             <Image
-              src={`http://localhost:8055/assets/${title.imagem}`}
+              src={`http://adrinks-painel.host.zukt.cloud/assets/${title.imagem}`}
               alt="crew"
               width="548"
               height="355"

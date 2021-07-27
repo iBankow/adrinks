@@ -203,7 +203,7 @@ export default function Caishots() {
                             <Image
                               width={91}
                               height={61}
-                              src={`http://localhost:8055/assets/${item.image}`}
+                              src={`http://adrinks-painel.host.zukt.cloud/assets/${item.image}`}
                               alt={item.name}
                             />
                           </div>
@@ -242,7 +242,7 @@ export default function Caishots() {
                       <div key={item.id} className="item">
                         <div className="img">
                           <Image
-                            src={`http://localhost:8055/assets/${item.image}`}
+                            src={`http://adrinks-painel.host.zukt.cloud/assets/${item.image}`}
                             width={91}
                             height={61}
                             alt={item.name}

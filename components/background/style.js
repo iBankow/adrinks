@@ -86,7 +86,7 @@ const Back = styled.section`
       rgba(145, 166, 60, 0.28) 71.87%,
       rgba(145, 166, 60, 0) 100%
     );
-    background: ${(props) => props.theme.colors.darkSecondary};
+    background: ${(props) => props.theme.colors.background};
   }
 
   div.rectangle.home {

@@ -17,8 +17,25 @@ const Main = styled.section`
       transparent
     );
   }
+  &:before {
+    z-index: 2;
+    opacity: 1;
+    position: absolute;
+    top: -210px;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(
+      180deg,
+      ${(props) => (props.theme.title === "dark" ? `${"#222"}` : "white")},
+      transparent
+    );
 
-  margin-top: 12rem;
+    @media (max-width: 500px) {
+      content: none;
+    }
+    ${(props) => props.bar && "content: '';"}
+  }
+  margin-top: ${(props) => (props.bar ? "17rem" : "12rem")};
   width: 100%;
   position: relative;
   div.img-test {
@@ -44,7 +61,7 @@ const Main = styled.section`
       background-size: 100%;
       background-repeat: no-repeat;
       right: 5rem;
-      top: 0;
+      top: 5rem;
       transform: rotate(270deg);
       filter: blur(0.5rem) contrast(70%);
     }

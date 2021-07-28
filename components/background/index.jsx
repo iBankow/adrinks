@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Back } from "./style";
 
-export default function Background({ home, bar, content }) {
+export default function Background({ home, bar, content, hiddenOverflow }) {
   const [contents, setContents] = useState("");
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function Background({ home, bar, content }) {
   }, []);
 
   return (
-    <Back bar={contents}>
+    <Back bar={contents} hiddenOverflow={hiddenOverflow}>
       {home === true ? (
         <>
           <div className="texture"></div>

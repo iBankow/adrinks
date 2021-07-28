@@ -37,8 +37,25 @@ const Main = (external_styled_components_default()).section`
       transparent
     );
   }
+  &:before {
+    z-index: 2;
+    opacity: 1;
+    position: absolute;
+    top: -210px;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(
+      180deg,
+      ${props => props.theme.title === "dark" ? `${"#222"}` : "white"},
+      transparent
+    );
 
-  margin-top: 12rem;
+    @media (max-width: 500px) {
+      content: none;
+    }
+    ${props => props.bar && "content: '';"}
+  }
+  margin-top: ${props => props.bar ? "17rem" : "12rem"};
   width: 100%;
   position: relative;
   div.img-test {
@@ -64,7 +81,7 @@ const Main = (external_styled_components_default()).section`
       background-size: 100%;
       background-repeat: no-repeat;
       right: 5rem;
-      top: 0;
+      top: 5rem;
       transform: rotate(270deg);
       filter: blur(0.5rem) contrast(70%);
     }
@@ -325,6 +342,8 @@ var crew = __webpack_require__(1398);
 var ellipse = __webpack_require__(4063);
 // EXTERNAL MODULE: ./public/assets/img/beer.svg
 var beer = __webpack_require__(7953);
+// EXTERNAL MODULE: ./public/assets/img/beerdark.svg
+var beerdark = __webpack_require__(4244);
 // EXTERNAL MODULE: ./public/assets/img/divisor-3.svg
 var divisor_3 = __webpack_require__(4921);
 ;// CONCATENATED MODULE: ./public/assets/img/divisor-dark.svg
@@ -347,8 +366,10 @@ var external_react_ = __webpack_require__(9297);
 
 
 
+
 function Body({
-  theme
+  theme,
+  bar
 }) {
   const {
     0: items,
@@ -375,6 +396,7 @@ function Body({
     loadTitle(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return /*#__PURE__*/(0,jsx_runtime_.jsxs)(Main, {
+    bar: bar,
     children: [title !== null && /*#__PURE__*/(0,jsx_runtime_.jsxs)(Head, {
       children: [/*#__PURE__*/jsx_runtime_.jsx("div", {
         className: "img",
@@ -436,7 +458,10 @@ function Body({
               className: "service-content",
               children: [/*#__PURE__*/jsx_runtime_.jsx("div", {
                 className: "img",
-                children: /*#__PURE__*/jsx_runtime_.jsx(next_image.default, {
+                children: theme.title === "dark" ? /*#__PURE__*/jsx_runtime_.jsx(next_image.default, {
+                  src: beerdark/* default */.Z,
+                  alt: "beer-logo"
+                }) : /*#__PURE__*/jsx_runtime_.jsx(next_image.default, {
                   src: beer/* default */.Z,
                   alt: "beer-logo"
                 })

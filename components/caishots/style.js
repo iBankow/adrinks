@@ -28,6 +28,7 @@ const Top = styled.section`
     margin: 0 auto;
     position: relative;
     color: white;
+    color: ${(props) => props.theme.colors.textBlack};
 
     div.slide {
       display: flex;
@@ -39,7 +40,7 @@ const Top = styled.section`
           font-weight: 800;
           font-size: 22px;
           line-height: 31px;
-          color: var(--green);
+          color: ${(props) => props.theme.colors.textBlack};
           width: 297px;
         }
 
@@ -53,7 +54,7 @@ const Top = styled.section`
         }
 
         h1 {
-          color: var(--color-text);
+          color: ${(props) => props.theme.colors.textBlack};
           font-family: SantElia;
           font-weight: 700;
           font-size: 120px;
@@ -62,7 +63,7 @@ const Top = styled.section`
         }
 
         p {
-          color: var(--color-text);
+          color: ${(props) => props.theme.colors.textBlack};
           width: 297px;
           line-height: 22px;
           font-family: Lato;
@@ -92,7 +93,7 @@ const Top = styled.section`
 
         &:before {
           content: "";
-          background-color: var(--yellow);
+          background-color: ${(props) => props.theme.colors.primary};
           position: absolute;
           width: 370px;
           height: 370px;
@@ -157,6 +158,8 @@ const Body = styled.section`
   margin-top: -2rem;
   max-width: 100%;
   position: relative;
+  ${(props) => props.theme.title === "dark" && "background-color: #222222;"}
+  z-index: 1000;
 
   &:after {
     content: "";
@@ -182,8 +185,8 @@ const Body = styled.section`
     width: 100%;
     min-height: 40rem;
 
-    box-shadow: 0px 4px 50px -25px rgba(145, 166, 60, 0.67);
-    border-radius: 0px 200px 0px 0px;
+    box-shadow: 0px 4px 50px -25px ${(props) => props.theme.colors.shadowOne};
+    border-radius: 0px 200px 0px 40px;
 
     div.title {
       padding: 4rem 0 2rem 4rem;
@@ -192,12 +195,12 @@ const Body = styled.section`
         font-size: 30px;
         font-weight: 400;
         line-height: 30px;
-        color: var(--color-tex);
+        color: ${(props) => props.theme.colors.text};
 
         span {
           font-family: Lato;
           font-size: 54px;
-          color: var(--green);
+          color: ${(props) => props.theme.colors.secondary};
           font-weight: 800;
         }
       }
@@ -224,7 +227,7 @@ const Body = styled.section`
       div.shop {
         z-index: 1000;
         height: 100%;
-        background: #eff2e2;
+        background-color: ${(props) => props.theme.colors.shop};
         border-radius: 0px 40px 40px 40px;
 
         transition: height 2s ease-in-out;
@@ -252,7 +255,7 @@ const Body = styled.section`
                 height: 40px;
                 border-radius: 70px;
 
-                color: var(--green);
+                color: ${(props) => props.theme.colors.secondary};
                 font-family: Lato;
                 font-size: 16px;
                 font-weight: 800;
@@ -262,14 +265,14 @@ const Body = styled.section`
                 transition: 0.3s ease-in-out;
 
                 &.select {
-                  background-color: var(--green);
-                  color: white;
+                  background-color: ${(props) => props.theme.colors.secondary};
+                  color: ${(props) => props.theme.colors.button};
                 }
 
                 &:hover {
                   cursor: pointer;
-                  background-color: var(--green);
-                  color: white;
+                  background-color: ${(props) => props.theme.colors.secondary};
+                  color: ${(props) => props.theme.colors.button};
                 }
               }
             }
@@ -304,7 +307,7 @@ const Body = styled.section`
 
             height: 89px;
             border-radius: 20px;
-            border: 1px solid #dee4c4;
+            border: 1px solid ${(props) => props.theme.colors.trace};
             background: white;
 
             justify-content: space-around;
@@ -333,7 +336,7 @@ const Body = styled.section`
                 font-style: normal;
                 font-weight: 400;
                 line-height: 16px;
-                color: var(--green);
+                color: ${(props) => props.theme.colors.secondary};
               }
             }
 
@@ -352,6 +355,10 @@ const Body = styled.section`
               width: 30px;
               height: 30px;
               border-radius: 50%;
+
+              &.dark {
+                background: url("assets/img/plusdark.svg");
+              }
 
               &:hover {
                 cursor: pointer;
@@ -375,7 +382,7 @@ const Body = styled.section`
             line-height: 31px;
             margin-bottom: 1rem;
 
-            color: var(--green);
+            color: ${(props) => props.theme.colors.secondary};
           }
 
           p.desc {
@@ -440,7 +447,7 @@ const Body = styled.section`
                 font-style: normal;
                 font-weight: 400;
                 line-height: 16px;
-                color: var(--green);
+                color: ${(props) => props.theme.colors.secondary};
               }
             }
 
@@ -464,6 +471,10 @@ const Body = styled.section`
               width: 30px;
               height: 30px;
               border-radius: 50%;
+
+              &.dark {
+                background: url("assets/img/lessdark.svg");
+              }
 
               &:hover {
                 cursor: pointer;
@@ -489,7 +500,7 @@ const Body = styled.section`
           width: 256px;
           height: 55px;
 
-          background: var(--green);
+          background: ${(props) => props.theme.colors.secondary};
           border-radius: 70px;
           display: flex;
           align-items: center;
@@ -567,8 +578,11 @@ const Body = styled.section`
 `;
 
 const Tutorial = styled.section`
-  margin-top: 8rem;
+  padding-top: 8rem;
   position: relative;
+  z-index: -1;
+
+  background-color: ${(props) => props.theme.colors.background};
 
   &:before {
     z-index: -1;

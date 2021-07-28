@@ -130,6 +130,12 @@ const Back = styled.section`
   }
 
   div.rectangle {
+    ${(props) => props.hiddenOverflow && "overflow: hidden;"}
+    ${(props) =>
+      props.theme.title === "dark" &&
+      `box-shadow: 0 0.25rem 3.125rem -1.562rem rgba(37, 70, 240, 0.6);`}
+    
+
     z-index: -6;
     position: absolute;
     width: 75.625rem;

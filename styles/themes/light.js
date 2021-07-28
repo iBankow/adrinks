@@ -5,6 +5,7 @@ export default {
   colors: {
     primary: "#ffd659",
     secondary: "#61821f",
+    button: "#ffffff",
     darkSecondary: "#2a3613",
 
     textWhite: "#ffffff",
@@ -19,5 +20,7 @@ export default {
     translucid: "rgba(145, 166, 60, 0.05)",
 
     ellipse: "#ffd659",
+    shop: "#eff2e2",
+    trace: "#dee4c4",
   },
 };

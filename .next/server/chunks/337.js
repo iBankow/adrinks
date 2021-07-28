@@ -140,6 +140,10 @@ const Back = (external_styled_components_default()).section`
   }
 
   div.rectangle {
+    ${props => props.hiddenOverflow && "overflow: hidden;"}
+    ${props => props.theme.title === "dark" && `box-shadow: 0 0.25rem 3.125rem -1.562rem rgba(37, 70, 240, 0.6);`}
+    
+
     z-index: -6;
     position: absolute;
     width: 75.625rem;
@@ -220,7 +224,8 @@ const Back = (external_styled_components_default()).section`
 function Background({
   home,
   bar,
-  content
+  content,
+  hiddenOverflow
 }) {
   const {
     0: contents,
@@ -239,6 +244,7 @@ function Background({
   }, []);
   return /*#__PURE__*/jsx_runtime_.jsx(Back, {
     bar: contents,
+    hiddenOverflow: hiddenOverflow,
     children: home === true ? /*#__PURE__*/(0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
       children: [/*#__PURE__*/jsx_runtime_.jsx("div", {
         className: "texture"
@@ -1162,6 +1168,7 @@ const directus = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
   colors: {
     primary: "#ffffff",
     secondary: "#2546F0",
+    button: "#ffffff",
     darkSecondary: "#222222",
     textWhite: "#222222",
     textBlack: "#ffffff",
@@ -1170,7 +1177,9 @@ const directus = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
     background: "#222",
     shadowOne: "rgba(37, 70, 240, 0.6)",
     translucid: "rgba(37, 70, 240, 0.05)",
-    ellipse: "#2546F0"
+    ellipse: "#2546F0",
+    shop: "#9f9f9f",
+    trace: "#afcdfb"
   }
 });
 
@@ -1186,6 +1195,7 @@ const directus = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
   colors: {
     primary: "#ffd659",
     secondary: "#61821f",
+    button: "#ffffff",
     darkSecondary: "#2a3613",
     textWhite: "#ffffff",
     textBlack: "#222222",
@@ -1194,7 +1204,9 @@ const directus = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
     background: "#ffffff",
     shadowOne: "rgba(145, 166, 60, 0.6)",
     translucid: "rgba(145, 166, 60, 0.05)",
-    ellipse: "#ffd659"
+    ellipse: "#ffd659",
+    shop: "#eff2e2",
+    trace: "#dee4c4"
   }
 });
 

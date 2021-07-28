@@ -157,7 +157,6 @@ export default function Caishots() {
             </div>
           </div>
         </section>
-        <section></section>
       </Top>
       <Body>
         <section className="body">
@@ -212,7 +211,9 @@ export default function Caishots() {
                             <p className="desc">{item.desc}</p>
                           </div>
                           <div
-                            className="plus"
+                            className={
+                              theme.title === "dark" ? "plus dark" : "plus"
+                            }
                             onClick={() => {
                               addProduct(item, item.id);
                             }}
@@ -257,7 +258,9 @@ export default function Caishots() {
                           <p className="name">{item.name}</p>
                         </div>
                         <div
-                          className="less"
+                          className={
+                            theme.title === "dark" ? "less dark" : "less"
+                          }
                           onClick={() => {
                             removeProduct(item.id);
                           }}

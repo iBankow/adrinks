@@ -21,11 +21,11 @@ export default function Bar() {
   return (
     <ThemeProvider theme={theme}>
       <Header toggleTheme={toggleTheme} theme={theme} />
-      <Body theme={theme} />
+      <Body theme={theme} bar={true} />
       <Slider />
       <Footer />
       <GlobalStyle />
-      <Background bar={true} theme={theme} />
+      <Background bar={true} theme={theme} hiddenOverflow={true} />
     </ThemeProvider>
   );
 }

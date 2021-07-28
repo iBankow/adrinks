@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/fDGFbSD2aVU5d808VoOp9/_buildManifest.js",
-    "static/fDGFbSD2aVU5d808VoOp9/_ssgManifest.js"
+    "static/jo4UCFqTRn9AUF-NYXgQO/_buildManifest.js",
+    "static/jo4UCFqTRn9AUF-NYXgQO/_ssgManifest.js"
   ],
   "pages": {
     "/": [
@@ -16,8 +16,8 @@
       "static/chunks/95b64a6e-b38ce79389240c3d830a.js",
       "static/chunks/530-2799e4b1056e698a8767.js",
       "static/chunks/381-1608815fe826c6c91250.js",
-      "static/chunks/934-85307871fc8afa9c06ff.js",
-      "static/chunks/690-63eb5dba25d142cd219a.js",
+      "static/chunks/934-bb6b399569003c0b5f49.js",
+      "static/chunks/690-4f38ac5428a0e455ee1f.js",
       "static/chunks/pages/index-e0a4c187960f99283745.js"
     ],
     "/404": [
@@ -47,9 +47,9 @@
       "static/chunks/95b64a6e-b38ce79389240c3d830a.js",
       "static/chunks/530-2799e4b1056e698a8767.js",
       "static/chunks/381-1608815fe826c6c91250.js",
-      "static/chunks/934-85307871fc8afa9c06ff.js",
-      "static/chunks/690-63eb5dba25d142cd219a.js",
-      "static/chunks/pages/bar-b7f0c1e2e0b3e6e6f0f6.js"
+      "static/chunks/934-bb6b399569003c0b5f49.js",
+      "static/chunks/690-4f38ac5428a0e455ee1f.js",
+      "static/chunks/pages/bar-02270a19bb8ab2102b65.js"
     ],
     "/caishots": [
       "static/chunks/webpack-61095c13c5984b221292.js",
@@ -57,8 +57,8 @@
       "static/chunks/main-4777350f2a9ff73ea2b0.js",
       "static/chunks/530-2799e4b1056e698a8767.js",
       "static/chunks/381-1608815fe826c6c91250.js",
-      "static/chunks/934-85307871fc8afa9c06ff.js",
-      "static/chunks/pages/caishots-8789d8030849baf68266.js"
+      "static/chunks/934-bb6b399569003c0b5f49.js",
+      "static/chunks/pages/caishots-7db63bddb970658c572b.js"
     ],
     "/consultoria": [
       "static/chunks/webpack-61095c13c5984b221292.js",
@@ -67,8 +67,8 @@
       "static/chunks/95b64a6e-b38ce79389240c3d830a.js",
       "static/chunks/530-2799e4b1056e698a8767.js",
       "static/chunks/381-1608815fe826c6c91250.js",
-      "static/chunks/934-85307871fc8afa9c06ff.js",
-      "static/chunks/pages/consultoria-344d7e99f0697850fb2c.js"
+      "static/chunks/934-bb6b399569003c0b5f49.js",
+      "static/chunks/pages/consultoria-0a2661fc04214db97ebb.js"
     ]
   },
   "ampFirstPages": []

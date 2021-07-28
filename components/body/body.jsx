@@ -4,12 +4,13 @@ import crew from "../../public/assets/img/crew.jpg";
 import leaves from "../../public/assets/img/leaves.png";
 import ellipse from "../../public/assets/img/ellipse.svg";
 import beer from "../../public/assets/img/beer.svg";
+import beerDark from "../../public/assets/img/beerdark.svg";
 import divisor from "../../public/assets/img/divisor-3.svg";
 import divisorDark from "../../public/assets/img/divisor-dark.svg";
 import { directus } from "../../services/api";
 import { useEffect, useState } from "react";
 
-export default function Body({ theme }) {
+export default function Body({ theme, bar }) {
   const [items, setItems] = useState([]);
   const [title, setTitle] = useState(null);
 
@@ -33,7 +34,7 @@ export default function Body({ theme }) {
   }, []);
 
   return (
-    <Main>
+    <Main bar={bar}>
       {title !== null && (
         <Head>
           <div className="img">
@@ -77,7 +78,11 @@ export default function Body({ theme }) {
               <>
                 <div key={item.id} className="service-content">
                   <div className="img">
-                    <Image src={beer} alt="beer-logo" />
+                    {theme.title === "dark" ? (
+                      <Image src={beerDark} alt="beer-logo" />
+                    ) : (
+                      <Image src={beer} alt="beer-logo" />
+                    )}
                   </div>
                   <div className="info">
                     <h3>{item.title}</h3>

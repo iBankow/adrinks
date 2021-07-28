@@ -5,7 +5,9 @@ import Slider from "../../components/slider/slider";
 import Footer from "../../components/footer/footer";
 import Background from "../../components/background/index";
 import divisor from "../../public/assets/img/divisor-3.svg";
+import divisorDark from "../../public/assets/img/divisordark.svg";
 import beer from "../../public/assets/img/beer.svg";
+import beerDark from "../../public/assets/img/beerdark.svg";
 
 import { Head, Body } from "../../components/consultoria/style";
 import { useEffect, useState } from "react";
@@ -70,14 +72,22 @@ export default function Consultoria() {
           <div className="services-title">
             <h2>SERVIÇOS</h2>
             <p>Serviços do pacote do bar a.drinks</p>
-            <Image src={divisor} alt="divisor" />
+            {theme.title === "dark" ? (
+              <Image src={divisorDark} className="divisor-2" alt="divisor" />
+            ) : (
+              <Image src={divisor} className="divisor-2" alt="divisor" />
+            )}
           </div>
           <div className="services-container">
             {items.map((item) => {
               return (
                 <div key={item.map} className="service-content">
                   <div className="img">
-                    <Image src={beer} alt="beer-logo" />
+                    {theme.title === "dark" ? (
+                      <Image src={beerDark} alt="beer-logo" />
+                    ) : (
+                      <Image src={beer} alt="beer-logo" />
+                    )}
                   </div>
                   <div className="info">
                     <h3>{item.title}</h3>
@@ -92,7 +102,7 @@ export default function Consultoria() {
       <Slider />
       <Footer />
       <GlobalStyle />
-      <Background theme={theme} content={true} />
+      <Background theme={theme} content={true} hiddenOverflow={true} />
     </ThemeProvider>
   );
 }

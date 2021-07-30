@@ -5,7 +5,9 @@ const Back = styled.section`
     max-width: 30rem;
   }
 
-  .texture {
+  &:before {
+    ${(props) => props.handleLocation === "home" && "content: '';"};
+
     z-index: -5;
     opacity: 0.2;
     top: 0;
@@ -16,6 +18,7 @@ const Back = styled.section`
   }
 
   &:after {
+    ${(props) => props.handleLocation !== "consultoria" && "content: '';"};
     mix-blend-mode: ${(props) =>
       props.theme.title === "dark" ? `` : "color-dodge"};
     z-index: -1;
@@ -31,14 +34,19 @@ const Back = styled.section`
     );
 
     @media (max-width: 500px) {
-      bottom: -4.4rem;
+      height: 100px;
+      bottom: -4rem;
+      mix-blend-mode: color-dodge;
     }
     ${(props) => props.bar && "content: '';"}
   }
 
   .home {
     z-index: -100;
-    opacity: 1;
+    opacity: ${(props) =>
+      props.handleLocation === "consultoria" && props.theme.title === "dark"
+        ? "0"
+        : "1"};
     background-size: contain;
     mix-blend-mode: ${(props) =>
       props.theme.title !== "dark" ? `` : "color-dodge"};
@@ -161,7 +169,7 @@ const Back = styled.section`
   }
 
   div.rectangle {
-    ${(props) => props.hiddenOverflow && "overflow: hidden;"}
+    ${(props) => !props.hiddenOverflow && "overflow: hidden;"}
     ${(props) =>
       props.theme.title === "dark" &&
       `box-shadow: 0 0.25rem 3.125rem -1.562rem rgba(37, 70, 240, 0.6);`}

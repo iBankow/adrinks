@@ -1,24 +1,19 @@
 import crew from "../../public/assets/img/crew.jpg";
-import Header from "../../components/header/header";
 import Slider from "../../components/slider/slider";
-import Footer from "../../components/footer/footer";
-import Background from "../../components/background/index";
 import divisor from "../../public/assets/img/divisor-3.svg";
 import divisorDark from "../../public/assets/img/divisordark.svg";
 import beer from "../../public/assets/img/beer.svg";
 import beerDark from "../../public/assets/img/beerdark.svg";
 
-import { Head, Body } from "../../components/consultoria/style";
+import { Head, Body } from "./style";
 import { useEffect, useState } from "react";
 import { directus } from "../../services/api";
 
-import { ThemeProvider } from "styled-components";
-import light from "../../styles/themes/light";
-import dark from "../../styles/themes/dark";
-import GlobalStyle from "../../styles/global";
-import usePersistedState from "../../utils/usePersistedState";
+export default function Consultoria({ theme, setLocation }) {
+  useEffect(() => {
+    setLocation("consultoria");
+  });
 
-export default function Consultoria() {
   const [title, setTitle] = useState([]);
   const [items, setItems] = useState([]);
 
@@ -43,16 +38,8 @@ export default function Consultoria() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [theme, setTheme] = usePersistedState("theme", light);
-
-  const toggleTheme = () => {
-    setTheme(theme.title === "light" ? dark : light);
-    console.log(theme);
-  };
-
   return (
-    <ThemeProvider theme={theme}>
-      <Header toggleTheme={toggleTheme} theme={theme} />
+    <>
       <Head>
         <div className="container">
           <h1>{title.title}</h1>
@@ -62,7 +49,7 @@ export default function Consultoria() {
               <button>ORÇAMENTO</button>
             </div>
             <div className="image-container">
-              <img src={crew} alt="crew" objectFit="fill" className="img" />
+              <img src={crew} alt="crew" className="img" />
             </div>
           </div>
         </div>
@@ -82,7 +69,7 @@ export default function Consultoria() {
           <div className="services-container">
             {items.map((item) => {
               return (
-                <div key={item.map} className="service-content">
+                <div key={item.id} className="service-content">
                   <div className="img">
                     {theme.title === "dark" ? (
                       <img src={beerDark} alt="beer-logo" />
@@ -101,9 +88,6 @@ export default function Consultoria() {
         </div>
       </Body>
       <Slider />
-      <Footer />
-      <GlobalStyle />
-      <Background theme={theme} content={true} hiddenOverflow={true} />
-    </ThemeProvider>
+    </>
   );
 }

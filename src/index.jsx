@@ -18,7 +18,6 @@ export default function Home() {
 
   const toggleTheme = () => {
     setTheme(theme.title === "light" ? dark : light);
-    console.log(theme);
   };
 
   return (

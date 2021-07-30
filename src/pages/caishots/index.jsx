@@ -27,7 +27,6 @@ export default function Caishots() {
 
   const toggleTheme = () => {
     setTheme(theme.title === "light" ? dark : light);
-    console.log(theme);
   };
   const [categories, setCategories] = useState([]);
 
@@ -106,7 +105,6 @@ export default function Caishots() {
       const results = await directus.get(
         `/items/items?filter[category_id][_eq]=${id}`
       );
-      console.log(results.data);
       setItems(results.data.data);
     }
     LoadItems(categorie);

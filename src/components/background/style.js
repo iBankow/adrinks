@@ -37,12 +37,12 @@ const Back = styled.section`
   }
 
   .home {
-    z-index: -1;
+    z-index: -100;
     opacity: 1;
     background-size: contain;
-    mix-blend-mode: color-dodge;
+    mix-blend-mode: ${(props) =>
+      props.theme.title !== "dark" ? `` : "color-dodge"};
     top: 0;
-    z-index: -1;
     position: absolute;
     width: 100%;
     height: 65.25rem;
@@ -89,7 +89,6 @@ const Back = styled.section`
   }
 
   div.rectangle.home {
-    z-index: -5;
     position: absolute;
     width: 68.75rem;
     height: ${(props) =>
@@ -102,7 +101,7 @@ const Back = styled.section`
         ? "black"
         : props.theme.colors.darkSecondary};
     border-radius: 0px 0px 500px 0px;
-    div.rectangle > div.circle {
+    div.circle {
       border-radius: 50%;
       position: absolute;
       width: 480px;
@@ -111,6 +110,8 @@ const Back = styled.section`
       top: -151px;
 
       background: rgba(255, 255, 255, 0.07);
+      @media (max-width: 500px) {
+      }
     }
 
     div.circle2 {
@@ -129,6 +130,33 @@ const Back = styled.section`
 
     @media (max-width: 500px) {
       max-width: 30rem;
+      overflow: hidden;
+
+      width: 100%;
+
+      div.circle {
+        border-radius: 50%;
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        left: 2rem;
+        top: -10rem;
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      div.circle2 {
+        z-index: 1;
+
+        border-radius: 50%;
+
+        position: absolute;
+        width: 323px;
+        height: 323px;
+        left: 0rem;
+        top: -10rem;
+
+        background: rgba(255, 255, 255, 0.05);
+      }
     }
   }
 
@@ -202,7 +230,7 @@ const Back = styled.section`
         width: 323px;
         height: 323px;
         left: 0rem;
-        top: -125px;
+        top: -10rem;
 
         background: rgba(255, 255, 255, 0.05);
       }

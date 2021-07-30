@@ -5,7 +5,8 @@ const Main = styled.section`
     z-index: 1;
     opacity: 1;
     position: absolute;
-    top: -210px;
+    top: ${(props) =>
+      props.bar && props.theme.title !== "dark" ? "" : "-210px"};
     width: 100%;
     height: 150px;
     background: linear-gradient(

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Switch from "react-switch";
 import logo from "../../public/assets/img/logo.svg";
-import thema from "../../public/assets/img/thema.png";
-import thema2 from "../../public/assets/img/thema-2.png";
+//import thema from "../../public/assets/img/thema.png";
+//import thema2 from "../../public/assets/img/thema-2.png";
 import menu from "../../public/assets/img/menu.png";
 import menudark from "../../public/assets/img/menu-dark.svg";
 import menu2 from "../../public/assets/img/menu-2.png";
@@ -11,6 +12,18 @@ import { Top } from "./style";
 
 export default function Header({ toggleTheme, theme }) {
   const [handleActiveMenu, setActiveMenu] = useState(false);
+  const [checked, setChecked] = useState(() => {
+    if (theme.title === "dark") {
+      return false;
+    } else {
+      return true;
+    }
+  });
+
+  function handleChange(checked) {
+    checked ? setChecked(true) : setChecked(false);
+    toggleTheme();
+  }
 
   return (
     <Top>
@@ -21,7 +34,71 @@ export default function Header({ toggleTheme, theme }) {
           </a>
         </div>
         <section>
-          <div
+          <label htmlFor="small-radius-switch">
+            <Switch
+              checked={checked}
+              onChange={handleChange}
+              handleDiameter={28}
+              offColor="#2546F0"
+              onColor="#61821f"
+              offHandleColor="#fff"
+              onHandleColor="#222"
+              height={40}
+              width={70}
+              borderRadius={50}
+              activeBoxShadow="0px 0px 1px 2px #fffc35"
+              uncheckedIcon={
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
+                    fontSize: 15,
+                    paddingRight: 2,
+                  }}
+                ></div>
+              }
+              checkedIcon={
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
+                    color: "red",
+                    fontSize: 18,
+                  }}
+                ></div>
+              }
+              uncheckedHandleIcon={
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
+                    fontSize: 20,
+                  }}
+                ></div>
+              }
+              checkedHandleIcon={
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
+                    color: "red",
+                    fontSize: 18,
+                  }}
+                ></div>
+              }
+              className="react-switch"
+              id="small-radius-switch"
+            />
+          </label>
+          {/*<div
             className="icon"
             onClick={(e) => {
               toggleTheme();
@@ -36,7 +113,7 @@ export default function Header({ toggleTheme, theme }) {
                 className="thema"
               />
             )}
-          </div>
+            </div>*/}
           <div className="icon">
             {theme.title === "dark" ? (
               <img

@@ -29,15 +29,15 @@ export default function Background({ home, bar, content, hiddenOverflow }) {
         </>
       ) : (
         <>
+          <div className="rectangle">
+            <div className="circle2"></div>
+            <div className="circle"></div>
+          </div>
           {bar ? (
             <div className="texture bar"></div>
           ) : (
             <div className="texture home"></div>
           )}
-          <div className="rectangle">
-            <div className="circle2"></div>
-            <div className="circle"></div>
-          </div>
         </>
       )}
     </Back>

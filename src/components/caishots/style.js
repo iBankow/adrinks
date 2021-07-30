@@ -93,7 +93,6 @@ const Top = styled.section`
 
         &:before {
           content: "";
-          z-index: -1;
           background-color: ${(props) => props.theme.colors.primary};
           position: absolute;
           width: 370px;
@@ -115,12 +114,10 @@ const Top = styled.section`
       max-width: 30rem;
       div.slide {
         .slide-container {
-          z-index: 0;
           position: absolute;
           right: 1rem;
           top: 1rem;
           width: 12rem;
-          z-index: -10;
         }
         div.info {
           margin-bottom: 5rem;
@@ -585,7 +582,6 @@ const Tutorial = styled.section`
   background-color: ${(props) => props.theme.colors.background};
 
   &:before {
-    z-index: -1;
     content: "";
     position: absolute;
     width: 466px;
@@ -719,6 +715,23 @@ const Tutorial = styled.section`
       div.image {
         img {
           height: 350px;
+          &:before {
+            content: "";
+            background-color: ${(props) => props.theme.colors.primary};
+            position: absolute;
+            width: 370px;
+            height: 370px;
+            right: 3rem;
+            bottom: 0;
+            border-radius: 50%;
+            @media (max-width: 500px) {
+              content: "";
+              width: 150px;
+              height: 150px;
+              left: 0;
+              top: 1rem;
+            }
+          }
         }
         position: relative;
         .image-content {
@@ -726,7 +739,6 @@ const Tutorial = styled.section`
         }
 
         &:before {
-          z-index: 1;
           content: "";
           position: absolute;
           width: 282px;

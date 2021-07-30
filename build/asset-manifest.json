@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e5d1dddd.chunk.css",
+    "main.js": "/static/js/main.d6386fb7.chunk.js",
+    "main.js.map": "/static/js/main.d6386fb7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.b12cfa6a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.b12cfa6a.js.map",
+    "static/js/2.30754f35.chunk.js": "/static/js/2.30754f35.chunk.js",
+    "static/js/2.30754f35.chunk.js.map": "/static/js/2.30754f35.chunk.js.map",
+    "static/js/3.ddead35b.chunk.js": "/static/js/3.ddead35b.chunk.js",
+    "static/js/3.ddead35b.chunk.js.map": "/static/js/3.ddead35b.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.e5d1dddd.chunk.css.map": "/static/css/main.e5d1dddd.chunk.css.map",
+    "static/js/2.30754f35.chunk.js.LICENSE.txt": "/static/js/2.30754f35.chunk.js.LICENSE.txt",
+    "static/media/Mapa.f44334f3.png": "/static/media/Mapa.f44334f3.png",
+    "static/media/beer.9bd91c2c.svg": "/static/media/beer.9bd91c2c.svg",
+    "static/media/beerdark.8d69d4c9.svg": "/static/media/beerdark.8d69d4c9.svg",
+    "static/media/crew.514500a5.jpg": "/static/media/crew.514500a5.jpg",
+    "static/media/divisor-3.1e6abf87.svg": "/static/media/divisor-3.1e6abf87.svg",
+    "static/media/divisor-dark.7d9aa222.svg": "/static/media/divisor-dark.7d9aa222.svg",
+    "static/media/divisordark.4c1716dc.svg": "/static/media/divisordark.4c1716dc.svg",
+    "static/media/drink-2.d96ab3ba.png": "/static/media/drink-2.d96ab3ba.png",
+    "static/media/ellipse.30b80e0e.svg": "/static/media/ellipse.30b80e0e.svg",
+    "static/media/face.49b7853b.svg": "/static/media/face.49b7853b.svg",
+    "static/media/insta.488d4d8e.svg": "/static/media/insta.488d4d8e.svg",
+    "static/media/leaves.658a20c9.png": "/static/media/leaves.658a20c9.png",
+    "static/media/logo.69b96f6a.svg": "/static/media/logo.69b96f6a.svg",
+    "static/media/menu-dark.8169bcfd.svg": "/static/media/menu-dark.8169bcfd.svg",
+    "static/media/rectangle.30d40e89.svg": "/static/media/rectangle.30d40e89.svg",
+    "static/media/top.e5cbbfd4.svg": "/static/media/top.e5cbbfd4.svg",
+    "static/media/zukt.4f870d61.svg": "/static/media/zukt.4f870d61.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b12cfa6a.js",
+    "static/js/2.30754f35.chunk.js",
+    "static/css/main.e5d1dddd.chunk.css",
+    "static/js/main.d6386fb7.chunk.js"
+  ]
+}

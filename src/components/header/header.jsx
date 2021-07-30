@@ -29,7 +29,7 @@ export default function Header({ toggleTheme, theme }) {
     <Top>
       <div className="head">
         <div>
-          <a href="/" passHref>
+          <a href="/">
             <img src={logo} alt="logo" className="img" />
           </a>
         </div>

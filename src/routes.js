@@ -7,14 +7,14 @@ import Caishots from "./pages/caishots";
 import Consultoria from "./pages/consultoria";
 import Home from "./pages/home";
 
-function Routes() {
+function Routes({ theme }) {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <Home />
+          <Home theme={theme} />
         </Route>
-        <Route path="/bar" component={Bar} />
+        <Route path="/bar" component={Bar} theme={theme} />
         <Route path="/Caishots" component={Caishots} />
         <Route path="/Consultoria" component={Consultoria} />
       </Switch>

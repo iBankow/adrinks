@@ -47,7 +47,7 @@ export default function Slide({ slides }) {
             <img src={rectangle} alt="rectangle" className="rectangle" />
             {slides2.map((slide, index) => {
               return (
-                <>
+                <div key={slide.id}>
                   <div
                     className={index === current ? "ellipse active" : "ellipse"}
                     onClick={(e) => {
@@ -61,7 +61,7 @@ export default function Slide({ slides }) {
                       height="10px"
                     />
                   </div>
-                </>
+                </div>
               );
             })}
             <img src={rectangle} alt="rectangle" className="rectangle" />

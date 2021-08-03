@@ -1,26 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Back } from "./style";
 
-export default function Background({ home, bar, content, hiddenOverflow }) {
-  const [contents, setContents] = useState("");
-
-  useEffect(() => {
-    function loadContent() {
-      if (content === true) {
-        setContents(null);
-      } else {
-        setContents(true);
-      }
-    }
-    loadContent();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+export default function Background({ handleLocation, hiddenOverflow }) {
+  const [contents] = useState(() => {
+    return handleLocation === "bar" ? true : null;
+  });
 
   return (
-    <Back bar={contents} hiddenOverflow={hiddenOverflow}>
-      {home === true ? (
+    <Back bar={contents} handleLocation={handleLocation}>
+      {handleLocation === "home" ? (
         <>
-          <div className="texture"></div>
           <div className="texture home"></div>
           <div className="rectangle home">
             <div className="circle2"></div>
@@ -33,7 +22,7 @@ export default function Background({ home, bar, content, hiddenOverflow }) {
             <div className="circle2"></div>
             <div className="circle"></div>
           </div>
-          {bar ? (
+          {handleLocation === "bar" ? (
             <div className="texture bar"></div>
           ) : (
             <div className="texture home"></div>

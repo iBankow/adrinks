@@ -255,7 +255,12 @@ const Head = styled.section`
       color: ${(props) => props.theme.colors.textBlack};
     }
     hr.divider {
-      background-image: url("/assets/img/divisor-2.svg");
+      ${(props) =>
+        props.theme.title === "light" &&
+        "background-image: url('/assets/img/divisor-2.svg')"};
+      ${(props) =>
+        props.theme.title === "dark" &&
+        "background-image: url('/assets/img/divisordark-2.svg')"};
       background-repeat: no-repeat;
       background-size: contain;
       width: 7rem;

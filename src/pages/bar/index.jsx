@@ -1,31 +1,23 @@
-import Header from "../../components/header/header";
+import { useEffect } from "react";
 import Body from "../../components/body/body";
 import Slider from "../../components/slider/slider";
-import Footer from "../../components/footer/footer";
-import Background from "../../components/background/index";
+import { Helmet } from "react-helmet";
 
 import GlobalStyle from "../../styles/global";
 
-import { ThemeProvider } from "styled-components";
-import light from "../../styles/themes/light";
-import dark from "../../styles/themes/dark";
-import usePersistedState from "../../utils/usePersistedState";
+export default function Bar({ theme, setLocation }) {
+  useEffect(() => {
+    setLocation("bar");
+  });
 
-export default function Bar() {
-  const [theme, setTheme] = usePersistedState("theme", light);
-
-  const toggleTheme = () => {
-    setTheme(theme.title === "light" ? dark : light);
-    console.log(theme);
-  };
   return (
-    <ThemeProvider theme={theme}>
-      <Header toggleTheme={toggleTheme} theme={theme} />
+    <>
+      <Helmet>
+        <title>a.drinks | Bar</title>
+      </Helmet>
       <Body theme={theme} bar={true} />
       <Slider />
-      <Footer />
       <GlobalStyle />
-      <Background bar={true} theme={theme} hiddenOverflow={true} />
-    </ThemeProvider>
+    </>
   );
 }

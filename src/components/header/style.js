@@ -8,6 +8,16 @@ const Top = styled.header`
   z-index: 2000;
   align-items: center;
 
+  .icons {
+    width: 70%;
+    @media (max-width: 500px) {
+      width: 20%;
+    }
+  }
+  .icons.black {
+    filter: invert(1);
+  }
+
   &:before {
     content: "";
     z-index: -200;

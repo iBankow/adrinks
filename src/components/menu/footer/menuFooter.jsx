@@ -7,12 +7,12 @@ export default function MenuFooter() {
     <Footer>
       <div className="rodape">
         <div className="icons">
-          <div className="icon">
+          <a href="https://google.com">
             <img src={Face} alt="face" className="icon" />
-          </div>
-          <div className="icon">
+          </a>
+          <a href="https://google.com">
             <img src={Insta} alt="insta" className="icon" />
-          </div>
+          </a>
         </div>
         <div className="info">
           <span>TELEFONE</span>

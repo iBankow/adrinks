@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function usePersistedState(key, initialState) {
+export default function usePersistedState(key, initialState) {
   const [state, setState] = useState(() => {
     const storageValue = localStorage.getItem(key);
     if (storageValue) {
@@ -9,12 +9,16 @@ function usePersistedState(key, initialState) {
       return initialState;
     }
   });
-
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(state));
   }, [key, state]);
-
   return [state, setState];
 }
 
-export default usePersistedState;
+function usePersistedLocation(key) {
+  const [local, setLocal] = useState(key);
+
+  return [local, setLocal];
+}
+
+export { usePersistedState, usePersistedLocation };

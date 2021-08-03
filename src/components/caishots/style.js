@@ -46,9 +46,14 @@ const Top = styled.section`
 
         hr.divisor {
           margin: 3rem 0;
-          background-image: url("/assets/img/divisor-2.svg");
+          ${(props) =>
+            props.theme.title === "light" &&
+            "background-image: url('/assets/img/divisor-2.svg')"};
+          ${(props) =>
+            props.theme.title === "dark" &&
+            "background-image: url('/assets/img/divisordark-2.svg')"};
           background-size: contain;
-          width: 108px;
+          width: 113px;
           height: 10px;
           background-repeat: no-repeat;
         }
@@ -92,6 +97,7 @@ const Top = styled.section`
         justify-content: center;
 
         &:before {
+          z-index: -1;
           content: "";
           background-color: ${(props) => props.theme.colors.primary};
           position: absolute;
@@ -112,12 +118,22 @@ const Top = styled.section`
     }
     @media (max-width: 500px) {
       max-width: 30rem;
+      padding-top: 45px;
+
       div.slide {
         .slide-container {
+          display: none;
           position: absolute;
           right: 1rem;
           top: 1rem;
           width: 12rem;
+
+          img {
+            top: -17rem;
+            position: absolute;
+            max-width: 150px;
+            object-fit: contain;
+          }
         }
         div.info {
           margin-bottom: 5rem;
@@ -126,7 +142,6 @@ const Top = styled.section`
             font-weight: 800;
             font-size: 22px;
             line-height: 31px;
-            color: var(--green);
             width: 297px;
           }
           h1 {
@@ -135,12 +150,9 @@ const Top = styled.section`
             line-height: 90px;
             margin-bottom: 10px;
           }
-          p {
-            color: var(--green);
-          }
+
           hr.divisor {
             margin: 1rem 0;
-            background-image: url("/assets/img/divisor-2.svg");
             background-size: contain;
             width: 108px;
             height: 10px;
@@ -156,7 +168,6 @@ const Body = styled.section`
   margin-top: -2rem;
   max-width: 100%;
   position: relative;
-  ${(props) => props.theme.title === "dark" && "background-color: #222222;"}
   z-index: 1000;
 
   &:after {
@@ -683,6 +694,14 @@ const Tutorial = styled.section`
       }
 
       @media (max-width: 500px) {
+        display: flex;
+        flex-direction: column;
+        div.image {
+          img {
+            object-fit: cover;
+            max-width: 100%;
+          }
+        }
         div.tutorial-content {
           ol {
             padding-left: 5rem;
@@ -690,14 +709,12 @@ const Tutorial = styled.section`
               padding-top: 0;
               position: relative;
               width: 25rem;
-              color: var(--color-tex);
 
               font-family: Lato;
               font-size: 18px;
               font-weight: 400;
               line-height: 22px;
               &::marker {
-                color: var(--green);
                 font-family: Balbeer;
                 font-size: 40px;
                 font-style: normal;
@@ -713,6 +730,17 @@ const Tutorial = styled.section`
       }
 
       div.image {
+        @media (max-width: 500px) {
+          margin-top: 4rem;
+          img {
+            object-fit: cover;
+            max-width: 100%;
+            border-radius: 7rem;
+          }
+          img.image-content {
+            border-radius: 5rem;
+          }
+        }
         img {
           height: 350px;
           &:before {
@@ -836,7 +864,7 @@ const Form = styled.form`
   }
 `;
 
-const Beneficios = styled.form`
+const Beneficios = styled.section`
   background-color: ${(props) => props.theme.colors.background};
   max-width: 100%;
   overflow: hidden;
@@ -861,12 +889,17 @@ const Beneficios = styled.form`
         font-size: 16px;
         font-weight: 400;
         line-height: 26px;
-        color: var(--text-light);
+        color: ${(props) => props.theme.colors.textLight};
       }
     }
     hr.divisor {
       margin: 3rem auto;
-      background-image: url("/assets/img/divisor-3.svg");
+      ${(props) =>
+        props.theme.title === "light" &&
+        "background-image: url('/assets/img/divisor-3.svg')"};
+      ${(props) =>
+        props.theme.title === "dark" &&
+        "background-image: url('/assets/img/divisor-dark-2.svg')"};
       background-size: contain;
       width: 103px;
       height: 10px;
@@ -877,6 +910,11 @@ const Beneficios = styled.form`
       .services-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        @media (max-width: 500px) {
+          margin: 0 auto;
+          grid-template-columns: 1fr;
+          max-width: 30rem;
+        }
         .service-content {
           display: flex;
           flex-direction: row;
@@ -884,11 +922,13 @@ const Beneficios = styled.form`
           justify-content: center;
           padding: 2rem 0;
 
-          &:nth-child(odd) {
-            border-right: 1px solid ${(props) => props.theme.colors.secondary};
-          }
-          &:nth-child(n + 3):nth-child(-n + 4) {
-            border-top: 1px solid ${(props) => props.theme.colors.secondary};
+          @media (min-width: 700px) {
+            &:nth-child(odd) {
+              border-right: 1px solid ${(props) => props.theme.colors.secondary};
+            }
+            &:nth-child(n + 3):nth-child(-n + 4) {
+              border-top: 1px solid ${(props) => props.theme.colors.secondary};
+            }
           }
           div {
             margin: 1rem;

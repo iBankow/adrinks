@@ -7,16 +7,22 @@ import Caishots from "./pages/caishots";
 import Consultoria from "./pages/consultoria";
 import Home from "./pages/home";
 
-function Routes() {
+function Routes({ theme, setLocation }) {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <Home />
+          <Home theme={theme} setLocation={setLocation} />
         </Route>
-        <Route path="/bar" component={Bar} />
-        <Route path="/Caishots" component={Caishots} />
-        <Route path="/Consultoria" component={Consultoria} />
+        <Route path="/bar">
+          <Bar theme={theme} setLocation={setLocation} />
+        </Route>
+        <Route path="/Caishots">
+          <Caishots theme={theme} setLocation={setLocation} />
+        </Route>
+        <Route path="/Consultoria">
+          <Consultoria theme={theme} setLocation={setLocation} />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

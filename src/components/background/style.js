@@ -5,17 +5,21 @@ const Back = styled.section`
     max-width: 30rem;
   }
 
-  .texture {
+  &:before {
+    ${(props) => props.handleLocation === "caishots" && "content: '';"};
+    ${(props) => props.handleLocation === "home" && "content: '';"};
+
     z-index: -5;
     opacity: 0.2;
     top: 0;
     position: absolute;
     width: 100%;
-    height: 65.25rem;
+    height: 60.25rem;
     background-image: url("assets/img/texture-2.png");
   }
 
   &:after {
+    ${(props) => props.handleLocation !== "consultoria" && "content: '';"};
     mix-blend-mode: ${(props) =>
       props.theme.title === "dark" ? `` : "color-dodge"};
     z-index: -1;
@@ -31,14 +35,21 @@ const Back = styled.section`
     );
 
     @media (max-width: 500px) {
-      bottom: -4.4rem;
+      height: 100px;
+      ${(props) => props.handleLocation !== "caishots" && "bottom: -4rem;"};
+      ${(props) => props.handleLocation === "caishots" && "content: none;"};
+
+      mix-blend-mode: color-dodge;
     }
     ${(props) => props.bar && "content: '';"}
   }
 
   .home {
     z-index: -100;
-    opacity: 1;
+    opacity: ${(props) =>
+      props.handleLocation === "consultoria" && props.theme.title === "dark"
+        ? "0"
+        : "1"};
     background-size: contain;
     mix-blend-mode: ${(props) =>
       props.theme.title !== "dark" ? `` : "color-dodge"};
@@ -51,7 +62,7 @@ const Back = styled.section`
       180deg,
       ${(props) =>
         props.theme.title === "dark"
-          ? `${"#222, #222"}`
+          ? ``
           : "rgba(145, 166, 60, 0.28) 71.87%, rgba(145, 166, 60, 0) 100%"}
     );
   }
@@ -161,7 +172,7 @@ const Back = styled.section`
   }
 
   div.rectangle {
-    ${(props) => props.hiddenOverflow && "overflow: hidden;"}
+    ${(props) => !props.hiddenOverflow && "overflow: hidden;"}
     ${(props) =>
       props.theme.title === "dark" &&
       `box-shadow: 0 0.25rem 3.125rem -1.562rem rgba(37, 70, 240, 0.6);`}

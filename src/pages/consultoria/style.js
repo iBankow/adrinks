@@ -7,28 +7,6 @@ const Head = styled.section`
     overflow: hidden;
   }
 
-  &:after {
-    opacity: 1;
-    content: "";
-    z-index: -1;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: ${(props) => (props.theme.title === "dark" ? `300px` : "150px")};
-    background: linear-gradient(
-      0deg,
-      ${(props) =>
-        props.theme.title === "dark"
-          ? `${"#2546F0"}`
-          : "rgba(248, 249, 242, 1)"},
-      transparent
-    );
-
-    @media (max-width: 500px) {
-      content: none;
-    }
-  }
-
   div.container {
     max-width: 68.75rem;
     margin: 6rem auto 0 auto;
@@ -295,7 +273,6 @@ const Head = styled.section`
 `;
 
 const Body = styled.section`
-  background: ${(props) => props.theme.colors.background};
   position: relative;
   padding: 10rem 0;
   overflow-x: hidden;
@@ -318,29 +295,8 @@ const Body = styled.section`
     }
   }
 
-  &:after {
-    opacity: 1;
-    content: "";
-    z-index: 0;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    height: ${(props) => (props.theme.title === "dark" ? `150px` : "150px")};
-    background: linear-gradient(
-      180deg,
-      ${(props) =>
-        props.theme.title === "dark"
-          ? `${"#2546F0"}`
-          : "rgba(248, 249, 242, 1)"},
-      transparent
-    );
-
-    @media (max-width: 500px) {
-      content: none;
-    }
-  }
-
   div.services {
+    background-color: ${(props) => props.theme.colors.background};
     position: relative;
     overflow-x: hidden;
     justify-content: space-between;
@@ -366,6 +322,9 @@ const Body = styled.section`
     @media (max-width: 500px) {
       max-width: 30rem;
       margin: 0 auto;
+      height: 900px;
+      border-radius: 0px 100px 20px 20px;
+
       h2 {
         color: ${(props) => props.theme.colors.textBlack};
         padding-top: 3rem;
@@ -404,6 +363,11 @@ const Body = styled.section`
         height: 142px;
         border-radius: 20px;
         background: ${(props) => props.theme.colors.translucid};
+
+        @media (max-width: 500px) {
+          max-width: 300px;
+        }
+
         div.info {
           width: 300px;
 

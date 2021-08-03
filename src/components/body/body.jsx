@@ -73,21 +73,19 @@ export default function Body({ theme, bar }) {
         <div className="services-container">
           {items.map((item) => {
             return (
-              <>
-                <div key={item.id} className="service-content">
-                  <div className="img">
-                    {theme.title === "dark" ? (
-                      <img src={beerDark} alt="beer-logo" />
-                    ) : (
-                      <img src={beer} alt="beer-logo" />
-                    )}
-                  </div>
-                  <div className="info">
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                  </div>
+              <div key={item.id} className="service-content">
+                <div className="img">
+                  {theme.title === "dark" ? (
+                    <img src={beerDark} alt="beer-logo" />
+                  ) : (
+                    <img src={beer} alt="beer-logo" />
+                  )}
                 </div>
-              </>
+                <div className="info">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </div>
             );
           })}
         </div>

@@ -20,11 +20,19 @@ export default function Slide({ slides }) {
   const lenght = slides.length;
 
   function nextSlide() {
-    setCurrent(current === lenght - 1 ? 0 : current + 1);
+    if (current < lenght) {
+      setCurrent(current + 1);
+    } else {
+      setCurrent(0);
+    }
   }
 
   function prevSlide() {
-    setCurrent(current === 0 ? lenght - 1 : current - 1);
+    if (current > 0) {
+      setCurrent(current - 1);
+    } else {
+      setCurrent(lenght);
+    }
   }
 
   if (!Array.isArray(slides) || slides.length <= 0) {
@@ -47,7 +55,7 @@ export default function Slide({ slides }) {
             <img src={rectangle} alt="rectangle" className="rectangle" />
             {slides2.map((slide, index) => {
               return (
-                <>
+                <div key={slide.id}>
                   <div
                     className={index === current ? "ellipse active" : "ellipse"}
                     onClick={(e) => {
@@ -61,7 +69,7 @@ export default function Slide({ slides }) {
                       height="10px"
                     />
                   </div>
-                </>
+                </div>
               );
             })}
             <img src={rectangle} alt="rectangle" className="rectangle" />

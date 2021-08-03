@@ -6,6 +6,8 @@ import logo from "../../public/assets/img/logo.svg";
 import menu from "../../public/assets/img/menu.png";
 import menudark from "../../public/assets/img/menu-dark.svg";
 import menu2 from "../../public/assets/img/menu-2.png";
+import moon from "../../public/assets/img/moon.svg";
+import sun from "../../public/assets/img/sun.svg";
 
 import Nav from "../menu/menu";
 import { Top } from "./style";
@@ -29,7 +31,7 @@ export default function Header({ toggleTheme, theme }) {
     <Top>
       <div className="head">
         <div>
-          <a href="/" passHref>
+          <a href="/">
             <img src={logo} alt="logo" className="img" />
           </a>
         </div>
@@ -69,7 +71,9 @@ export default function Header({ toggleTheme, theme }) {
                     color: "red",
                     fontSize: 18,
                   }}
-                ></div>
+                >
+                  <img src={sun} alt="sun" className="icons" />
+                </div>
               }
               uncheckedHandleIcon={
                 <div
@@ -80,7 +84,9 @@ export default function Header({ toggleTheme, theme }) {
                     height: "100%",
                     fontSize: 20,
                   }}
-                ></div>
+                >
+                  <img src={moon} alt="moon" className="icons black" />
+                </div>
               }
               checkedHandleIcon={
                 <div
@@ -92,7 +98,9 @@ export default function Header({ toggleTheme, theme }) {
                     color: "red",
                     fontSize: 18,
                   }}
-                ></div>
+                >
+                  <img src={moon} alt="moon" className="icons" />
+                </div>
               }
               className="react-switch"
               id="small-radius-switch"

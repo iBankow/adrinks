@@ -1,9 +1,9 @@
-import crew from "../../public/assets/img/crew.jpg";
+import crew from "../../assets/img/crew.jpg";
 import Slider from "../../components/slider/slider";
-import divisor from "../../public/assets/img/divisor-3.svg";
-import divisorDark from "../../public/assets/img/divisordark.svg";
-import beer from "../../public/assets/img/beer.svg";
-import beerDark from "../../public/assets/img/beerdark.svg";
+import divisor from "../../assets/img/divisor-3.svg";
+import divisorDark from "../../assets/img/divisordark.svg";
+import beer from "../../assets/img/beer.svg";
+import beerDark from "../../assets/img/beerdark.svg";
 
 import { Helmet } from "react-helmet";
 import { Head, Body } from "./style";

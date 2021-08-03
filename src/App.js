@@ -12,8 +12,15 @@ import dark from "./styles/themes/dark";
 import GlobalStyle from "./styles/global.js";
 import Footer from "./components/footer/footer";
 
+let hour = new Date().getHours();
+if (6 < hour || hour < 18) {
+  hour = light;
+} else {
+  hour = dark;
+}
+
 export default function App() {
-  const [theme, setTheme] = usePersistedState("theme", light);
+  const [theme, setTheme] = usePersistedState("theme", hour);
   const [local, setLocal] = usePersistedLocation("home");
 
   const toggleTheme = () => {

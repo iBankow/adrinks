@@ -13,6 +13,11 @@ const Footer = styled.section`
       display: flex;
       .icon {
         margin-left: 1rem;
+        border-radius: 8px;
+        &:hover {
+          background-color: ${(props) =>
+            props.theme.title === "dark" ? "#2546F0" : "#ffd659"};
+        }
       }
     }
     div > span {
@@ -41,7 +46,7 @@ const Footer = styled.section`
         margin-right: 15px;
         display: flex;
         .icon {
-          margin-left: 1rem;
+          margin-left: 10px;
         }
       }
       div > span {

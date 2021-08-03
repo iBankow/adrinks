@@ -5,6 +5,7 @@ import divisorDark from "../../public/assets/img/divisordark.svg";
 import beer from "../../public/assets/img/beer.svg";
 import beerDark from "../../public/assets/img/beerdark.svg";
 
+import { Helmet } from "react-helmet";
 import { Head, Body } from "./style";
 import { useEffect, useState } from "react";
 import { directus } from "../../services/api";
@@ -40,6 +41,9 @@ export default function Consultoria({ theme, setLocation }) {
 
   return (
     <>
+      <Helmet>
+        <title>a.drinks | Consultoria</title>
+      </Helmet>
       <Head>
         <div className="container">
           <h1>{title.title}</h1>

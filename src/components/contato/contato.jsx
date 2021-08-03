@@ -1,7 +1,7 @@
 import { Main } from "./style";
-import mapa from "../../public/assets/img/Mapa.png";
+import Map from "../Map/map";
 
-export default function Contato() {
+export default function Contato({ theme }) {
   return (
     <Main>
       <div className="container">
@@ -37,7 +37,7 @@ export default function Contato() {
               </div>
             </div>
           </div>
-          <img src={mapa} alt="mapa" className="map" />
+          <Map theme={theme} />
         </div>
       </div>
     </Main>

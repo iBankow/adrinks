@@ -68,6 +68,12 @@ const FooterMain = styled.footer`
     .container {
       padding: 3rem 0;
       display: flex;
+      @media (max-width: 500px) {
+        flex-direction: column;
+        img {
+          max-width: 150px;
+        }
+      }
       .links {
         margin-left: 5rem;
         display: flex;
@@ -75,9 +81,18 @@ const FooterMain = styled.footer`
         justify-content: space-around;
         width: 40rem;
         @media (max-width: 500px) {
-          margin-left: 2rem;
+          flex-direction: column;
+          margin-left: 0;
+          align-items: flex-start;
+          max-width: 100%;
+          p {
+            margin-top: 10px;
+          }
+          div {
+            margin-top: 10px;
+          }
         }
-        .icons {
+        div.icons {
           display: flex;
           width: 5rem;
           justify-content: space-around;

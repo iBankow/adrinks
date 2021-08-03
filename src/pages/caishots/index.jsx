@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
 import {
   Body,
@@ -6,28 +7,18 @@ import {
   Beneficios,
 } from "../../components/caishots/style";
 
-import Header from "../../components/header/header";
-import Footer from "../../components/footer/footer";
-import Background from "../../components/background/index";
-
 import drink from "../../public/assets/img/drink-2.png";
 import crew from "../../public/assets/img/crew.jpg";
 
 import { api, directus } from "../../services/api";
 import beer from "../../public/assets/img/beer.svg";
+import beerdark from "../../public/assets/img/beerdark.svg";
 
-import GlobalStyle from "../../styles/global";
-import { ThemeProvider } from "styled-components";
-import light from "../../styles/themes/light";
-import dark from "../../styles/themes/dark";
-import usePersistedState from "../../utils/usePersistedState";
+export default function Caishots({ theme, setLocation }) {
+  useEffect(() => {
+    setLocation("caishots");
+  });
 
-export default function Caishots() {
-  const [theme, setTheme] = usePersistedState("theme", light);
-
-  const toggleTheme = () => {
-    setTheme(theme.title === "light" ? dark : light);
-  };
   const [categories, setCategories] = useState([]);
 
   const [items, setItems] = useState([]);
@@ -129,8 +120,10 @@ export default function Caishots() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <Header toggleTheme={toggleTheme} theme={theme} />
+    <>
+      <Helmet>
+        <title>a.drinks | Caishots</title>
+      </Helmet>
       <Top>
         <section className="head">
           <div className="slide">
@@ -319,7 +312,11 @@ export default function Caishots() {
             <div className="services-container">
               <div className="service-content">
                 <div className="img">
-                  <img src={beer} alt="beer-logo" />
+                  {theme.title === "dark" ? (
+                    <img src={beerdark} alt="beer-logo" />
+                  ) : (
+                    <img src={beer} alt="beer-logo" />
+                  )}
                 </div>
                 <div className="info">
                   <h3>Bartender</h3>
@@ -331,7 +328,11 @@ export default function Caishots() {
               </div>
               <div className="service-content">
                 <div className="img">
-                  <img src={beer} alt="beer-logo" />
+                  {theme.title === "dark" ? (
+                    <img src={beerdark} alt="beer-logo" />
+                  ) : (
+                    <img src={beer} alt="beer-logo" />
+                  )}
                 </div>
                 <div className="info">
                   <h3>Bartender</h3>
@@ -343,7 +344,11 @@ export default function Caishots() {
               </div>
               <div className="service-content">
                 <div className="img">
-                  <img src={beer} alt="beer-logo" />
+                  {theme.title === "dark" ? (
+                    <img src={beerdark} alt="beer-logo" />
+                  ) : (
+                    <img src={beer} alt="beer-logo" />
+                  )}
                 </div>
                 <div className="info">
                   <h3>Bartender</h3>
@@ -355,7 +360,11 @@ export default function Caishots() {
               </div>
               <div className="service-content">
                 <div className="img">
-                  <img src={beer} alt="beer-logo" />
+                  {theme.title === "dark" ? (
+                    <img src={beerdark} alt="beer-logo" />
+                  ) : (
+                    <img src={beer} alt="beer-logo" />
+                  )}
                 </div>
                 <div className="info">
                   <h3>Bartender</h3>
@@ -369,9 +378,6 @@ export default function Caishots() {
           </div>
         </div>
       </Beneficios>
-      <Footer />
-      <GlobalStyle />
-      <Background theme={theme} />
-    </ThemeProvider>
+    </>
   );
 }

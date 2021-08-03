@@ -20,11 +20,19 @@ export default function Slide({ slides }) {
   const lenght = slides.length;
 
   function nextSlide() {
-    setCurrent(current === lenght - 1 ? 0 : current + 1);
+    if (current < lenght) {
+      setCurrent(current + 1);
+    } else {
+      setCurrent(0);
+    }
   }
 
   function prevSlide() {
-    setCurrent(current === 0 ? lenght - 1 : current - 1);
+    if (current > 0) {
+      setCurrent(current - 1);
+    } else {
+      setCurrent(lenght);
+    }
   }
 
   if (!Array.isArray(slides) || slides.length <= 0) {

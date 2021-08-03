@@ -6,6 +6,7 @@ const Back = styled.section`
   }
 
   &:before {
+    ${(props) => props.handleLocation === "caishots" && "content: '';"};
     ${(props) => props.handleLocation === "home" && "content: '';"};
 
     z-index: -5;
@@ -13,7 +14,7 @@ const Back = styled.section`
     top: 0;
     position: absolute;
     width: 100%;
-    height: 65.25rem;
+    height: 60.25rem;
     background-image: url("assets/img/texture-2.png");
   }
 
@@ -35,7 +36,9 @@ const Back = styled.section`
 
     @media (max-width: 500px) {
       height: 100px;
-      bottom: -4rem;
+      ${(props) => props.handleLocation !== "caishots" && "bottom: -4rem;"};
+      ${(props) => props.handleLocation === "caishots" && "content: none;"};
+
       mix-blend-mode: color-dodge;
     }
     ${(props) => props.bar && "content: '';"}
@@ -59,7 +62,7 @@ const Back = styled.section`
       180deg,
       ${(props) =>
         props.theme.title === "dark"
-          ? `${"#222, #222"}`
+          ? ``
           : "rgba(145, 166, 60, 0.28) 71.87%, rgba(145, 166, 60, 0) 100%"}
     );
   }

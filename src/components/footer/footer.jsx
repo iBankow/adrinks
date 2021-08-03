@@ -1,9 +1,9 @@
 import { FooterMain, WhatsApp } from "./styles";
-import logo from "../../public/assets/img/logo.svg";
-import Insta from "../../public/assets/img/insta.svg";
-import Face from "../../public/assets/img/face.svg";
-import zukt from "../../public/assets/img/zukt.svg";
-import top from "../../public/assets/img/top.svg";
+import logo from "../../assets/img/logo.svg";
+import Insta from "../../assets/img/insta.svg";
+import Face from "../../assets/img/face.svg";
+import zukt from "../../assets/img/zukt.svg";
+import top from "../../assets/img/top.svg";
 
 export default function Footer() {
   const handleClick = () => {

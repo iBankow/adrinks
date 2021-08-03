@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Switch from "react-switch";
-import logo from "../../public/assets/img/logo.svg";
+import logo from "../../assets/img/logo.svg";
 //import thema from "../../public/assets/img/thema.png";
 //import thema2 from "../../public/assets/img/thema-2.png";
-import menu from "../../public/assets/img/menu.png";
-import menudark from "../../public/assets/img/menu-dark.svg";
-import menu2 from "../../public/assets/img/menu-2.png";
-import moon from "../../public/assets/img/moon.svg";
-import sun from "../../public/assets/img/sun.svg";
+import menu from "../../assets/img/menu.png";
+import menudark from "../../assets/img/menu-dark.svg";
+import menu2 from "../../assets/img/menu-2.png";
+import moon from "../../assets/img/moon.svg";
+import sun from "../../assets/img/sun.svg";
 
 import Nav from "../menu/menu";
 import { Top } from "./style";

@@ -2,8 +2,8 @@ import { SlideShow } from "./style";
 import { useEffect, useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { directus } from "../../services/api";
-import ellipse from "../../public/assets/img/ellipse.svg";
-import rectangle from "../../public/assets/img/rectangle.svg";
+import ellipse from "../../assets/img/ellipse.svg";
+import rectangle from "../../assets/img/rectangle.svg";
 
 export default function Slide({ slides }) {
   const [slides2, setSlide] = useState([]);

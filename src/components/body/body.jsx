@@ -1,10 +1,10 @@
 import { Main, Head, Assets } from "./style";
-import leaves from "../../public/assets/img/leaves.png";
-import ellipse from "../../public/assets/img/ellipse.svg";
-import beer from "../../public/assets/img/beer.svg";
-import beerDark from "../../public/assets/img/beerdark.svg";
-import divisor from "../../public/assets/img/divisor-3.svg";
-import divisorDark from "../../public/assets/img/divisor-dark.svg";
+import leaves from "../../assets/img/leaves.png";
+import ellipse from "../../assets/img/ellipse.svg";
+import beer from "../../assets/img/beer.svg";
+import beerDark from "../../assets/img/beerdark.svg";
+import divisor from "../../assets/img/divisor-3.svg";
+import divisorDark from "../../assets/img/divisor-dark.svg";
 import { directus } from "../../services/api";
 import { useEffect, useState } from "react";
 

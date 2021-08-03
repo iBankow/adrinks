@@ -7,12 +7,12 @@ import {
   Beneficios,
 } from "../../components/caishots/style";
 
-import drink from "../../public/assets/img/drink-2.png";
-import crew from "../../public/assets/img/crew.jpg";
+import drink from "../../assets/img/drink-2.png";
+import crew from "../../assets/img/crew.jpg";
 
 import { api, directus } from "../../services/api";
-import beer from "../../public/assets/img/beer.svg";
-import beerdark from "../../public/assets/img/beerdark.svg";
+import beer from "../../assets/img/beer.svg";
+import beerdark from "../../assets/img/beerdark.svg";
 
 export default function Caishots({ theme, setLocation }) {
   useEffect(() => {

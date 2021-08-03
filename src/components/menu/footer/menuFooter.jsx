@@ -1,6 +1,6 @@
 import { Footer } from "./style";
-import Insta from "../../../public/assets/img/insta.png";
-import Face from "../../../public/assets/img/face.png";
+import Insta from "../../../assets/img/insta.png";
+import Face from "../../../assets/img/face.png";
 
 export default function MenuFooter() {
   return (
